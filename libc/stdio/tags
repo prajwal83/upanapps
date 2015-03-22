@@ -1,0 +1,653 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+BUF_SIZE	_fpmaxtostr.c	96;"	d	file:
+BUF_SIZE	vfprintf.c	1268;"	d	file:
+CC	Makefile	/^CC = ${COMPILER}$/;"	m
+CONV_A	scanf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_A	vfprintf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_C	scanf.c	/^	CONV_C, CONV_S, CONV_LEFTBRACKET, CONV_c, CONV_s, CONV_leftbracket,$/;"	e	file:
+CONV_C	vfprintf.c	/^	CONV_C, CONV_S, CONV_c, CONV_s,$/;"	e	file:
+CONV_E	scanf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_E	vfprintf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_F	scanf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_F	vfprintf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_G	scanf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_G	vfprintf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_LEFTBRACKET	scanf.c	/^	CONV_C, CONV_S, CONV_LEFTBRACKET, CONV_c, CONV_s, CONV_leftbracket,$/;"	e	file:
+CONV_S	scanf.c	/^	CONV_C, CONV_S, CONV_LEFTBRACKET, CONV_c, CONV_s, CONV_leftbracket,$/;"	e	file:
+CONV_S	vfprintf.c	/^	CONV_C, CONV_S, CONV_c, CONV_s,$/;"	e	file:
+CONV_X	scanf.c	/^	CONV_x, CONV_X,	CONV_o,	CONV_u,	CONV_d,	CONV_i,$/;"	e	file:
+CONV_X	vfprintf.c	/^	CONV_x, CONV_X,	CONV_o,	CONV_u,	CONV_d,	CONV_i,$/;"	e	file:
+CONV_a	scanf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_a	vfprintf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_c	scanf.c	/^	CONV_C, CONV_S, CONV_LEFTBRACKET, CONV_c, CONV_s, CONV_leftbracket,$/;"	e	file:
+CONV_c	vfprintf.c	/^	CONV_C, CONV_S, CONV_c, CONV_s,$/;"	e	file:
+CONV_custom0	vfprintf.c	/^	CONV_custom0				\/* must be last *\/$/;"	e	file:
+CONV_d	scanf.c	/^	CONV_x, CONV_X,	CONV_o,	CONV_u,	CONV_d,	CONV_i,$/;"	e	file:
+CONV_d	vfprintf.c	/^	CONV_x, CONV_X,	CONV_o,	CONV_u,	CONV_d,	CONV_i,$/;"	e	file:
+CONV_e	scanf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_e	vfprintf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_f	scanf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_f	vfprintf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_g	scanf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_g	vfprintf.c	/^	CONV_f, CONV_F, CONV_e, CONV_E, CONV_g, CONV_G, CONV_a, CONV_A,$/;"	e	file:
+CONV_i	scanf.c	/^	CONV_x, CONV_X,	CONV_o,	CONV_u,	CONV_d,	CONV_i,$/;"	e	file:
+CONV_i	vfprintf.c	/^	CONV_x, CONV_X,	CONV_o,	CONV_u,	CONV_d,	CONV_i,$/;"	e	file:
+CONV_leftbracket	scanf.c	/^	CONV_C, CONV_S, CONV_LEFTBRACKET, CONV_c, CONV_s, CONV_leftbracket,$/;"	e	file:
+CONV_m	vfprintf.c	/^	CONV_m,$/;"	e	file:
+CONV_n	scanf.c	/^	CONV_n = 0,$/;"	e	file:
+CONV_n	vfprintf.c	/^	CONV_n = 0,$/;"	e	file:
+CONV_o	scanf.c	/^	CONV_x, CONV_X,	CONV_o,	CONV_u,	CONV_d,	CONV_i,$/;"	e	file:
+CONV_o	vfprintf.c	/^	CONV_x, CONV_X,	CONV_o,	CONV_u,	CONV_d,	CONV_i,$/;"	e	file:
+CONV_p	scanf.c	/^	CONV_p,$/;"	e	file:
+CONV_p	vfprintf.c	/^	CONV_p,$/;"	e	file:
+CONV_percent	scanf.c	/^	CONV_percent, CONV_whitespace \/* not in SPEC_* and no flags *\/$/;"	e	file:
+CONV_s	scanf.c	/^	CONV_C, CONV_S, CONV_LEFTBRACKET, CONV_c, CONV_s, CONV_leftbracket,$/;"	e	file:
+CONV_s	vfprintf.c	/^	CONV_C, CONV_S, CONV_c, CONV_s,$/;"	e	file:
+CONV_u	scanf.c	/^	CONV_x, CONV_X,	CONV_o,	CONV_u,	CONV_d,	CONV_i,$/;"	e	file:
+CONV_u	vfprintf.c	/^	CONV_x, CONV_X,	CONV_o,	CONV_u,	CONV_d,	CONV_i,$/;"	e	file:
+CONV_whitespace	scanf.c	/^	CONV_percent, CONV_whitespace \/* not in SPEC_* and no flags *\/$/;"	e	file:
+CONV_x	scanf.c	/^	CONV_x, CONV_X,	CONV_o,	CONV_u,	CONV_d,	CONV_i,$/;"	e	file:
+CONV_x	vfprintf.c	/^	CONV_x, CONV_X,	CONV_o,	CONV_u,	CONV_d,	CONV_i,$/;"	e	file:
+COOKIE	vsnprintf.c	133;"	d	file:
+COOKIE	vsnprintf.c	161;"	d	file:
+DECPT_OFFSET	_fpmaxtostr.c	104;"	d	file:
+DIGITS_PER_BLOCK	_fpmaxtostr.c	71;"	d	file:
+DIGITS_PER_BLOCK	vfprintf.c	1266;"	d	file:
+EMPTY_STRING_OFFSET	_fpmaxtostr.c	107;"	d	file:
+EXP10_TABLE_MAX	_fpmaxtostr.c	147;"	d	file:
+EXP10_TABLE_SIZE	_fpmaxtostr.c	146;"	d	file:
+EXP16_TABLE_MAX	_fpmaxtostr.c	192;"	d	file:
+EXP16_TABLE_SIZE	_fpmaxtostr.c	191;"	d	file:
+FILEDES_ARG	fopen.c	16;"	d	file:
+FILEDES_ARG	fopen.c	18;"	d	file:
+FILEDES_ARG	freopen.c	16;"	d	file:
+FILEDES_ARG	freopen.c	18;"	d	file:
+FLAG_HASH	vfprintf.c	/^	FLAG_HASH		=	0x10,$/;"	e	file:
+FLAG_I18N	scanf.c	/^	FLAG_I18N		=	0x40,	\/* only works for d, i, u *\/$/;"	e	file:
+FLAG_I18N	vfprintf.c	/^	FLAG_I18N		=	0x40,	\/* only works for d, i, u *\/$/;"	e	file:
+FLAG_MALLOC	scanf.c	/^	FLAG_MALLOC     =   0x80,	\/* only works for s, S, and [ (and l[)*\/$/;"	e	file:
+FLAG_MINUS	vfprintf.c	/^	FLAG_MINUS		=	0x08,	\/* must be 2 * FLAG_ZERO *\/$/;"	e	file:
+FLAG_PLUS	vfprintf.c	/^	FLAG_PLUS		=	0x02,	\/* must be 2 * FLAG_SPACE *\/$/;"	e	file:
+FLAG_SPACE	vfprintf.c	/^	FLAG_SPACE		=	0x01,$/;"	e	file:
+FLAG_SURPRESS	scanf.c	/^	FLAG_SURPRESS   =   0x10,	\/* MUST BE 1ST!!  See DO_FLAGS. *\/$/;"	e	file:
+FLAG_THOUSANDS	scanf.c	/^	FLAG_THOUSANDS	=	0x20,$/;"	e	file:
+FLAG_THOUSANDS	vfprintf.c	/^	FLAG_THOUSANDS	=	0x20,$/;"	e	file:
+FLAG_WIDESTREAM	vfprintf.c	/^	FLAG_WIDESTREAM =   0x80$/;"	e	file:
+FLAG_ZERO	vfprintf.c	/^	FLAG_ZERO		=	0x04,$/;"	e	file:
+FMT_TYPE	vfprintf.c	1192;"	d	file:
+FMT_TYPE	vfprintf.c	1224;"	d	file:
+FPO_STR_PREC	_fpmaxtostr.c	199;"	d	file:
+FPO_STR_WIDTH	_fpmaxtostr.c	198;"	d	file:
+FPO_ZERO_PAD	_fpmaxtostr.c	197;"	d	file:
+FP_OUT	vfprintf.c	1199;"	d	file:
+FP_OUT	vfprintf.c	1230;"	d	file:
+FSEEK	fseeko.c	/^int FSEEK(register FILE *stream, OFFSET_TYPE offset, int whence)$/;"	f
+FSEEK	fseeko.c	19;"	d	file:
+FSEEK	fseeko.c	26;"	d	file:
+FSETLOCKING_BYCALLER	stdio_ext.h	/^  FSETLOCKING_BYCALLER$/;"	e
+FSETLOCKING_BYCALLER	stdio_ext.h	40;"	d
+FSETLOCKING_INTERNAL	stdio_ext.h	/^  FSETLOCKING_INTERNAL,$/;"	e
+FSETLOCKING_INTERNAL	stdio_ext.h	37;"	d
+FSETLOCKING_QUERY	stdio_ext.h	/^  FSETLOCKING_QUERY = 0,$/;"	e
+FSETLOCKING_QUERY	stdio_ext.h	33;"	d
+FTELL	ftello.c	/^OFFSET_TYPE FTELL(register FILE *stream)$/;"	f
+FTELL	ftello.c	15;"	d	file:
+FTELL	ftello.c	22;"	d	file:
+GETC	scanf.c	157;"	d	file:
+GETC	scanf.c	167;"	d	file:
+GETC	scanf.c	169;"	d	file:
+GETDELIM_GROWBY	getdelim.c	21;"	d	file:
+GET_ARG_VALUE	vfprintf.c	365;"	d	file:
+GET_ARG_VALUE	vfprintf.c	382;"	d	file:
+GET_VA_ARG	vfprintf.c	364;"	d	file:
+GET_VA_ARG	vfprintf.c	381;"	d	file:
+HEX_DIGITS_PER_BLOCK	_fpmaxtostr.c	72;"	d	file:
+IMS	scanf.c	662;"	d	file:
+IMS	scanf.c	664;"	d	file:
+IMS	scanf.c	666;"	d	file:
+IMS	vfprintf.c	324;"	d	file:
+IMS	vfprintf.c	326;"	d	file:
+IMS	vfprintf.c	328;"	d	file:
+INCLUDE	Makefile	/^INCLUDE = ${INCLUDES}$/;"	m
+INF_OFFSET	_fpmaxtostr.c	102;"	d	file:
+INTERNAL_DIV_MOD	_uintmaxtostr.c	17;"	d	file:
+ISSPACE	scanf.c	155;"	d	file:
+ISSPACE	scanf.c	164;"	d	file:
+L___psfs_do_numeric	_stdio.h	46;"	d
+L___psfs_parse_spec	_stdio.h	22;"	d
+L___scan_cookie	_stdio.h	30;"	d
+L__fpmaxtostr	vfprintf.c	154;"	d	file:
+L__ppfs_init	_stdio.h	26;"	d
+L__ppfs_parsespec	_stdio.h	42;"	d
+L__ppfs_prepargs	_stdio.h	38;"	d
+L__ppfs_setargs	_stdio.h	34;"	d
+MAX_ARGS	vfprintf.c	202;"	d	file:
+MAX_ARGS	vfprintf.c	205;"	d	file:
+MAX_ARGS_PER_SPEC	vfprintf.c	182;"	d	file:
+MAX_ARGS_PER_SPEC	vfprintf.c	187;"	d	file:
+MAX_ARGS_PER_SPEC	vfprintf.c	193;"	d	file:
+MAX_ARGS_PER_SPEC	vfprintf.c	194;"	d	file:
+MAX_CALLS	_fpmaxtostr.c	85;"	d	file:
+MAX_DIGITS	scanf.c	1188;"	d	file:
+MAX_DIGITS	scanf.c	1788;"	d	file:
+MAX_DIGITS	scanf.c	2353;"	d	file:
+MAX_EXP_DIGITS	scanf.c	2203;"	d	file:
+MAX_FIELD_WIDTH	vfprintf.c	169;"	d	file:
+MAX_READ_LEN	scanf.c	175;"	d	file:
+MAX_USER_SPEC	vfprintf.c	181;"	d	file:
+MAX_USER_SPEC	vfprintf.c	186;"	d	file:
+MY_STDIO_THREADLOCK	fflush.c	26;"	d	file:
+MY_STDIO_THREADLOCK	fflush.c	36;"	d	file:
+MY_STDIO_THREADUNLOCK	fflush.c	31;"	d	file:
+MY_STDIO_THREADUNLOCK	fflush.c	37;"	d	file:
+NAN_OFFSET	_fpmaxtostr.c	103;"	d	file:
+NUM_DIGIT_BLOCKS	_fpmaxtostr.c	89;"	d	file:
+NUM_DIGIT_BLOCKS	vfprintf.c	1267;"	d	file:
+NUM_HEX_DIGITS	_fpmaxtostr.c	67;"	d	file:
+NUM_HEX_DIGIT_BLOCKS	_fpmaxtostr.c	90;"	d	file:
+OFFSET_TYPE	fseeko.c	20;"	d	file:
+OFFSET_TYPE	fseeko.c	27;"	d	file:
+OFFSET_TYPE	ftello.c	16;"	d	file:
+OFFSET_TYPE	ftello.c	23;"	d	file:
+OUTNSTR	vfprintf.c	1193;"	d	file:
+OUTNSTR	vfprintf.c	1225;"	d	file:
+OUTPUT	vfprintf.c	1196;"	d	file:
+OUTPUT	vfprintf.c	1228;"	d	file:
+O_LARGEFILE	_fopen.c	23;"	d	file:
+PDS	scanf.c	642;"	d	file:
+PDS	scanf.c	644;"	d	file:
+PDS	scanf.c	646;"	d	file:
+PDS	vfprintf.c	304;"	d	file:
+PDS	vfprintf.c	306;"	d	file:
+PDS	vfprintf.c	308;"	d	file:
+PROMOTED_SIZE_OF	vfprintf.c	736;"	d	file:
+QUAL_CHARS	scanf.c	671;"	d	file:
+QUAL_CHARS	vfprintf.c	333;"	d	file:
+SLEN	vfprintf.c	1448;"	d	file:
+SPEC_ALLOWED_FLAGS	scanf.c	603;"	d	file:
+SPEC_AND_MASK	vfprintf.c	266;"	d	file:
+SPEC_BASE	scanf.c	570;"	d	file:
+SPEC_BASE	scanf.c	573;"	d	file:
+SPEC_BASE	scanf.c	577;"	d	file:
+SPEC_BASE	vfprintf.c	250;"	d	file:
+SPEC_CHARS	scanf.c	552;"	d	file:
+SPEC_CHARS	vfprintf.c	236;"	d	file:
+SPEC_FLAGS	scanf.c	587;"	d	file:
+SPEC_FLAGS	vfprintf.c	221;"	d	file:
+SPEC_OR_MASK	vfprintf.c	255;"	d	file:
+SPEC_RANGES	scanf.c	597;"	d	file:
+SPEC_RANGES	vfprintf.c	252;"	d	file:
+SS	scanf.c	652;"	d	file:
+SS	scanf.c	654;"	d	file:
+SS	scanf.c	656;"	d	file:
+SS	vfprintf.c	314;"	d	file:
+SS	vfprintf.c	316;"	d	file:
+SS	vfprintf.c	318;"	d	file:
+STRLEN	vfprintf.c	1194;"	d	file:
+STRLEN	vfprintf.c	1226;"	d	file:
+STRTOUIM	scanf.c	115;"	d	file:
+STRTOUIM	scanf.c	125;"	d	file:
+THOUSEP_OFFSET	_fpmaxtostr.c	105;"	d	file:
+TOLOWER	scanf.c	2148;"	d	file:
+TOLOWER	scanf.c	2149;"	d	file:
+VFPRINTF	vfprintf.c	/^int VFPRINTF (FILE * __restrict stream, register const FMT_TYPE * __restrict format, va_list arg)$/;"	f
+VFPRINTF	vfprintf.c	1191;"	d	file:
+VFPRINTF	vfprintf.c	1223;"	d	file:
+VFSCANF	scanf.c	/^int VFSCANF (FILE *__restrict fp, const Wchar *__restrict format, va_list arg)$/;"	f
+VFSCANF	scanf.c	156;"	d	file:
+VFSCANF	scanf.c	165;"	d	file:
+W_EOF	scanf.c	151;"	d	file:
+W_EOF	scanf.c	160;"	d	file:
+Wchar	scanf.c	153;"	d	file:
+Wchar	scanf.c	162;"	d	file:
+Wint	scanf.c	152;"	d	file:
+Wint	scanf.c	161;"	d	file:
+Wuchar	scanf.c	154;"	d	file:
+Wuchar	scanf.c	163;"	d	file:
+_GNU_SOURCE	_stdio.h	8;"	d
+_GNU_SOURCE	scanf.c	48;"	d	file:
+_GNU_SOURCE	vfprintf.c	93;"	d	file:
+_ISOC99_SOURCE	_uintmaxtostr.c	8;"	d	file:
+_ISOC99_SOURCE	scanf.c	47;"	d	file:
+_ISOC99_SOURCE	vfprintf.c	92;"	d	file:
+_OVERLAPPING_DIFFERENT_ARGS	vfprintf.c	730;"	d	file:
+_PPFS_init	vfprintf.c	1195;"	d	file:
+_PPFS_init	vfprintf.c	1227;"	d	file:
+_STDIO_EXT_H	stdio_ext.h	24;"	d
+_STDIO_UTILITY	scanf.c	49;"	d	file:
+_STDIO_UTILITY	vfprintf.c	94;"	d	file:
+__CLOSE	_stdio.h	115;"	d
+__CLOSE	_stdio.h	99;"	d
+__COPY_MBSTATE	_stdio.h	426;"	d
+__COPY_MBSTATE	_stdio.h	430;"	d
+__FEOF_OR_FERROR_UNLOCKED	_stdio.h	461;"	d
+__FILENO_UNLOCKED	_stdio.h	459;"	d
+__FILE_vsnprintf	vsnprintf.c	/^} __FILE_vsnprintf;$/;"	t	file:
+__FILE_vsscanf	scanf.c	/^} __FILE_vsscanf;$/;"	t	file:
+__INIT_MBSTATE	_stdio.h	428;"	d
+__INIT_MBSTATE	_stdio.h	431;"	d
+__PA_FLAG_INTMASK	vfprintf.c	210;"	d	file:
+__PRINTF_INFO_NO_BITFIELD	vfprintf.c	108;"	d	file:
+__READ	_stdio.h	109;"	d
+__READ	_stdio.h	90;"	d
+__SEEK	_stdio.h	113;"	d
+__SEEK	_stdio.h	96;"	d
+__STDIO_COMMIT_WRITE_BUFFER	_stdio.h	304;"	d
+__STDIO_COMMIT_WRITE_BUFFER	_stdio.h	346;"	d
+__STDIO_FILE_INIT_BUFFERS	_stdio.c	48;"	d	file:
+__STDIO_FILE_INIT_BUFFERS	_stdio.c	51;"	d	file:
+__STDIO_FILE_INIT_BUFGETC	_stdio.c	30;"	d	file:
+__STDIO_FILE_INIT_BUFGETC	_stdio.c	32;"	d	file:
+__STDIO_FILE_INIT_BUFPUTC	_stdio.c	36;"	d	file:
+__STDIO_FILE_INIT_BUFPUTC	_stdio.c	38;"	d	file:
+__STDIO_FILE_INIT_CUSTOM_STREAM	_stdio.c	55;"	d	file:
+__STDIO_FILE_INIT_CUSTOM_STREAM	_stdio.c	58;"	d	file:
+__STDIO_FILE_INIT_MBSTATE	_stdio.c	62;"	d	file:
+__STDIO_FILE_INIT_MBSTATE	_stdio.c	65;"	d	file:
+__STDIO_FILE_INIT_NEXT	_stdio.c	42;"	d	file:
+__STDIO_FILE_INIT_NEXT	_stdio.c	44;"	d	file:
+__STDIO_FILE_INIT_THREADSAFE	_stdio.c	76;"	d	file:
+__STDIO_FILE_INIT_THREADSAFE	_stdio.c	79;"	d	file:
+__STDIO_FILE_INIT_UNUSED	_stdio.c	69;"	d	file:
+__STDIO_FILE_INIT_UNUSED	_stdio.c	72;"	d	file:
+__STDIO_FILE_INIT_WUNGOT	_stdio.c	24;"	d	file:
+__STDIO_FILE_INIT_WUNGOT	_stdio.c	26;"	d	file:
+__STDIO_FILL_READ_BUFFER	_stdio.h	315;"	d
+__STDIO_FILL_READ_BUFFER	_stdio.h	351;"	d
+__STDIO_FLUSH_LBF_STREAMS	_stdio.h	413;"	d
+__STDIO_FLUSH_LBF_STREAMS	_stdio.h	415;"	d
+__STDIO_HAS_VSNPRINTF	_stdio.h	465;"	d
+__STDIO_HAS_VSNPRINTF	vfprintf.c	158;"	d	file:
+__STDIO_HAS_VSNPRINTF	vfprintf.c	160;"	d	file:
+__STDIO_HAS_VSSCANF	scanf.c	93;"	d	file:
+__STDIO_HAS_VSSCANF	scanf.c	95;"	d	file:
+__STDIO_INIT_FILE_STRUCT	_stdio.c	82;"	d	file:
+__STDIO_PRINTF_FLOAT	vfprintf.c	134;"	d	file:
+__STDIO_PRINTF_FLOAT	vfprintf.c	143;"	d	file:
+__STDIO_PRINTF_FLOAT	vfprintf.c	147;"	d	file:
+__STDIO_STREAM_BUFFER_ADD	_stdio.h	300;"	d
+__STDIO_STREAM_BUFFER_ADD	_stdio.h	342;"	d
+__STDIO_STREAM_BUFFER_GET	_stdio.h	314;"	d
+__STDIO_STREAM_BUFFER_GET	_stdio.h	350;"	d
+__STDIO_STREAM_BUFFER_RAVAIL	_stdio.h	313;"	d
+__STDIO_STREAM_BUFFER_RAVAIL	_stdio.h	349;"	d
+__STDIO_STREAM_BUFFER_SIZE	_stdio.h	297;"	d
+__STDIO_STREAM_BUFFER_SIZE	_stdio.h	341;"	d
+__STDIO_STREAM_BUFFER_UNADD	_stdio.h	301;"	d
+__STDIO_STREAM_BUFFER_UNADD	_stdio.h	343;"	d
+__STDIO_STREAM_BUFFER_WAVAIL	_stdio.h	302;"	d
+__STDIO_STREAM_BUFFER_WAVAIL	_stdio.h	344;"	d
+__STDIO_STREAM_BUFFER_WUSED	_stdio.h	303;"	d
+__STDIO_STREAM_BUFFER_WUSED	_stdio.h	345;"	d
+__STDIO_STREAM_CAN_USE_BUFFER_ADD	_stdio.h	227;"	d
+__STDIO_STREAM_CAN_USE_BUFFER_ADD	_stdio.h	232;"	d
+__STDIO_STREAM_CAN_USE_BUFFER_GET	_stdio.h	214;"	d
+__STDIO_STREAM_CAN_USE_BUFFER_GET	_stdio.h	219;"	d
+__STDIO_STREAM_CLEAR_EOF	_stdio.h	199;"	d
+__STDIO_STREAM_CLEAR_ERROR	_stdio.h	201;"	d
+__STDIO_STREAM_CLEAR_READING_AND_UNGOTS	_stdio.h	204;"	d
+__STDIO_STREAM_CLEAR_WRITING	_stdio.h	206;"	d
+__STDIO_STREAM_DISABLE_GETC	_stdio.h	210;"	d
+__STDIO_STREAM_DISABLE_GETC	_stdio.h	217;"	d
+__STDIO_STREAM_DISABLE_PUTC	_stdio.h	223;"	d
+__STDIO_STREAM_DISABLE_PUTC	_stdio.h	230;"	d
+__STDIO_STREAM_ENABLE_GETC	_stdio.h	212;"	d
+__STDIO_STREAM_ENABLE_GETC	_stdio.h	218;"	d
+__STDIO_STREAM_ENABLE_PUTC	_stdio.h	225;"	d
+__STDIO_STREAM_ENABLE_PUTC	_stdio.h	231;"	d
+__STDIO_STREAM_FAKE_VSNPRINTF_FILEDES	_stdio.h	321;"	d
+__STDIO_STREAM_FAKE_VSNPRINTF_FILEDES	_stdio.h	354;"	d
+__STDIO_STREAM_FAKE_VSNPRINTF_FILEDES_NB	_stdio.h	363;"	d
+__STDIO_STREAM_FAKE_VSSCANF_FILEDES	_stdio.h	322;"	d
+__STDIO_STREAM_FAKE_VSSCANF_FILEDES	_stdio.h	355;"	d
+__STDIO_STREAM_FAKE_VSSCANF_FILEDES_NB	_stdio.h	369;"	d
+__STDIO_STREAM_FAKE_VSWPRINTF_FILEDES	_stdio.h	323;"	d
+__STDIO_STREAM_FAKE_VSWPRINTF_FILEDES	_stdio.h	356;"	d
+__STDIO_STREAM_FAKE_VSWSCANF_FILEDES	_stdio.h	324;"	d
+__STDIO_STREAM_FREE_BUFFER	_stdio.h	244;"	d
+__STDIO_STREAM_FREE_BUFFER	_stdio.h	247;"	d
+__STDIO_STREAM_FREE_FILE	_stdio.h	250;"	d
+__STDIO_STREAM_INIT_BUFREAD_BUFPOS	_stdio.h	317;"	d
+__STDIO_STREAM_INIT_BUFREAD_BUFPOS	_stdio.h	352;"	d
+__STDIO_STREAM_IS_CUSTOM	_stdio.h	236;"	d
+__STDIO_STREAM_IS_CUSTOM	_stdio.h	238;"	d
+__STDIO_STREAM_IS_FAKE_VSNPRINTF	_stdio.h	326;"	d
+__STDIO_STREAM_IS_FAKE_VSNPRINTF	_stdio.h	358;"	d
+__STDIO_STREAM_IS_FAKE_VSNPRINTF_NB	_stdio.h	364;"	d
+__STDIO_STREAM_IS_FAKE_VSSCANF	_stdio.h	328;"	d
+__STDIO_STREAM_IS_FAKE_VSSCANF	_stdio.h	359;"	d
+__STDIO_STREAM_IS_FAKE_VSSCANF_NB	_stdio.h	370;"	d
+__STDIO_STREAM_IS_FAKE_VSWPRINTF	_stdio.h	330;"	d
+__STDIO_STREAM_IS_FAKE_VSWPRINTF	_stdio.h	360;"	d
+__STDIO_STREAM_IS_FAKE_VSWSCANF	_stdio.h	332;"	d
+__STDIO_STREAM_IS_FBF	_stdio.h	293;"	d
+__STDIO_STREAM_IS_FBF	_stdio.h	337;"	d
+__STDIO_STREAM_IS_LBF	_stdio.h	294;"	d
+__STDIO_STREAM_IS_LBF	_stdio.h	338;"	d
+__STDIO_STREAM_IS_NARROW	_stdio.h	171;"	d
+__STDIO_STREAM_IS_NARROW	_stdio.h	185;"	d
+__STDIO_STREAM_IS_NARROW_FBF	_stdio.h	306;"	d
+__STDIO_STREAM_IS_NARROW_FBF	_stdio.h	309;"	d
+__STDIO_STREAM_IS_NARROW_FBF	_stdio.h	347;"	d
+__STDIO_STREAM_IS_NARROW_READING	_stdio.h	165;"	d
+__STDIO_STREAM_IS_NARROW_READING	_stdio.h	183;"	d
+__STDIO_STREAM_IS_NARROW_WRITING	_stdio.h	153;"	d
+__STDIO_STREAM_IS_NARROW_WRITING	_stdio.h	181;"	d
+__STDIO_STREAM_IS_NBF	_stdio.h	295;"	d
+__STDIO_STREAM_IS_NBF	_stdio.h	339;"	d
+__STDIO_STREAM_IS_READING	_stdio.h	134;"	d
+__STDIO_STREAM_IS_READING_OR_READONLY	_stdio.h	140;"	d
+__STDIO_STREAM_IS_READONLY	_stdio.h	146;"	d
+__STDIO_STREAM_IS_WIDE	_stdio.h	172;"	d
+__STDIO_STREAM_IS_WIDE	_stdio.h	186;"	d
+__STDIO_STREAM_IS_WIDE_READING	_stdio.h	168;"	d
+__STDIO_STREAM_IS_WIDE_WRITING	_stdio.h	157;"	d
+__STDIO_STREAM_IS_WRITEONLY	_stdio.h	147;"	d
+__STDIO_STREAM_IS_WRITING	_stdio.h	135;"	d
+__STDIO_STREAM_IS_WRITING_OR_WRITEONLY	_stdio.h	143;"	d
+__STDIO_STREAM_RESET_GCS	_stdio.h	107;"	d
+__STDIO_STREAM_RESET_GCS	_stdio.h	82;"	d
+__STDIO_STREAM_SET_EOF	_stdio.h	194;"	d
+__STDIO_STREAM_SET_ERROR	_stdio.h	196;"	d
+__STDIO_STREAM_SET_NARROW	_stdio.h	174;"	d
+__STDIO_STREAM_SET_NARROW	_stdio.h	188;"	d
+__STDIO_STREAM_SET_READING	_stdio.h	137;"	d
+__STDIO_STREAM_SET_WIDE	_stdio.h	176;"	d
+__STDIO_STREAM_SET_WIDE	_stdio.h	189;"	d
+__STDIO_STREAM_SET_WRITING	_stdio.h	138;"	d
+__STDIO_STREAM_TRANS_TO_READ	_stdio.h	124;"	d
+__STDIO_STREAM_TRANS_TO_READ	_stdio.h	129;"	d
+__STDIO_STREAM_TRANS_TO_WRITE	_stdio.h	123;"	d
+__STDIO_STREAM_TRANS_TO_WRITE	_stdio.h	128;"	d
+__STDIO_STREAM_VALIDATE	_stdio.h	419;"	d
+__STDIO_STREAM_VALIDATE	_stdio.h	422;"	d
+__STDIO_THREADLOCK_OPENLIST	_stdio.h	56;"	d
+__STDIO_THREADLOCK_OPENLIST	_stdio.h	67;"	d
+__STDIO_THREADTRYLOCK_OPENLIST	_stdio.h	62;"	d
+__STDIO_THREADUNLOCK_OPENLIST	_stdio.h	59;"	d
+__STDIO_THREADUNLOCK_OPENLIST	_stdio.h	68;"	d
+__STDIO_WHEN_LFS	_stdio.h	255;"	d
+__STDIO_WHEN_LFS	_stdio.h	257;"	d
+__UCLIBC_HAS_SCANF_GLIBC_A_FLAG__	scanf.c	90;"	d	file:
+__UNDEFINED_OR_NONPORTABLE	_stdio.h	72;"	d
+__WRITE	_stdio.h	111;"	d
+__WRITE	_stdio.h	93;"	d
+__asprintf	asprintf.c	/^int __asprintf(char **__restrict buf, const char * __restrict format, ...)$/;"	f
+__clearerr_unlocked	clearerr.c	/^void __clearerr_unlocked(register FILE *stream)$/;"	f
+__fbufsize	__fbufsize.c	/^size_t __fbufsize(register FILE * __restrict stream)$/;"	f
+__feof_unlocked	feof.c	/^int __feof_unlocked(register FILE *stream)$/;"	f
+__fflush_unlocked	fflush.c	/^int __fflush_unlocked(register FILE *stream)$/;"	f
+__fgetc_unlocked	fgetc.c	/^int __fgetc_unlocked(FILE *stream)$/;"	f
+__fgets_unlocked	fgets.c	/^char *__fgets_unlocked(char *__restrict s, int n,$/;"	f
+__fileno_unlocked	fileno.c	/^int __fileno_unlocked(register FILE *stream)$/;"	f
+__fp_outfunc_t	_fpmaxtostr.c	/^typedef size_t (__fp_outfunc_t)(FILE *fp, intptr_t type, intptr_t len,$/;"	t	file:
+__fp_outfunc_t	vfprintf.c	/^typedef size_t (__fp_outfunc_t)(FILE *fp, intptr_t type, intptr_t len,$/;"	t	file:
+__fpending	__fpending.c	/^size_t __fpending(register FILE * __restrict stream)$/;"	f
+__fpurge	__fpurge.c	/^void __fpurge(register FILE * __restrict stream)$/;"	f
+__fputc_unlocked	fputc.c	/^int __fputc_unlocked(int c, register FILE *stream)$/;"	f
+__fputs_unlocked	fputs.c	/^int __fputs_unlocked(register const char * __restrict s,$/;"	f
+__fread_unlocked	fread.c	/^size_t __fread_unlocked(void * __restrict ptr, size_t size, size_t nmemb,$/;"	f
+__freadable	__freadable.c	/^int __freadable(FILE * __restrict stream)$/;"	f
+__freading	__freading.c	/^int __freading(FILE * __restrict stream)$/;"	f
+__fsetlocking	__fsetlocking.c	/^int __fsetlocking(FILE *stream, int locking_mode)$/;"	f
+__fwritable	__fwritable.c	/^int __fwritable(FILE * __restrict stream)$/;"	f
+__fwrite_unlocked	fwrite.c	/^size_t __fwrite_unlocked(const void * __restrict ptr, size_t size,$/;"	f
+__fwriting	__fwriting.c	/^int __fwriting(FILE * __restrict stream)$/;"	f
+__getchar_unlocked	getchar.c	/^int __getchar_unlocked(void)$/;"	f
+__getdelim	getdelim.c	/^ssize_t __getdelim(char **__restrict lineptr, size_t *__restrict n,$/;"	f
+__init_scan_cookie	scanf.c	/^void __init_scan_cookie(register struct scan_cookie *sc,$/;"	f
+__isdigit_char_or_EOF	scanf.c	138;"	d	file:
+__isdigit_char_or_EOF	scanf.c	140;"	d	file:
+__psfs_do_numeric	scanf.c	/^int __psfs_do_numeric(psfs_t *psfs, struct scan_cookie *sc)$/;"	f
+__psfs_parse_spec	scanf.c	/^int __psfs_parse_spec(register psfs_t *psfs)$/;"	f
+__putchar_unlocked	putchar.c	/^int __putchar_unlocked(int c)$/;"	f
+__scan_getc	scanf.c	/^int __scan_getc(register struct scan_cookie *sc)$/;"	f
+__scan_ungetc	scanf.c	/^void __scan_ungetc(register struct scan_cookie *sc)$/;"	f
+__snpf_cookie	vsnprintf.c	/^} __snpf_cookie;$/;"	t	file:
+__stdin	_stdio.c	/^FILE *__stdin = _stdio_streams;		 \/* For getchar() macro. *\/$/;"	v
+__stdio_READ	_READ.c	/^size_t __stdio_READ(register FILE *stream,$/;"	f
+__stdio_WRITE	_WRITE.c	/^size_t __stdio_WRITE(register FILE *stream,$/;"	f
+__stdio_adjust_position	_adjust_pos.c	/^int __stdio_adjust_position(register FILE * __restrict stream,$/;"	f
+__stdio_fwrite	_fwrite.c	/^size_t __stdio_fwrite(const unsigned char * __restrict buffer, size_t bytes, register FILE * __restrict stream)$/;"	f
+__stdio_fwrite	_stdio.h	276;"	d
+__stdio_init_mutex	_stdio.c	/^void __stdio_init_mutex(pthread_mutex_t *m)$/;"	f
+__stdio_rfill	_rfill.c	/^size_t __stdio_rfill(register FILE *__restrict stream)$/;"	f
+__stdio_seek	_cs_funcs.c	/^int __stdio_seek(FILE *stream, register __offmax_t *pos, int whence)$/;"	f
+__stdio_trans2r_o	_trans2r.c	/^int __stdio_trans2r_o(FILE * __restrict stream, int oflag)$/;"	f
+__stdio_trans2w_o	_trans2w.c	/^int __stdio_trans2w_o(FILE * __restrict stream, int oflag)$/;"	f
+__stdio_wcommit	_wcommit.c	/^size_t __stdio_wcommit(register FILE * __restrict stream)$/;"	f
+__stdout	_stdio.c	/^FILE *__stdout = _stdio_streams + 1; \/* For putchar() macro. *\/$/;"	v
+__uchar_t	scanf.c	/^typedef unsigned char __uchar_t;$/;"	t	file:
+__va_arg_ptr	vfprintf.c	345;"	d	file:
+__va_arg_ptr	vfprintf.c	356;"	d	file:
+__va_rounded_size	vfprintf.c	353;"	d	file:
+_bss_custom_printf_spec	vfprintf.c	/^static char _bss_custom_printf_spec[MAX_USER_SPEC]; \/* 0-init'd for us.  *\/$/;"	v	file:
+_charpad	vfprintf.c	/^static size_t _charpad(FILE * __restrict stream, int padchar, size_t numpad)$/;"	f	file:
+_cs_close	_cs_funcs.c	/^int _cs_close(void *cookie)$/;"	f
+_cs_read	_cs_funcs.c	/^ssize_t _cs_read(void *cookie, char *buf, size_t bufsize)$/;"	f
+_cs_seek	_cs_funcs.c	/^int _cs_seek(void *cookie, register __offmax_t *pos, int whence)$/;"	f
+_cs_write	_cs_funcs.c	/^ssize_t _cs_write(void *cookie, const char *buf, size_t bufsize)$/;"	f
+_custom_printf_arginfo	vfprintf.c	/^printf_arginfo_function *_custom_printf_arginfo[MAX_USER_SPEC];$/;"	v
+_custom_printf_handler	vfprintf.c	/^printf_function _custom_printf_handler[MAX_USER_SPEC];$/;"	v
+_custom_printf_spec	vfprintf.c	/^char *_custom_printf_spec = _bss_custom_printf_spec;$/;"	v
+_do_one_spec	vfprintf.c	/^static int _do_one_spec(FILE * __restrict stream,$/;"	f	file:
+_fixed_buffers	_stdio.c	/^static unsigned char _fixed_buffers[2 * BUFSIZ];$/;"	v	file:
+_fp_out_narrow	vfprintf.c	/^static size_t _fp_out_narrow(FILE *fp, intptr_t type, intptr_t len, intptr_t buf)$/;"	f	file:
+_fp_out_wide	vfprintf.c	/^static size_t _fp_out_wide(FILE *fp, intptr_t type, intptr_t len, intptr_t buf)$/;"	f	file:
+_fpmaxtostr	_fpmaxtostr.c	/^ssize_t _fpmaxtostr(FILE * fp, __fpmax_t x, struct printf_info *info,$/;"	f
+_is_equal_or_bigger_arg	vfprintf.c	/^static int _is_equal_or_bigger_arg(int curtype, int newtype)$/;"	f	file:
+_is_equal_or_bigger_arg	vfprintf.c	810;"	d	file:
+_load_inttype	_load_inttype.c	/^uintmax_t _load_inttype(int desttype, register const void *src, int uflag)$/;"	f
+_outnstr	vfprintf.c	/^static size_t _outnstr(FILE *stream, const char *s, size_t wclen)$/;"	f	file:
+_outnstr	vfprintf.c	1198;"	d	file:
+_outnwcs	vfprintf.c	1229;"	d	file:
+_ppfs_init	vfprintf.c	/^int _ppfs_init(register ppfs_t *ppfs, const char *fmt0)$/;"	f
+_ppfs_parsespec	vfprintf.c	/^extern int _ppfs_parsespec(ppfs_t *ppfs)$/;"	f
+_ppfs_prepargs	vfprintf.c	/^void _ppfs_prepargs(register ppfs_t *ppfs, va_list arg)$/;"	f
+_ppfs_setargs	vfprintf.c	/^void _ppfs_setargs(register ppfs_t *ppfs)$/;"	f
+_ppwfs_init	vfprintf.c	/^static int _ppwfs_init(register ppfs_t *ppfs, const wchar_t *fmt0)$/;"	f	file:
+_promoted_size	vfprintf.c	/^static int _promoted_size(int argtype)$/;"	f	file:
+_stdio_fopen	_fopen.c	/^FILE *_stdio_fopen(intptr_t fname_or_mode, register const char * __restrict mode,$/;"	f
+_stdio_get_stderr	_stdio.c	/^FILE* _stdio_get_stderr() { return _stdio_streams + 2 ; }$/;"	f
+_stdio_get_stdin	_stdio.c	/^FILE* _stdio_get_stdin() { 	return _stdio_streams ;  }$/;"	f
+_stdio_get_stdout	_stdio.c	/^FILE* _stdio_get_stdout() { return _stdio_streams + 1 ; }$/;"	f
+_stdio_init	_stdio.c	/^void _stdio_init(void)$/;"	f
+_stdio_openlist	_stdio.c	/^FILE *_stdio_openlist = _stdio_streams;$/;"	v
+_stdio_openlist_delflag	_stdio.c	/^int _stdio_openlist_delflag = 0;$/;"	v
+_stdio_openlist_lock	_stdio.c	/^pthread_mutex_t _stdio_openlist_lock = PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP;$/;"	v
+_stdio_streams	_stdio.c	/^static FILE _stdio_streams[] = {$/;"	v	file:
+_stdio_term	_stdio.c	/^void _stdio_term(void)$/;"	f
+_stdio_user_locking	_stdio.c	/^int _stdio_user_locking = 2;$/;"	v
+_stdio_validate_FILE	_stdio.c	/^void _stdio_validate_FILE(const FILE *stream)$/;"	f
+_store_inttype	_store_inttype.c	/^void _store_inttype(register void *dest, int desttype, uintmax_t val)$/;"	f
+_uintmaxtostr	_uintmaxtostr.c	/^char *_uintmaxtostr(register char * __restrict bufend, uintmax_t uval,$/;"	f
+app_ungot	scanf.c	/^	unsigned char app_ungot;	\/* Match FILE struct member type. *\/$/;"	m	struct:scan_cookie	file:
+app_ungot	scanf.c	/^	wchar_t app_ungot;			\/* Match FILE struct member type. *\/$/;"	m	struct:scan_cookie	file:
+arg	vfprintf.c	/^	va_list arg;$/;"	m	file:
+argnumber	vfprintf.c	/^	unsigned char argnumber[4]; \/* width | prec | 1st data | unused *\/$/;"	m	file:
+argptr	vfprintf.c	/^	void *argptr[MAX_ARGS];$/;"	m	file:
+argtype	vfprintf.c	/^	int argtype[MAX_ARGS];$/;"	m	file:
+argvalue	vfprintf.c	/^	argvalue_t argvalue[MAX_ARGS];$/;"	m	file:
+argvalue_t	vfprintf.c	/^} argvalue_t;$/;"	t	file:
+base	_fpmaxtostr.c	344;"	d	file:
+buf	vsnprintf.c	/^	unsigned char *buf;$/;"	m	file:
+bufend	vsnprintf.c	/^	unsigned char *bufend;		\/* pointer to 1 past end of buffer *\/$/;"	m	file:
+bufpos	scanf.c	/^	unsigned char *bufpos;$/;"	m	file:
+bufpos	vsnprintf.c	/^	unsigned char *bufpos;$/;"	m	file:
+bufread	scanf.c	/^	unsigned char *bufread;		\/* pointer to 1 past end of buffer *\/$/;"	m	file:
+cc	scanf.c	/^	Wint cc;$/;"	m	struct:scan_cookie	file:
+clearerr	clearerr.c	/^void clearerr(register FILE *stream)$/;"	f
+cnt	scanf.c	/^	int cnt, dataargtype, conv_num, max_width;$/;"	m	file:
+conv_num	scanf.c	/^	int cnt, dataargtype, conv_num, max_width;$/;"	m	file:
+conv_num	vfprintf.c	/^	unsigned int conv_num;$/;"	m	file:
+cur_pos_arg	scanf.c	/^	int cur_pos_arg;$/;"	m	file:
+cur_ptr	scanf.c	/^	void *cur_ptr;$/;"	m	file:
+d	vfprintf.c	/^	double d;$/;"	m	file:
+dataargtype	scanf.c	/^	int cnt, dataargtype, conv_num, max_width;$/;"	m	file:
+decpt	scanf.c	/^	const unsigned char *decpt;$/;"	m	struct:scan_cookie	file:
+decpt_len	scanf.c	/^	int decpt_len;$/;"	m	struct:scan_cookie	file:
+decpt_str	scanf.c	/^static const char decpt_str[] = ".";$/;"	v	file:
+decpt_wc	scanf.c	/^	wchar_t decpt_wc;$/;"	m	struct:scan_cookie	file:
+dpb	_fpmaxtostr.c	343;"	d	file:
+dprintf	dprintf.c	/^int dprintf(int filedes, const char * __restrict format, ...)$/;"	f
+exp10_table	_fpmaxtostr.c	/^static const __fpmax_t exp10_table[] =$/;"	v	file:
+exp16_table	_fpmaxtostr.c	/^static const __fpmax_t exp16_table[] = {$/;"	v	file:
+f	scanf.c	/^	FILE f;$/;"	m	file:
+f	vsnprintf.c	/^	FILE f;$/;"	m	file:
+fake_decpt	scanf.c	/^	const unsigned char *fake_decpt;$/;"	m	struct:scan_cookie	file:
+fake_decpt_str	scanf.c	/^static const char fake_decpt_str[] = ".";$/;"	v	file:
+fake_thousands_sep_str	scanf.c	/^static const char fake_thousands_sep_str[] = ",";$/;"	v	file:
+fclose	fclose.c	/^int fclose(register FILE *stream)$/;"	f
+fcloseall	fcloseall.c	/^int fcloseall (void)$/;"	f
+fdopen	fdopen.c	/^FILE *fdopen(int filedes, const char *mode)$/;"	f
+feof	feof.c	/^int feof(register FILE *stream)$/;"	f
+ferror	ferror.c	/^int ferror(register FILE *stream)$/;"	f
+fflush	fflush.c	/^int fflush(register FILE *stream)$/;"	f
+fgetc	fgetc.c	/^int fgetc(register FILE *stream)$/;"	f
+fgetc	fgetc.c	10;"	d	file:
+fgetc_unlocked	fgetc.c	11;"	d	file:
+fgetpos	fgetpos.c	/^int fgetpos(FILE * __restrict stream, register fpos_t * __restrict pos)$/;"	f
+fgetpos	fgetpos.c	15;"	d	file:
+fgets	fgets.c	/^char *fgets(char *__restrict s, int n,$/;"	f
+fileno	fileno.c	/^int fileno(register FILE *stream)$/;"	f
+flags	scanf.c	/^	unsigned char store, flags;$/;"	m	file:
+flockfile	flockfile.c	/^void flockfile(FILE *stream)$/;"	f
+fmt	_fpmaxtostr.c	/^static const char fmt[] = "inf\\0INF\\0nan\\0NAN\\0.\\0,";$/;"	v	file:
+fmt	scanf.c	/^	const unsigned char *fmt;$/;"	m	file:
+fmtpos	vfprintf.c	/^	const char *fmtpos;			\/* TODO: move below struct?? *\/$/;"	m	file:
+fopen	fopen.c	/^FILE *fopen(const char * __restrict filename, const char * __restrict mode)$/;"	f
+fopen	fopen.c	15;"	d	file:
+fp	scanf.c	/^	FILE *fp;$/;"	m	struct:scan_cookie	file:
+fp	vsnprintf.c	/^	FILE *fp;$/;"	m	file:
+fpos_t	fgetpos.c	16;"	d	file:
+fpos_t	fsetpos.c	16;"	d	file:
+fprintf	fprintf.c	/^int fprintf(FILE * __restrict stream, const char * __restrict format, ...)$/;"	f
+fputc	fputc.c	/^int fputc(int c, register FILE *stream)$/;"	f
+fputc	fputc.c	10;"	d	file:
+fputc_unlocked	fputc.c	11;"	d	file:
+fputs	fputs.c	/^int fputs(const char * __restrict s, register FILE * __restrict stream)$/;"	f
+fread	fread.c	/^size_t fread(void * __restrict ptr, size_t size, size_t nmemb,$/;"	f
+freopen	freopen.c	/^FILE *freopen(const char * __restrict filename, const char * __restrict mode,$/;"	f
+freopen	freopen.c	15;"	d	file:
+fscanf	scanf.c	/^int fscanf(FILE * __restrict stream, const char * __restrict format, ...)$/;"	f
+fseek	fsetpos.c	17;"	d	file:
+fsetpos	fsetpos.c	/^int fsetpos(FILE *stream, register const fpos_t *pos)$/;"	f
+fsetpos	fsetpos.c	15;"	d	file:
+ftell	fgetpos.c	17;"	d	file:
+ftrylockfile	ftrylockfile.c	/^int ftrylockfile(FILE *stream)$/;"	f
+funlockfile	funlockfile.c	/^void funlockfile(FILE *stream)$/;"	f
+fwide	fwide.c	/^int fwide(register FILE *stream, int mode)$/;"	f
+fwrite	fwrite.c	/^size_t fwrite(const void * __restrict ptr, size_t size,$/;"	f
+fwscanf	scanf.c	/^int fwscanf(FILE * __restrict stream, const wchar_t * __restrict format, ...)$/;"	f
+getc	fgetc.c	12;"	d	file:
+getc_scanf	scanf.c	/^int getc_scanf(register struct scan_cookie* sc)$/;"	f
+getc_unlocked	fgetc.c	13;"	d	file:
+getchar	getchar.c	/^int getchar(void)$/;"	f
+getchar	getchar.c	11;"	d	file:
+getchar_unlocked	getchar.c	10;"	d	file:
+getline	getline.c	/^ssize_t getline(char **__restrict lineptr, size_t *__restrict n,$/;"	f
+gets	gets.c	/^char *gets(char *s)$/;"	f
+getw	getw.c	/^int getw(FILE *stream)$/;"	f
+grouping	scanf.c	/^	const char *grouping;$/;"	m	struct:scan_cookie	file:
+info	vfprintf.c	/^	struct printf_info info;$/;"	m	file:
+input_buffer	scanf.c	/^	char input_buffer[MAX_READ_LEN] ;$/;"	m	struct:scan_cookie	file:
+input_buffer_index	scanf.c	/^	int input_buffer_index ;$/;"	m	struct:scan_cookie	file:
+isnan	_fpmaxtostr.c	51;"	d	file:
+kill_scan_cookie	scanf.c	/^static __inline void kill_scan_cookie(register struct scan_cookie *sc)$/;"	f	file:
+ld	vfprintf.c	/^	long double ld;$/;"	m	file:
+len	vsnprintf.c	/^	size_t len;$/;"	m	file:
+lower_bnd	_fpmaxtostr.c	340;"	d	file:
+max_width	scanf.c	/^	int cnt, dataargtype, conv_num, max_width;$/;"	m	file:
+maxposarg	vfprintf.c	/^	int maxposarg;				\/* > 0 if args are positional, 0 if not, -1 if unknown *\/$/;"	m	file:
+mb_fail	scanf.c	/^	char mb_fail;				\/* vfscanf *\/$/;"	m	struct:scan_cookie	file:
+mbstate	scanf.c	/^	mbstate_t mbstate;			\/* vfscanf *\/$/;"	m	struct:scan_cookie	file:
+min_exp_dig_plus_2	_fpmaxtostr.c	622;"	d	file:
+nd	_fpmaxtostr.c	346;"	d	file:
+ndb	_fpmaxtostr.c	345;"	d	file:
+nil_string	scanf.c	/^static const unsigned char nil_string[] = "(nil)";$/;"	v	file:
+nread	scanf.c	/^	int nread;$/;"	m	struct:scan_cookie	file:
+num_data_args	vfprintf.c	/^	int num_data_args;			\/* TODO: use sentinal??? *\/$/;"	m	file:
+num_pos_args	scanf.c	/^	int num_pos_args;		\/* Must start at -1. *\/$/;"	m	file:
+p	vfprintf.c	/^	void *p;$/;"	m	file:
+parse_printf_format	vfprintf.c	/^size_t parse_printf_format(register const char *template,$/;"	f
+perror	perror.c	/^void perror(register const char *s)$/;"	f
+pos	vsnprintf.c	/^	size_t pos;$/;"	m	file:
+pos_args	scanf.c	/^	void *pos_args[NL_ARGMAX];$/;"	m	file:
+power_table	_fpmaxtostr.c	342;"	d	file:
+ppfs_t	vfprintf.c	/^} ppfs_t;						\/* parse printf format state *\/$/;"	t	file:
+printf	printf.c	/^int printf(const char * __restrict format, ...)$/;"	f
+psfs_t	scanf.c	/^} psfs_t;						\/* parse scanf format state *\/$/;"	t	file:
+putc	fputc.c	12;"	d	file:
+putc_unlocked	fputc.c	13;"	d	file:
+putchar	putchar.c	/^int putchar(int c)$/;"	f
+putchar	putchar.c	11;"	d	file:
+putchar_unlocked	putchar.c	10;"	d	file:
+puts	puts.c	/^int puts(register const char * __restrict s)$/;"	f
+qual_chars	scanf.c	/^static const unsigned char qual_chars[] = QUAL_CHARS;$/;"	v	file:
+read_input_till_char	scanf.c	/^void read_input_till_char(cecho_func* cechoFunc, char* in_buf, const int max_read_len, boolean echo, int end_ch)$/;"	f
+register_printf_function	vfprintf.c	/^int register_printf_function(int spec, printf_function handler,$/;"	f
+remove	remove.c	/^int remove(register const char *filename)$/;"	f
+rewind	rewind.c	/^void rewind(register FILE *stream)$/;"	f
+sc_getc	scanf.c	/^	int (*sc_getc)(struct scan_cookie *);$/;"	m	struct:scan_cookie	file:
+sc_getc	scanf.c	/^static int sc_getc(register struct scan_cookie *sc)$/;"	f	file:
+scan_cookie	scanf.c	/^struct scan_cookie {$/;"	s	file:
+scan_getwc	scanf.c	/^static int scan_getwc(register struct scan_cookie *sc)$/;"	f	file:
+scanf	scanf.c	/^int scanf(const char * __restrict format, ...)$/;"	f
+scanf_cecho	scanf.c	/^int scanf_cecho(cecho_func* cecho_func, const char * __restrict format, ...)$/;"	f
+setbuf	setbuf.c	/^void setbuf(FILE * __restrict stream, register char * __restrict buf)$/;"	f
+setbuffer	setbuffer.c	/^void setbuffer(FILE * __restrict stream, register char * __restrict buf,$/;"	f
+setlinebuf	setlinebuf.c	/^void setlinebuf(FILE * __restrict stream)$/;"	f
+setvbuf	setvbuf.c	/^int setvbuf(register FILE * __restrict stream, register char * __restrict buf,$/;"	f
+snpf_write	vsnprintf.c	/^static ssize_t snpf_write(register void *cookie, const char *buf, size_t bufsize)$/;"	f	file:
+snprintf	snprintf.c	/^int snprintf(char *__restrict buf, size_t size,$/;"	f
+spec_allowed	scanf.c	/^static const unsigned short spec_allowed[] = SPEC_ALLOWED_FLAGS;$/;"	v	file:
+spec_base	scanf.c	/^static const unsigned char spec_base[] = SPEC_BASE;$/;"	v	file:
+spec_chars	scanf.c	/^static const unsigned char spec_chars[] = SPEC_CHARS;$/;"	v	file:
+spec_flags	scanf.c	/^static const unsigned char spec_flags[] = SPEC_FLAGS;$/;"	v	file:
+spec_ranges	scanf.c	/^static const unsigned char spec_ranges[] = SPEC_RANGES;$/;"	v	file:
+sprintf	sprintf.c	/^int sprintf(char *__restrict buf, const char * __restrict format, ...)$/;"	f
+sscanf	scanf.c	/^int sscanf(const char * __restrict str, const char * __restrict format, ...)$/;"	f
+store	scanf.c	/^	unsigned char store, flags;$/;"	m	file:
+swscanf	scanf.c	/^int swscanf(const wchar_t * __restrict str, const wchar_t * __restrict format,$/;"	f
+tempnam	tempnam.c	/^tempnam (const char *dir, const char *pfx)$/;"	f
+thousands_sep	scanf.c	/^	const unsigned char *thousands_sep;$/;"	m	struct:scan_cookie	file:
+thousands_sep_wc	scanf.c	/^	wchar_t thousands_sep_wc;$/;"	m	struct:scan_cookie	file:
+tmpfile	tmpfile.c	/^FILE * tmpfile (void)$/;"	f
+tmpnam	tmpnam.c	/^char * tmpnam (char *s)$/;"	f
+tmpnam_buffer	tmpnam.c	/^static char tmpnam_buffer[L_tmpnam];$/;"	v	file:
+tmpnam_r	tmpnam_r.c	/^char * tmpnam_r (char *s)$/;"	f
+tslen	scanf.c	/^	int tslen;$/;"	m	struct:scan_cookie	file:
+type_codes	vfprintf.c	/^static const short int type_codes[] = {$/;"	v	file:
+type_sizes	vfprintf.c	/^static const unsigned char type_sizes[] = {$/;"	v	file:
+u	vfprintf.c	/^	unsigned int u;$/;"	m	file:
+ul	vfprintf.c	/^	unsigned long ul;$/;"	m	file:
+ull	vfprintf.c	/^	unsigned long long ull;$/;"	m	file:
+ungetc	ungetc.c	/^int ungetc(int c, register FILE *stream)$/;"	f
+ungot_char	scanf.c	/^	Wint ungot_char;$/;"	m	struct:scan_cookie	file:
+ungot_flag	scanf.c	/^	char ungot_flag;$/;"	m	struct:scan_cookie	file:
+ungot_wchar	scanf.c	/^	wint_t ungot_wchar;			\/* to support __scan_getc *\/$/;"	m	struct:scan_cookie	file:
+ungot_wchar_width	scanf.c	/^	unsigned char ungot_wchar_width;$/;"	m	struct:scan_cookie	file:
+ungot_wflag	scanf.c	/^	char ungot_wflag;			\/* vfwscanf *\/$/;"	m	struct:scan_cookie	file:
+upper_bnd	_fpmaxtostr.c	341;"	d	file:
+valid_digit	scanf.c	2057;"	d	file:
+vasprintf	vasprintf.c	/^int vasprintf(char **__restrict buf, const char * __restrict format,$/;"	f
+vdprintf	vdprintf.c	/^int vdprintf(int filedes, const char * __restrict format, va_list arg)$/;"	f
+vfscanf_cecho	scanf.c	/^int vfscanf_cecho (cecho_func* cechoFunc, const char* scan_buf, const Wchar *__restrict format, va_list arg)$/;"	f
+vprintf	vprintf.c	/^int vprintf(const char * __restrict format, va_list arg)$/;"	f
+vscanf	scanf.c	/^int vscanf(const char * __restrict format, va_list arg)$/;"	f
+vsnprintf	vsnprintf.c	/^int vsnprintf(char *__restrict buf, size_t size, const char * __restrict format, va_list arg)$/;"	f
+vsprintf	vsprintf.c	/^int vsprintf(char *__restrict buf, const char * __restrict format, va_list arg)$/;"	f
+vsscanf	scanf.c	/^int vsscanf(__const char *sp, __const char *fmt, va_list ap)$/;"	f
+vsscanf_cecho	scanf.c	/^int vsscanf_cecho(cecho_func* cechoFunc, const char* __restrict buf, const char * __restrict format, va_list arg)$/;"	f
+vswscanf	scanf.c	/^int vswscanf(const wchar_t * __restrict str, const wchar_t * __restrict format,$/;"	f
+vwscanf	scanf.c	/^int vwscanf(const wchar_t * __restrict format, va_list arg)$/;"	f
+wc	scanf.c	/^	wint_t wc;$/;"	m	struct:scan_cookie	file:
+wc	vfprintf.c	/^	wchar_t wc;$/;"	m	file:
+width	scanf.c	/^	int width;$/;"	m	struct:scan_cookie	file:
+wscanf	scanf.c	/^int wscanf(const wchar_t * __restrict format, ...)$/;"	f
+zeroisnegative	_fpmaxtostr.c	56;"	d	file:

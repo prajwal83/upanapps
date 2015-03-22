@@ -1,0 +1,55 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+APRIL	include/mcal.h	/^	APRIL,$/;"	e
+AUGUST	include/mcal.h	/^	AUGUST,$/;"	e
+CC	Makefile	/^CC = gcc$/;"	m
+CC	main/Makefile	/^CC = ${COMPILER}$/;"	m
+CFLAGS	Makefile	/^CFLAGS = ${C_FLAGS} ${INCLUDE}$/;"	m
+DAYS	include/mcal.h	/^} DAYS ;$/;"	t
+DAYS_PER_LYEAR	include/mcal.h	6;"	d
+DAYS_PER_NLYEAR	include/mcal.h	5;"	d
+DAYS_PER_WEEK	include/mcal.h	/^	DAYS_PER_WEEK$/;"	e
+DECEMBER	include/mcal.h	/^	DECEMBER,$/;"	e
+FEBRUARY	include/mcal.h	/^	FEBRUARY,$/;"	e
+FRIDAY	include/mcal.h	/^	FRIDAY,$/;"	e
+HOURS_PER_DAY	include/mcal.h	13;"	d
+INCLUDE	Makefile	/^INCLUDE = ${INCLUDES}$/;"	m
+INCLUDE	main/Makefile	/^INCLUDE = ${INCLUDES}$/;"	m
+IS_LEAP_YEAR	main/mcal.c	38;"	d	file:
+JANUARY	include/mcal.h	/^	JANUARY,$/;"	e
+JULY	include/mcal.h	/^	JULY,$/;"	e
+JUNE	include/mcal.h	/^	JUNE,$/;"	e
+LD	Makefile	/^LD = ld$/;"	m
+MAIN	Makefile	/^MAIN = ${MOSAPP_LIBMCAL_HOME}\/main$/;"	m
+MARCH	include/mcal.h	/^	MARCH,$/;"	e
+MAY	include/mcal.h	/^	MAY,$/;"	e
+MIN_PER_HOUR	include/mcal.h	10;"	d
+MONDAY	include/mcal.h	/^	MONDAY,$/;"	e
+MONTHS	include/mcal.h	/^} MONTHS ;$/;"	t
+MONTHS_PER_YEAR	include/mcal.h	/^	MONTHS_PER_YEAR$/;"	e
+NOVEMBER	include/mcal.h	/^	NOVEMBER,$/;"	e
+OCTOBER	include/mcal.h	/^	OCTOBER,$/;"	e
+SATURDAY	include/mcal.h	/^	SATURDAY,$/;"	e
+SEC_PER_DAY	include/mcal.h	12;"	d
+SEC_PER_HOUR	include/mcal.h	11;"	d
+SEC_PER_MIN	include/mcal.h	9;"	d
+SEPTEMBER	include/mcal.h	/^	SEPTEMBER,$/;"	e
+SUNDAY	include/mcal.h	/^	SUNDAY,$/;"	e
+THURSDAY	include/mcal.h	/^	THURSDAY,$/;"	e
+TUESDAY	include/mcal.h	/^	TUESDAY,$/;"	e
+WEDNESDAY	include/mcal.h	/^	WEDNESDAY,$/;"	e
+_LIB_MCAL_H_	include/mcal.h	2;"	d
+_LIB_MDATE_H_	include/mdate.h	2;"	d
+dayOfMonth	include/mdate.h	/^	int dayOfMonth ;$/;"	m
+dayOfWeek	include/mdate.h	/^	int dayOfWeek ;$/;"	m
+mcal_NoOfDaysInMonth_NLY	main/mcal.c	/^static const int mcal_NoOfDaysInMonth_NLY[MONTHS_PER_YEAR] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }$/;"	v	file:
+mcal_addDays	main/mcal.c	/^int mcal_addDays(mdate* date, int days)$/;"	f
+mcal_szDays	main/mcal.c	/^static const char mcal_szDays[DAYS_PER_WEEK][12] = {$/;"	v	file:
+mdate	include/mdate.h	/^} mdate ;$/;"	t
+month	include/mdate.h	/^	int month ;$/;"	m
+seedDate	main/mcal.c	/^static const mdate seedDate = { 1, 1, 2000, SATURDAY } ;$/;"	v	file:
+year	include/mdate.h	/^	int year ;$/;"	m

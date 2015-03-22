@@ -1,0 +1,139 @@
+/*
+ *  Mother Operating System - An x86 based Operating System
+ *  Copyright (C) 2011 'Prajwala Prabhakar' 'srinivasa_prajwal@yahoo.co.in'
+ *                                                                          
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *                                                                          
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *                                                                          
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/
+ */
+#ifndef _MTERM_H_
+#define _MTERM_H_
+
+# include <display.h>
+# include <stdlib.h>
+
+#define MAX_ROWS			Display_NO_ROWS
+#define MAX_COLS			Display_NO_COLUMNS
+#define MAX_WIN_BUFFER		(MAX_ROWS * MAX_COLS)
+
+#define WIN_SIZE(Win)		( Win->Rows * Win->Cols )
+
+#define MTERM_LINE_END (-1)
+#define MTERM_WIN_END (-2)
+
+#define NO_CHAR				234
+
+// Blink
+#define ATTR_NOBLINK		0x00
+#define ATTR_BLINK			0x80
+
+// FG Color
+typedef enum
+{
+	FG_BLACK,
+	FG_BLUE,
+	FG_GREEN,
+	FG_CYAN,
+	FG_RED,
+	FG_MAGENTA,
+	FG_BROWN,
+	FG_WHITE,
+	FG_DARK_GRAY,
+	FG_BRIGHT_BLUE,
+	FG_BRIGHT_GREEN,
+	FG_BRIGHT_CYAN,
+	FG_PINK,
+	FG_BRIGHT_MAGENTA,
+	FG_YELLOW,
+	FG_BRIGHT_WHITE
+} FGColor ;
+
+// BG Color
+#define 	BG_BLACK	0x00
+#define 	BG_BLUE		0x10
+#define 	BG_GREEN	0x20
+#define 	BG_CYAN		0x30
+#define 	BG_RED		0x40
+#define 	BG_MAGENTA	0x50
+#define 	BG_BROWN	0x60
+#define 	BG_WHITE	0x70
+
+#define		DEF_ATTR	( ATTR_NOBLINK | FG_WHITE | BG_BLACK )
+
+typedef enum
+{
+	// TODO: Need to properly defined yet
+	RED,
+	WHITE,
+	YELLOW,
+	GREEN,
+} MColor ;
+
+typedef struct
+{
+	byte		Ch ;
+	byte		Attr ;
+} MChar ;
+
+typedef struct
+{
+	byte		Rows ;
+	byte		Cols ;
+
+	byte		ERows ;
+	byte		ECols ;
+	
+	byte		WinCharAttr ;
+
+	MChar		CharContent[MAX_WIN_BUFFER] ;
+
+	int			CursorPos ;
+	int			PilotPoint ;
+
+	byte		Focus ;
+	byte		InstantUpdate ;
+	byte 		ScrollLock ;
+} MWindow ;
+
+
+MWindow* MTerm_CreateWindow(byte nRows, byte nCols) ;
+void MTerm_DestroyWindow(MWindow* pMWindow) ;
+void MTerm_InitScr() ;
+void MTerm_WinRefresh(const MWindow* pMWindow) ;
+void MTerm_Refresh(const MWindow* pMWindow) ;
+void MTerm_WinPutCharSpec(MWindow* pMWindow, char Ch, byte Attr) ;
+void MTerm_WinPutChar(MWindow* pMWindow, char Ch) ;
+void MTerm_WinPutStringSpec(MWindow* pMWindow, const char* szStr, int len, byte Attr) ;
+void MTerm_WinPutString(MWindow* pMWindow, const char* szStr, int len) ;
+void MTerm_ScrollDown(MWindow* pMWindow) ;
+void MTerm_ScrollUp(MWindow* pMWindow) ;
+void MTerm_WinClear(MWindow* pMWindow) ;
+void MTerm_WinClearFromCursor(MWindow* pMWindow) ;
+void MTerm_WinClearLineFromCursor(MWindow* pMWindow) ;
+void MTerm_WinMoveCursor(MWindow* pMWindow, int iCurOffset) ;
+
+void MTerm_WinSetCursor(MWindow* pMWindow, int iCurPos) ;
+void MTerm_SetAttr(MWindow* pMWindow, int row, int col, int iLen, byte Attr) ;
+void MTerm_SetWinAttr(MWindow* pMWindow, byte Attr) ;
+void MTerm_WinDimension(MWindow* pMWindow, byte nRows, byte nCols) ;
+void MTerm_SetWinPilotPoint(MWindow* pMWindow, int iPilotPoint) ;
+void MTerm_WinInstantUpdate(MWindow* pMWindow, byte bUpdate) ;
+void MTerm_WinScrollLock(MWindow* pMWindow, byte bLock) ;
+void MTerm_WinFocus(MWindow* pMWindow, byte bFocus) ;
+
+void MTerm_WinPutCharInRange(MWindow* pMWindow, char Ch, int row, int col, int iLen) ;
+void MTerm_WinMovePutString(MWindow* pMWindow, int row, int col, const char* szStr) ;
+void MTerm_WinMove(MWindow* pMWindow, int row, int col) ;
+void MTerm_GetWinYX(MWindow* pMWindow, int* y, int* x) ;
+void MTerm_WinNextLine(MWindow* pMWindow) ;
+
+#endif

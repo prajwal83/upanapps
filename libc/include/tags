@@ -1,0 +1,1029 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+ABDAY_1	langinfo.h	/^  ABDAY_1 = _NL_ITEM (__LC_TIME, 0), \/* Sun *\/$/;"	e
+ABDAY_1	langinfo.h	47;"	d
+ABDAY_2	langinfo.h	/^  ABDAY_2,$/;"	e
+ABDAY_2	langinfo.h	49;"	d
+ABDAY_3	langinfo.h	/^  ABDAY_3,$/;"	e
+ABDAY_3	langinfo.h	51;"	d
+ABDAY_4	langinfo.h	/^  ABDAY_4,$/;"	e
+ABDAY_4	langinfo.h	53;"	d
+ABDAY_5	langinfo.h	/^  ABDAY_5,$/;"	e
+ABDAY_5	langinfo.h	55;"	d
+ABDAY_6	langinfo.h	/^  ABDAY_6,$/;"	e
+ABDAY_6	langinfo.h	57;"	d
+ABDAY_7	langinfo.h	/^  ABDAY_7,$/;"	e
+ABDAY_7	langinfo.h	59;"	d
+ABMON_1	langinfo.h	/^  ABMON_1,			\/* Jan *\/$/;"	e
+ABMON_1	langinfo.h	79;"	d
+ABMON_10	langinfo.h	/^  ABMON_10,$/;"	e
+ABMON_10	langinfo.h	97;"	d
+ABMON_11	langinfo.h	/^  ABMON_11,$/;"	e
+ABMON_11	langinfo.h	99;"	d
+ABMON_12	langinfo.h	/^  ABMON_12,$/;"	e
+ABMON_12	langinfo.h	101;"	d
+ABMON_2	langinfo.h	/^  ABMON_2,$/;"	e
+ABMON_2	langinfo.h	81;"	d
+ABMON_3	langinfo.h	/^  ABMON_3,$/;"	e
+ABMON_3	langinfo.h	83;"	d
+ABMON_4	langinfo.h	/^  ABMON_4,$/;"	e
+ABMON_4	langinfo.h	85;"	d
+ABMON_5	langinfo.h	/^  ABMON_5,$/;"	e
+ABMON_5	langinfo.h	87;"	d
+ABMON_6	langinfo.h	/^  ABMON_6,$/;"	e
+ABMON_6	langinfo.h	89;"	d
+ABMON_7	langinfo.h	/^  ABMON_7,$/;"	e
+ABMON_7	langinfo.h	91;"	d
+ABMON_8	langinfo.h	/^  ABMON_8,$/;"	e
+ABMON_8	langinfo.h	93;"	d
+ABMON_9	langinfo.h	/^  ABMON_9,$/;"	e
+ABMON_9	langinfo.h	95;"	d
+ALT_DIGITS	langinfo.h	/^  ALT_DIGITS,			\/* Alternate symbols for digits.  *\/$/;"	e
+ALT_DIGITS	langinfo.h	152;"	d
+AM_STR	langinfo.h	/^  AM_STR,			\/* Ante meridian string.  *\/$/;"	e
+AM_STR	langinfo.h	130;"	d
+APRIL	mdate.h	/^	APRIL,$/;"	e
+ATTR_DELETED_DIR	fs.h	9;"	d
+ATTR_DIR_DEFAULT	fs.h	7;"	d
+ATTR_EXE	fs.h	15;"	d
+ATTR_FILE_DEFAULT	fs.h	8;"	d
+ATTR_READ	fs.h	13;"	d
+ATTR_TYPE_DIRECTORY	fs.h	10;"	d
+ATTR_TYPE_FILE	fs.h	11;"	d
+ATTR_WRITE	fs.h	14;"	d
+AUGUST	mdate.h	/^	AUGUST,$/;"	e
+AccessedTime	fs.h	/^	struct timeval			AccessedTime ;$/;"	m
+BUFSIZ	stdio.h	81;"	d
+CD_DRIVE0	drive.h	/^	CD_DRIVE0,$/;"	e
+CD_DRIVE1	drive.h	/^	CD_DRIVE1,$/;"	e
+CHAR_BIT	limits.h	54;"	d
+CHAR_MAX	limits.h	66;"	d
+CHAR_MAX	limits.h	69;"	d
+CHAR_MIN	limits.h	65;"	d
+CHAR_MIN	limits.h	68;"	d
+CODESET	langinfo.h	/^  CODESET = _NL_CTYPE_CODESET_NAME,$/;"	e
+CODESET	langinfo.h	284;"	d
+CODESET	langinfo.h	368;"	d
+CRNCYSTR	langinfo.h	460;"	d
+CTRL	kb.h	40;"	d
+CTRL_VALUE	kb.h	39;"	d
+CURRENCY_SYMBOL	langinfo.h	380;"	d
+CreatedTime	fs.h	/^	struct timeval			CreatedTime ;$/;"	m
+DAYS	mdate.h	/^} DAYS ;$/;"	t
+DAYS_PER_LYEAR	mdate.h	19;"	d
+DAYS_PER_NLYEAR	mdate.h	18;"	d
+DAYS_PER_WEEK	mdate.h	/^	DAYS_PER_WEEK$/;"	e
+DAY_1	langinfo.h	/^  DAY_1,			\/* Sunday *\/$/;"	e
+DAY_1	langinfo.h	63;"	d
+DAY_2	langinfo.h	/^  DAY_2,			\/* Monday *\/$/;"	e
+DAY_2	langinfo.h	65;"	d
+DAY_3	langinfo.h	/^  DAY_3,			\/* Tuesday *\/$/;"	e
+DAY_3	langinfo.h	67;"	d
+DAY_4	langinfo.h	/^  DAY_4,			\/* Wednesday *\/$/;"	e
+DAY_4	langinfo.h	69;"	d
+DAY_5	langinfo.h	/^  DAY_5,			\/* Thursday *\/$/;"	e
+DAY_5	langinfo.h	71;"	d
+DAY_6	langinfo.h	/^  DAY_6,			\/* Friday *\/$/;"	e
+DAY_6	langinfo.h	73;"	d
+DAY_7	langinfo.h	/^  DAY_7,			\/* Saturday *\/$/;"	e
+DAY_7	langinfo.h	75;"	d
+DECEMBER	mdate.h	/^	DECEMBER,$/;"	e
+DECIMAL_POINT	langinfo.h	494;"	d
+DEVICE_TYPE	drive.h	/^} DEVICE_TYPE ;$/;"	t
+DEV_ATAPI	drive.h	/^	DEV_ATAPI,$/;"	e
+DEV_ATA_IDE	drive.h	/^	DEV_ATA_IDE = 0x80,$/;"	e
+DEV_CD	drive.h	/^	DEV_CD,$/;"	e
+DEV_FLOPPY	drive.h	/^	DEV_FLOPPY = 0x0,$/;"	e
+DO_SYS_CALL	SysCall.h	9;"	d
+DRIVE_NO	drive.h	/^} DRIVE_NO ;$/;"	t
+D_FMT	langinfo.h	/^  D_FMT,			\/* Date format for strftime.  *\/$/;"	e
+D_FMT	langinfo.h	137;"	d
+D_T_FMT	langinfo.h	/^  D_T_FMT,			\/* Date and time format for strftime.  *\/$/;"	e
+D_T_FMT	langinfo.h	135;"	d
+Display_CURSOR_CUR	display.h	4;"	d
+Display_NO_COLUMNS	display.h	7;"	d
+Display_NO_ROWS	display.h	6;"	d
+Display_WHITE_ON_BLACK	display.h	9;"	d
+Display_WHITE_ON_BLACK	stdio.h	6;"	d
+Drive	drive.h	/^} Drive ;$/;"	t
+DriveSpace	drive.h	/^} DriveSpace ;$/;"	t
+DriveStat	drive.h	/^} DriveStat ;$/;"	t
+ECHO	termios.h	/^	ECHO,$/;"	e
+ECHONL	termios.h	/^	ECHONL,$/;"	e
+EOF	stdio.h	75;"	d
+ERA	langinfo.h	/^  ERA,				\/* Alternate era.  *\/$/;"	e
+ERA	langinfo.h	144;"	d
+ERA_D_FMT	langinfo.h	/^  ERA_D_FMT,			\/* Date in alternate era format.  *\/$/;"	e
+ERA_D_FMT	langinfo.h	150;"	d
+ERA_D_T_FMT	langinfo.h	/^  ERA_D_T_FMT,			\/* Date and time in alternate era format.  *\/$/;"	e
+ERA_D_T_FMT	langinfo.h	154;"	d
+ERA_T_FMT	langinfo.h	/^  ERA_T_FMT,			\/* Time in alternate era format.  *\/$/;"	e
+ERA_T_FMT	langinfo.h	156;"	d
+ERA_YEAR	langinfo.h	147;"	d
+FD_DRIVE0	drive.h	/^	FD_DRIVE0 = 0,$/;"	e
+FD_DRIVE1	drive.h	/^	FD_DRIVE1,$/;"	e
+FD_DRIVE2	drive.h	/^	FD_DRIVE2,$/;"	e
+FD_DRIVE3	drive.h	/^	FD_DRIVE3,$/;"	e
+FEBRUARY	mdate.h	/^	FEBRUARY,$/;"	e
+FILE	stdio.h	/^typedef struct __STDIO_FILE_STRUCT FILE;$/;"	t
+FILE_PERM	fs.h	32;"	d
+FILE_PERM_MASK	fs.h	25;"	d
+FILE_TYPE	fs.h	33;"	d
+FILE_TYPE_MASK	fs.h	26;"	d
+FMT_TYPE	stdio.h	56;"	d
+FRAC_DIGITS	langinfo.h	408;"	d
+FRIDAY	mdate.h	/^	FRIDAY,$/;"	e
+FS_TYPE	drive.h	/^} FS_TYPE ;$/;"	t
+FS_UNKNOWN	drive.h	/^	FS_UNKNOWN = 0x0,$/;"	e
+FileModes	fs.h	/^} FileModes ;$/;"	t
+FileSystem_DIR_Entry	fs.h	/^} PACKED FileSystem_DIR_Entry ;$/;"	t
+GROUPING	langinfo.h	506;"	d
+G_GROUP	fs.h	22;"	d
+G_OTHERS	fs.h	23;"	d
+G_OWNER	fs.h	21;"	d
+HAS_EXE_PERM	fs.h	30;"	d
+HAS_READ_PERM	fs.h	28;"	d
+HAS_WRITE_PERM	fs.h	29;"	d
+HDD_DRIVE0	drive.h	/^	HDD_DRIVE0,$/;"	e
+HDD_DRIVE1	drive.h	/^	HDD_DRIVE1	$/;"	e
+HOURS_PER_DAY	mdate.h	26;"	d
+HRS_IN_DAY	dtime.h	32;"	d
+ICRNL	termios.h	/^	ICRNL,$/;"	e
+IGNCR	termios.h	/^	IGNCR,$/;"	e
+INLCR	termios.h	/^	INLCR,$/;"	e
+INT16_C	stdint.h	304;"	d
+INT16_MAX	stdint.h	169;"	d
+INT16_MIN	stdint.h	164;"	d
+INT32_C	stdint.h	305;"	d
+INT32_MAX	stdint.h	170;"	d
+INT32_MIN	stdint.h	165;"	d
+INT64_C	stdint.h	307;"	d
+INT64_C	stdint.h	309;"	d
+INT64_MAX	stdint.h	171;"	d
+INT64_MIN	stdint.h	166;"	d
+INT8_C	stdint.h	303;"	d
+INT8_MAX	stdint.h	168;"	d
+INT8_MIN	stdint.h	163;"	d
+INTMAX_C	stdint.h	324;"	d
+INTMAX_C	stdint.h	327;"	d
+INTMAX_MAX	stdint.h	246;"	d
+INTMAX_MAX	stdint.h	254;"	d
+INTMAX_MIN	stdint.h	244;"	d
+INTMAX_MIN	stdint.h	252;"	d
+INTPTR_MAX	stdint.h	234;"	d
+INTPTR_MAX	stdint.h	238;"	d
+INTPTR_MIN	stdint.h	233;"	d
+INTPTR_MIN	stdint.h	237;"	d
+INT_CURR_SYMBOL	langinfo.h	376;"	d
+INT_FAST16_MAX	stdint.h	211;"	d
+INT_FAST16_MAX	stdint.h	214;"	d
+INT_FAST16_MIN	stdint.h	201;"	d
+INT_FAST16_MIN	stdint.h	204;"	d
+INT_FAST32_MAX	stdint.h	212;"	d
+INT_FAST32_MAX	stdint.h	215;"	d
+INT_FAST32_MIN	stdint.h	202;"	d
+INT_FAST32_MIN	stdint.h	205;"	d
+INT_FAST64_MAX	stdint.h	217;"	d
+INT_FAST64_MIN	stdint.h	207;"	d
+INT_FAST8_MAX	stdint.h	209;"	d
+INT_FAST8_MIN	stdint.h	199;"	d
+INT_FRAC_DIGITS	langinfo.h	404;"	d
+INT_LEAST16_MAX	stdint.h	187;"	d
+INT_LEAST16_MIN	stdint.h	182;"	d
+INT_LEAST32_MAX	stdint.h	188;"	d
+INT_LEAST32_MIN	stdint.h	183;"	d
+INT_LEAST64_MAX	stdint.h	189;"	d
+INT_LEAST64_MIN	stdint.h	184;"	d
+INT_LEAST8_MAX	stdint.h	186;"	d
+INT_LEAST8_MIN	stdint.h	181;"	d
+INT_MAX	limits.h	81;"	d
+INT_MIN	limits.h	80;"	d
+INT_N_CS_PRECEDES	langinfo.h	444;"	d
+INT_N_SEP_BY_SPACE	langinfo.h	448;"	d
+INT_N_SIGN_POSN	langinfo.h	456;"	d
+INT_P_CS_PRECEDES	langinfo.h	436;"	d
+INT_P_SEP_BY_SPACE	langinfo.h	440;"	d
+INT_P_SIGN_POSN	langinfo.h	452;"	d
+IS_LEAP_YEAR	mdate.h	58;"	d
+IS_STD_STREAM	stdio.h	83;"	d
+JANUARY	mdate.h	/^	JANUARY = 1,$/;"	e
+JULY	mdate.h	/^	JULY,$/;"	e
+JUNE	mdate.h	/^	JUNE,$/;"	e
+Keyboard_BACKSPACE	kb.h	/^	Keyboard_BACKSPACE,$/;"	e
+Keyboard_CAPS_LOCK	kb.h	/^	Keyboard_CAPS_LOCK,$/;"	e
+Keyboard_ENTER	kb.h	/^	Keyboard_ENTER,$/;"	e
+Keyboard_ESC	kb.h	/^	Keyboard_ESC = 0,$/;"	e
+Keyboard_F1	kb.h	/^	Keyboard_F1 = 19,$/;"	e
+Keyboard_F10	kb.h	/^	Keyboard_F10,$/;"	e
+Keyboard_F2	kb.h	/^	Keyboard_F2,$/;"	e
+Keyboard_F3	kb.h	/^	Keyboard_F3,$/;"	e
+Keyboard_F4	kb.h	/^	Keyboard_F4,$/;"	e
+Keyboard_F5	kb.h	/^	Keyboard_F5,$/;"	e
+Keyboard_F6	kb.h	/^	Keyboard_F6,$/;"	e
+Keyboard_F7	kb.h	/^	Keyboard_F7,$/;"	e
+Keyboard_F8	kb.h	/^	Keyboard_F8,$/;"	e
+Keyboard_F9	kb.h	/^	Keyboard_F9,$/;"	e
+Keyboard_KEY_DEL	kb.h	/^	Keyboard_KEY_DEL,$/;"	e
+Keyboard_KEY_DOWN	kb.h	/^	Keyboard_KEY_DOWN,$/;"	e
+Keyboard_KEY_END	kb.h	/^	Keyboard_KEY_END,$/;"	e
+Keyboard_KEY_HOME	kb.h	/^	Keyboard_KEY_HOME,$/;"	e
+Keyboard_KEY_INST	kb.h	/^	Keyboard_KEY_INST,$/;"	e
+Keyboard_KEY_LEFT	kb.h	/^	Keyboard_KEY_LEFT,$/;"	e
+Keyboard_KEY_PG_DOWN	kb.h	/^	Keyboard_KEY_PG_DOWN,$/;"	e
+Keyboard_KEY_PG_UP	kb.h	/^	Keyboard_KEY_PG_UP,$/;"	e
+Keyboard_KEY_RIGHT	kb.h	/^	Keyboard_KEY_RIGHT,$/;"	e
+Keyboard_KEY_UP	kb.h	/^	Keyboard_KEY_UP = 400,$/;"	e
+Keyboard_LEFT_ALT	kb.h	/^	Keyboard_LEFT_ALT,$/;"	e
+Keyboard_LEFT_CTRL	kb.h	/^	Keyboard_LEFT_CTRL,$/;"	e
+Keyboard_LEFT_SHIFT	kb.h	/^	Keyboard_LEFT_SHIFT,$/;"	e
+Keyboard_RIGHT_SHIFT	kb.h	/^	Keyboard_RIGHT_SHIFT,$/;"	e
+Keyboard_SpecialKeys	kb.h	/^} Keyboard_SpecialKeys ;$/;"	t
+LLONG_MAX	limits.h	104;"	d
+LLONG_MIN	limits.h	105;"	d
+LONG_MAX	limits.h	88;"	d
+LONG_MAX	limits.h	90;"	d
+LONG_MIN	limits.h	92;"	d
+L__stdlib_strto_ll	stdlib.h	35;"	d
+L__stdlib_strto_ll_l	stdlib.h	27;"	d
+L_scanf	stdio.h	60;"	d
+L_strtoll	stdlib.h	31;"	d
+L_strtoll_l	stdlib.h	23;"	d
+L_vfprintf	stdio.h	54;"	d
+L_vfscanf	stdio.h	64;"	d
+MARCH	mdate.h	/^	MARCH,$/;"	e
+MAY	mdate.h	/^	MAY,$/;"	e
+MB_LEN_MAX	limits.h	31;"	d
+MIN_PER_HOUR	mdate.h	23;"	d
+MONDAY	mdate.h	/^	MONDAY,$/;"	e
+MONTHS	mdate.h	/^} MONTHS ;$/;"	t
+MONTHS_PER_YEAR	mdate.h	/^	MONTHS_PER_YEAR = DECEMBER,$/;"	e
+MONTHS_PER_YEAR_SIZE	mdate.h	/^	MONTHS_PER_YEAR_SIZE$/;"	e
+MON_1	langinfo.h	/^  MON_1,			\/* January *\/$/;"	e
+MON_1	langinfo.h	105;"	d
+MON_10	langinfo.h	/^  MON_10,$/;"	e
+MON_10	langinfo.h	123;"	d
+MON_11	langinfo.h	/^  MON_11,$/;"	e
+MON_11	langinfo.h	125;"	d
+MON_12	langinfo.h	/^  MON_12,$/;"	e
+MON_12	langinfo.h	127;"	d
+MON_2	langinfo.h	/^  MON_2,$/;"	e
+MON_2	langinfo.h	107;"	d
+MON_3	langinfo.h	/^  MON_3,$/;"	e
+MON_3	langinfo.h	109;"	d
+MON_4	langinfo.h	/^  MON_4,$/;"	e
+MON_4	langinfo.h	111;"	d
+MON_5	langinfo.h	/^  MON_5,$/;"	e
+MON_5	langinfo.h	113;"	d
+MON_6	langinfo.h	/^  MON_6,$/;"	e
+MON_6	langinfo.h	115;"	d
+MON_7	langinfo.h	/^  MON_7,$/;"	e
+MON_7	langinfo.h	117;"	d
+MON_8	langinfo.h	/^  MON_8,$/;"	e
+MON_8	langinfo.h	119;"	d
+MON_9	langinfo.h	/^  MON_9,$/;"	e
+MON_9	langinfo.h	121;"	d
+MON_DECIMAL_POINT	langinfo.h	384;"	d
+MON_GROUPING	langinfo.h	392;"	d
+MON_THOUSANDS_SEP	langinfo.h	388;"	d
+MOSFS	drive.h	/^	MOSFS = 0x83$/;"	e
+ModifiedTime	fs.h	/^	struct timeval			ModifiedTime ;$/;"	m
+NCCS	termios.h	7;"	d
+NEGATIVE_SIGN	langinfo.h	400;"	d
+NEW	mosstd.h	/^	NEW,$/;"	e
+NL_CAT_LOCALE	nl_types.h	28;"	d
+NL_SETD	nl_types.h	25;"	d
+NOEXPR	langinfo.h	518;"	d
+NOSTR	langinfo.h	525;"	d
+NOVEMBER	mdate.h	/^	NOVEMBER,$/;"	e
+NO_OF_SYSCALL_PARAMS	SysCall.h	7;"	d
+NULL	stdlib.h	12;"	d
+N_CS_PRECEDES	langinfo.h	420;"	d
+N_SEP_BY_SPACE	langinfo.h	424;"	d
+N_SIGN_POSN	langinfo.h	432;"	d
+Name	fs.h	/^	byte			Name[33] ;$/;"	m
+OCTOBER	mdate.h	/^	OCTOBER,$/;"	e
+OFFSET_TYPE	stdio.h	22;"	d
+ONLCR	termios.h	/^	ONLCR$/;"	e
+O_APPEND	fs.h	/^	O_APPEND = 8,$/;"	e
+O_CREAT	fs.h	/^	O_CREAT = 16,$/;"	e
+O_EXCL	fs.h	/^	O_EXCL = 32,$/;"	e
+O_RDONLY	fs.h	/^	O_RDONLY = 1,$/;"	e
+O_RDWR	fs.h	/^	O_RDWR = 4,$/;"	e
+O_TRUNC	fs.h	/^	O_TRUNC = 64$/;"	e
+O_WRONLY	fs.h	/^	O_WRONLY = 2,$/;"	e
+PACKED	stdlib.h	16;"	d
+PACKED	stdlib.h	18;"	d
+PA_CHAR	printf.h	/^  PA_CHAR,			\/* int, cast to char *\/$/;"	e
+PA_DOUBLE	printf.h	/^  PA_DOUBLE,			\/* double *\/$/;"	e
+PA_FLAG_LONG	printf.h	224;"	d
+PA_FLAG_LONG_DOUBLE	printf.h	226;"	d
+PA_FLAG_LONG_LONG	printf.h	225;"	d
+PA_FLAG_MASK	printf.h	221;"	d
+PA_FLAG_PTR	printf.h	227;"	d
+PA_FLAG_SHORT	printf.h	223;"	d
+PA_FLOAT	printf.h	/^  PA_FLOAT,			\/* float *\/$/;"	e
+PA_INT	printf.h	/^  PA_INT,			\/* int *\/$/;"	e
+PA_LAST	printf.h	/^  PA_LAST$/;"	e
+PA_POINTER	printf.h	/^  PA_POINTER,			\/* void * *\/$/;"	e
+PA_STRING	printf.h	/^  PA_STRING,			\/* const char *, a '\\0'-terminated string *\/$/;"	e
+PA_WCHAR	printf.h	/^  PA_WCHAR,			\/* wide char *\/$/;"	e
+PA_WSTRING	printf.h	/^  PA_WSTRING,			\/* const wchar_t *, wide character string *\/$/;"	e
+PM_STR	langinfo.h	/^  PM_STR,			\/* Post meridian string.  *\/$/;"	e
+PM_STR	langinfo.h	132;"	d
+POSITIVE_SIGN	langinfo.h	396;"	d
+PRINT_INFO_CLR_FLAG	printf.h	103;"	d
+PRINT_INFO_CLR_FLAG	printf.h	128;"	d
+PRINT_INFO_CLR_FLAG	printf.h	135;"	d
+PRINT_INFO_FLAG_VAL	printf.h	101;"	d
+PRINT_INFO_FLAG_VAL	printf.h	124;"	d
+PRINT_INFO_FLAG_VAL	printf.h	131;"	d
+PRINT_INFO_SET_FLAG	printf.h	102;"	d
+PRINT_INFO_SET_FLAG	printf.h	126;"	d
+PRINT_INFO_SET_FLAG	printf.h	133;"	d
+PRINT_INFO_SET_extra	printf.h	104;"	d
+PRINT_INFO_SET_extra	printf.h	138;"	d
+PROCESS_STATUS	mosstd.h	/^} PROCESS_STATUS ;$/;"	t
+PS	mosstd.h	/^} PS ;$/;"	t
+PTRDIFF_MAX	stdint.h	265;"	d
+PTRDIFF_MAX	stdint.h	268;"	d
+PTRDIFF_MIN	stdint.h	264;"	d
+PTRDIFF_MIN	stdint.h	267;"	d
+P_CS_PRECEDES	langinfo.h	412;"	d
+P_SEP_BY_SPACE	langinfo.h	416;"	d
+P_SIGN_POSN	langinfo.h	428;"	d
+P_tmpdir	stdio.h	24;"	d
+RADIXCHAR	langinfo.h	/^  RADIXCHAR = __DECIMAL_POINT,$/;"	e
+RADIXCHAR	langinfo.h	497;"	d
+RTCTime	dtime.h	/^} RTCTime ;$/;"	t
+RUN	mosstd.h	/^	RUN,$/;"	e
+SATURDAY	mdate.h	/^	SATURDAY,$/;"	e
+SCHAR_MAX	limits.h	58;"	d
+SCHAR_MIN	limits.h	57;"	d
+SEC_PER_DAY	mdate.h	25;"	d
+SEC_PER_HOUR	mdate.h	24;"	d
+SEC_PER_MIN	mdate.h	22;"	d
+SEEK_CUR	fs.h	38;"	d
+SEEK_END	fs.h	39;"	d
+SEEK_SET	fs.h	37;"	d
+SEPTEMBER	mdate.h	/^	SEPTEMBER,$/;"	e
+SHRT_MAX	limits.h	74;"	d
+SHRT_MIN	limits.h	73;"	d
+SIG_ATOMIC_MAX	stdint.h	273;"	d
+SIG_ATOMIC_MIN	stdint.h	272;"	d
+SIZE_MAX	stdint.h	277;"	d
+SIZE_MAX	stdint.h	279;"	d
+STDBUF	stdio.h	/^} STDBUF ;$/;"	t
+STDERR_FILENO	stdio.h	79;"	d
+STDIN_FILENO	stdio.h	77;"	d
+STDOUT_FILENO	stdio.h	78;"	d
+SUNDAY	mdate.h	/^	SUNDAY,$/;"	e
+SYS_CALL_ALLOC	SysCall.h	/^		SYS_CALL_ALLOC,$/;"	e
+SYS_CALL_CHANGE_DIR	SysCall.h	/^		SYS_CALL_CHANGE_DIR,$/;"	e
+SYS_CALL_CHANGE_DRIVE	SysCall.h	/^		SYS_CALL_CHANGE_DRIVE,$/;"	e
+SYS_CALL_CURRENT_DRIVE	SysCall.h	/^		SYS_CALL_CURRENT_DRIVE,$/;"	e
+SYS_CALL_DISABLE_TASK_SWITCH	SysCall.h	/^		SYS_CALL_DISABLE_TASK_SWITCH,$/;"	e
+SYS_CALL_DISPLAY_ADDRESS	SysCall.h	/^		SYS_CALL_DISPLAY_ADDRESS,$/;"	e
+SYS_CALL_DISPLAY_CHARACTER	SysCall.h	/^		SYS_CALL_DISPLAY_CHARACTER,$/;"	e
+SYS_CALL_DISPLAY_CLR_LINE	SysCall.h	/^		SYS_CALL_DISPLAY_CLR_LINE,$/;"	e
+SYS_CALL_DISPLAY_CLR_SCR	SysCall.h	/^		SYS_CALL_DISPLAY_CLR_SCR,$/;"	e
+SYS_CALL_DISPLAY_END	SysCall.h	/^	SYS_CALL_DISPLAY_END,$/;"	e
+SYS_CALL_DISPLAY_GET_CURSOR	SysCall.h	/^		SYS_CALL_DISPLAY_GET_CURSOR,$/;"	e
+SYS_CALL_DISPLAY_MESSAGE	SysCall.h	/^		SYS_CALL_DISPLAY_MESSAGE,$/;"	e
+SYS_CALL_DISPLAY_MOV_CURSOR	SysCall.h	/^		SYS_CALL_DISPLAY_MOV_CURSOR,$/;"	e
+SYS_CALL_DISPLAY_RAW_CHAR	SysCall.h	/^		SYS_CALL_DISPLAY_RAW_CHAR,$/;"	e
+SYS_CALL_DISPLAY_SET_CURSOR	SysCall.h	/^		SYS_CALL_DISPLAY_SET_CURSOR,$/;"	e
+SYS_CALL_DISPLAY_START	SysCall.h	/^	SYS_CALL_DISPLAY_START = 0,$/;"	e
+SYS_CALL_DLL_RELOCATE	SysCall.h	/^		SYS_CALL_DLL_RELOCATE,$/;"	e
+SYS_CALL_DRIVE_END	SysCall.h	/^	SYS_CALL_DRIVE_END,$/;"	e
+SYS_CALL_DRIVE_START	SysCall.h	/^	SYS_CALL_DRIVE_START = 900,$/;"	e
+SYS_CALL_ENABLE_TASK_SWITCH	SysCall.h	/^		SYS_CALL_ENABLE_TASK_SWITCH,$/;"	e
+SYS_CALL_FILE_CLOSE	SysCall.h	/^		SYS_CALL_FILE_CLOSE,$/;"	e
+SYS_CALL_FILE_CREATE	SysCall.h	/^		SYS_CALL_FILE_CREATE,$/;"	e
+SYS_CALL_FILE_END	SysCall.h	/^	SYS_CALL_FILE_END,$/;"	e
+SYS_CALL_FILE_MODE	SysCall.h	/^		SYS_CALL_FILE_MODE,$/;"	e
+SYS_CALL_FILE_OPEN	SysCall.h	/^		SYS_CALL_FILE_OPEN,$/;"	e
+SYS_CALL_FILE_READ	SysCall.h	/^		SYS_CALL_FILE_READ,$/;"	e
+SYS_CALL_FILE_SEEK	SysCall.h	/^		SYS_CALL_FILE_SEEK,$/;"	e
+SYS_CALL_FILE_START	SysCall.h	/^	SYS_CALL_FILE_START = 200,$/;"	e
+SYS_CALL_FILE_STAT	SysCall.h	/^		SYS_CALL_FILE_STAT,$/;"	e
+SYS_CALL_FILE_STAT_FD	SysCall.h	/^		SYS_CALL_FILE_STAT_FD,$/;"	e
+SYS_CALL_FILE_TELL	SysCall.h	/^		SYS_CALL_FILE_TELL,$/;"	e
+SYS_CALL_FILE_WRITE	SysCall.h	/^		SYS_CALL_FILE_WRITE,$/;"	e
+SYS_CALL_FORMAT_DRIVE	SysCall.h	/^		SYS_CALL_FORMAT_DRIVE,$/;"	e
+SYS_CALL_FREE	SysCall.h	/^		SYS_CALL_FREE,$/;"	e
+SYS_CALL_GET_ALLOC_SIZE	SysCall.h	/^		SYS_CALL_GET_ALLOC_SIZE,$/;"	e
+SYS_CALL_GET_DIR_LIST	SysCall.h	/^		SYS_CALL_GET_DIR_LIST,$/;"	e
+SYS_CALL_KB_END	SysCall.h	/^	SYS_CALL_KB_END,$/;"	e
+SYS_CALL_KB_READ	SysCall.h	/^		SYS_CALL_KB_READ,$/;"	e
+SYS_CALL_KB_START	SysCall.h	/^	SYS_CALL_KB_START = 800,$/;"	e
+SYS_CALL_MEM_END	SysCall.h	/^	SYS_CALL_MEM_END,$/;"	e
+SYS_CALL_MEM_START	SysCall.h	/^	SYS_CALL_MEM_START = 400,$/;"	e
+SYS_CALL_MKDIR	SysCall.h	/^		SYS_CALL_MKDIR,$/;"	e
+SYS_CALL_MOUNT_DRIVE	SysCall.h	/^		SYS_CALL_MOUNT_DRIVE,$/;"	e
+SYS_CALL_NUMBERS	SysCall.h	/^} SYS_CALL_NUMBERS ;$/;"	t
+SYS_CALL_PROCESS_EXEC	SysCall.h	/^		SYS_CALL_PROCESS_EXEC,$/;"	e
+SYS_CALL_PROCESS_EXIT	SysCall.h	/^		SYS_CALL_PROCESS_EXIT,$/;"	e
+SYS_CALL_PROCESS_FREE_PS_LIST	SysCall.h	/^		SYS_CALL_PROCESS_FREE_PS_LIST,$/;"	e
+SYS_CALL_PROCESS_GET_ENV	SysCall.h	/^		SYS_CALL_PROCESS_GET_ENV,$/;"	e
+SYS_CALL_PROCESS_GET_PS_LIST	SysCall.h	/^		SYS_CALL_PROCESS_GET_PS_LIST,$/;"	e
+SYS_CALL_PROCESS_PID	SysCall.h	/^		SYS_CALL_PROCESS_PID,$/;"	e
+SYS_CALL_PROCESS_SET_ENV	SysCall.h	/^		SYS_CALL_PROCESS_SET_ENV,$/;"	e
+SYS_CALL_PROCESS_SLEEP	SysCall.h	/^		SYS_CALL_PROCESS_SLEEP,$/;"	e
+SYS_CALL_PROCESS_WAIT_PID	SysCall.h	/^		SYS_CALL_PROCESS_WAIT_PID,$/;"	e
+SYS_CALL_PROC_END	SysCall.h	/^	SYS_CALL_PROC_END,$/;"	e
+SYS_CALL_PROC_START	SysCall.h	/^	SYS_CALL_PROC_START = 600,$/;"	e
+SYS_CALL_PWD	SysCall.h	/^		SYS_CALL_PWD,$/;"	e
+SYS_CALL_RMDIR	SysCall.h	/^		SYS_CALL_RMDIR,$/;"	e
+SYS_CALL_SHOW_DRIVES	SysCall.h	/^		SYS_CALL_SHOW_DRIVES,$/;"	e
+SYS_CALL_UNMOUNT_DRIVE	SysCall.h	/^		SYS_CALL_UNMOUNT_DRIVE,$/;"	e
+SYS_CALL_UTIL_DTIME	SysCall.h	/^		SYS_CALL_UTIL_DTIME,$/;"	e
+SYS_CALL_UTIL_END	SysCall.h	/^	SYS_CALL_UTIL_END,$/;"	e
+SYS_CALL_UTIL_REBOOT	SysCall.h	/^		SYS_CALL_UTIL_REBOOT,$/;"	e
+SYS_CALL_UTIL_START	SysCall.h	/^	SYS_CALL_UTIL_START = 1200,$/;"	e
+SYS_CALL_UTIL_TOD	SysCall.h	/^		SYS_CALL_UTIL_TOD,$/;"	e
+S_GROUP	fs.h	18;"	d
+S_ISDIR	fs.h	35;"	d
+S_OTHERS	fs.h	19;"	d
+S_OWNER	fs.h	17;"	d
+TERMINATE	mosstd.h	/^	TERMINATE,$/;"	e
+THOUSANDS_SEP	langinfo.h	500;"	d
+THOUSEP	langinfo.h	/^  THOUSEP = __THOUSANDS_SEP,$/;"	e
+THOUSEP	langinfo.h	503;"	d
+THURSDAY	mdate.h	/^	THURSDAY,$/;"	e
+TOTAL_PROC_STATUS	mosstd.h	/^	TOTAL_PROC_STATUS$/;"	e
+TUESDAY	mdate.h	/^	TUESDAY,$/;"	e
+T_FMT	langinfo.h	/^  T_FMT,			\/* Time format for strftime.  *\/$/;"	e
+T_FMT	langinfo.h	139;"	d
+T_FMT_AMPM	langinfo.h	/^  T_FMT_AMPM,			\/* 12-hour time format for strftime.  *\/$/;"	e
+T_FMT_AMPM	langinfo.h	141;"	d
+UCHAR_MAX	limits.h	61;"	d
+UINT16_C	stdint.h	314;"	d
+UINT16_MAX	stdint.h	175;"	d
+UINT32_C	stdint.h	315;"	d
+UINT32_MAX	stdint.h	176;"	d
+UINT64_C	stdint.h	317;"	d
+UINT64_C	stdint.h	319;"	d
+UINT64_MAX	stdint.h	177;"	d
+UINT8_C	stdint.h	313;"	d
+UINT8_MAX	stdint.h	174;"	d
+UINTMAX_C	stdint.h	325;"	d
+UINTMAX_C	stdint.h	328;"	d
+UINTMAX_MAX	stdint.h	249;"	d
+UINTMAX_MAX	stdint.h	257;"	d
+UINTPTR_MAX	stdint.h	235;"	d
+UINTPTR_MAX	stdint.h	239;"	d
+UINT_FAST16_MAX	stdint.h	222;"	d
+UINT_FAST16_MAX	stdint.h	225;"	d
+UINT_FAST32_MAX	stdint.h	223;"	d
+UINT_FAST32_MAX	stdint.h	226;"	d
+UINT_FAST64_MAX	stdint.h	228;"	d
+UINT_FAST8_MAX	stdint.h	220;"	d
+UINT_LEAST16_MAX	stdint.h	193;"	d
+UINT_LEAST32_MAX	stdint.h	194;"	d
+UINT_LEAST64_MAX	stdint.h	195;"	d
+UINT_LEAST8_MAX	stdint.h	192;"	d
+UINT_MAX	limits.h	84;"	d
+ULLONG_MAX	limits.h	108;"	d
+ULONG_MAX	limits.h	96;"	d
+ULONG_MAX	limits.h	98;"	d
+USHRT_MAX	limits.h	77;"	d
+VFPRINTF	stdio.h	55;"	d
+WAIT_CHILD	mosstd.h	/^	WAIT_CHILD,$/;"	e
+WAIT_INT	mosstd.h	/^	WAIT_INT,$/;"	e
+WAIT_RESOURCE	mosstd.h	/^	WAIT_RESOURCE,$/;"	e
+WAIT_SLEEP	mosstd.h	/^	WAIT_SLEEP,$/;"	e
+WCHAR_MAX	stdint.h	287;"	d
+WCHAR_MIN	stdint.h	286;"	d
+WEDNESDAY	mdate.h	/^	WEDNESDAY,$/;"	e
+WINT_MAX	stdint.h	292;"	d
+WINT_MIN	stdint.h	291;"	d
+YESEXPR	langinfo.h	516;"	d
+YESSTR	langinfo.h	521;"	d
+_ABORT_H_	abort.h	2;"	d
+_BSD_SOURCE	features.h	151;"	d
+_BSD_SOURCE	features.h	152;"	d
+_BSD_SOURCE	features.h	170;"	d
+_DATE_FMT	langinfo.h	230;"	d
+_DISPLAY_H_	display.h	2;"	d
+_DRIVE_H_	drive.h	2;"	d
+_DTIME_H_	dtime.h	2;"	d
+_ERROR_H_	error.h	2;"	d
+_FEATURES_H	features.h	20;"	d
+_FILE_OFFSET_BITS	features.h	365;"	d
+_FS_H_	fs.h	2;"	d
+_GNU_SOURCE	features.h	115;"	d
+_IOFBF	stdio.h	126;"	d
+_IOLBF	stdio.h	127;"	d
+_IONBF	stdio.h	128;"	d
+_ISOC99_SOURCE	features.h	139;"	d
+_ISOC99_SOURCE	features.h	140;"	d
+_ISOC99_SOURCE	features.h	157;"	d
+_ISOC99_SOURCE	features.h	158;"	d
+_KEYBOARD_H_	kb.h	2;"	d
+_LANGINFO_H	langinfo.h	21;"	d
+_LARGEFILE64_SOURCE	features.h	149;"	d
+_LARGEFILE64_SOURCE	features.h	150;"	d
+_LARGEFILE64_SOURCE	features.h	356;"	d
+_LARGEFILE64_SOURCE	features.h	364;"	d
+_LARGEFILE64_SOURCE	features.h	370;"	d
+_LARGEFILE_SOURCE	features.h	216;"	d
+_LARGEFILE_SOURCE	features.h	217;"	d
+_LARGEFILE_SOURCE	features.h	363;"	d
+_LARGEFILE_SOURCE	features.h	369;"	d
+_LIBC	features.h	117;"	d
+_LIBC	stdlib.h	39;"	d
+_LIBC_LIMITS_H_	limits.h	24;"	d
+_LIB_MCAL_H_	mcal.h	2;"	d
+_LIB_MDATE_H_	mdate.h	2;"	d
+_LIMITS_H	limits.h	43;"	d
+_MALLOC_H_	malloc.h	2;"	d
+_MOS_STD_H_	mosstd.h	2;"	d
+_NL_CTYPE_CODESET_NAME	langinfo.h	/^  _NL_CTYPE_CODESET_NAME,	\/* uClibc note: MUST BE LAST ENTRY!!! *\/$/;"	e
+_NL_CTYPE_OUTDIGIT0_MB	langinfo.h	/^  _NL_CTYPE_OUTDIGIT0_MB = _NL_ITEM (__LC_CTYPE, 0),$/;"	e
+_NL_CTYPE_OUTDIGIT1_MB	langinfo.h	/^  _NL_CTYPE_OUTDIGIT1_MB,$/;"	e
+_NL_CTYPE_OUTDIGIT2_MB	langinfo.h	/^  _NL_CTYPE_OUTDIGIT2_MB,$/;"	e
+_NL_CTYPE_OUTDIGIT3_MB	langinfo.h	/^  _NL_CTYPE_OUTDIGIT3_MB,$/;"	e
+_NL_CTYPE_OUTDIGIT4_MB	langinfo.h	/^  _NL_CTYPE_OUTDIGIT4_MB,$/;"	e
+_NL_CTYPE_OUTDIGIT5_MB	langinfo.h	/^  _NL_CTYPE_OUTDIGIT5_MB,$/;"	e
+_NL_CTYPE_OUTDIGIT6_MB	langinfo.h	/^  _NL_CTYPE_OUTDIGIT6_MB,$/;"	e
+_NL_CTYPE_OUTDIGIT7_MB	langinfo.h	/^  _NL_CTYPE_OUTDIGIT7_MB,$/;"	e
+_NL_CTYPE_OUTDIGIT8_MB	langinfo.h	/^  _NL_CTYPE_OUTDIGIT8_MB,$/;"	e
+_NL_CTYPE_OUTDIGIT9_MB	langinfo.h	/^  _NL_CTYPE_OUTDIGIT9_MB,$/;"	e
+_NL_ITEM	langinfo.h	32;"	d
+_NL_ITEM_CATEGORY	langinfo.h	36;"	d
+_NL_ITEM_INDEX	langinfo.h	37;"	d
+_NL_MONETARY_CRNCYSTR	langinfo.h	/^  _NL_MONETARY_CRNCYSTR,$/;"	e
+_NL_NUM	langinfo.h	/^  _NL_NUM$/;"	e
+_NL_NUM_LC_MESSAGES	langinfo.h	/^  _NL_NUM_LC_MESSAGES,$/;"	e
+_NL_NUM_LC_MONETARY	langinfo.h	/^  _NL_NUM_LC_MONETARY,$/;"	e
+_NL_NUM_LC_NUMERIC	langinfo.h	/^  _NL_NUM_LC_NUMERIC,$/;"	e
+_NL_NUM_LC_TIME	langinfo.h	/^  _NL_NUM_LC_TIME,	\/* Number of indices in LC_TIME category.  *\/$/;"	e
+_NL_TYPES_H	nl_types.h	20;"	d
+_POSIX_C_SOURCE	features.h	143;"	d
+_POSIX_C_SOURCE	features.h	144;"	d
+_POSIX_C_SOURCE	features.h	161;"	d
+_POSIX_C_SOURCE	features.h	162;"	d
+_POSIX_C_SOURCE	features.h	189;"	d
+_POSIX_C_SOURCE	features.h	191;"	d
+_POSIX_SOURCE	features.h	141;"	d
+_POSIX_SOURCE	features.h	142;"	d
+_POSIX_SOURCE	features.h	159;"	d
+_POSIX_SOURCE	features.h	160;"	d
+_POSIX_SOURCE	features.h	187;"	d
+_PRINTF_H	printf.h	26;"	d
+_STDINT_H	stdint.h	24;"	d
+_STDIO_H	stdio.h	2;"	d
+_STD_ARG_H_	stdarg.h	2;"	d
+_STD_DEF_H_	stddef.h	2;"	d
+_STD_LIB_H_	stdlib.h	2;"	d
+_STRING_H	string.h	24;"	d
+_SVID_SOURCE	features.h	153;"	d
+_SVID_SOURCE	features.h	154;"	d
+_SVID_SOURCE	features.h	171;"	d
+_SYS_CALL_H_	SysCall.h	2;"	d
+_SYS_CDEFS_H	sys/cdefs.h	20;"	d
+_TERMIOS_H_	termios.h	2;"	d
+_TYPES_H_	ctype.h	2;"	d
+_XOPEN_SOURCE	features.h	145;"	d
+_XOPEN_SOURCE	features.h	146;"	d
+_XOPEN_SOURCE_EXTENDED	features.h	147;"	d
+_XOPEN_SOURCE_EXTENDED	features.h	148;"	d
+__ASMNAME	sys/cdefs.h	118;"	d
+__ASSERT_FUNCTION	assert.h	58;"	d
+__ASSERT_FUNCTION	assert.h	60;"	d
+__ASSERT_FUNCTION	assert.h	64;"	d
+__ASSERT_FUNCTION	assert.h	66;"	d
+__ASSERT_H	assert.h	24;"	d
+__BEGIN_NAMESPACE_C99	sys/cdefs.h	72;"	d
+__BEGIN_NAMESPACE_STD	sys/cdefs.h	69;"	d
+__CONCAT	sys/cdefs.h	57;"	d
+__CURRENCY_SYMBOL	langinfo.h	/^  __CURRENCY_SYMBOL,$/;"	e
+__C_isalnum	ctype.h	36;"	d
+__C_isalpha	ctype.h	32;"	d
+__C_isblank	ctype.h	18;"	d
+__C_iscntrl	ctype.h	28;"	d
+__C_isdigit	ctype.h	19;"	d
+__C_isgraph	ctype.h	50;"	d
+__C_islower	ctype.h	42;"	d
+__C_isprint	ctype.h	37;"	d
+__C_isspace	ctype.h	14;"	d
+__C_isupper	ctype.h	46;"	d
+__C_isxdigit	ctype.h	23;"	d
+__C_tolower	ctype.h	56;"	d
+__C_toupper	ctype.h	57;"	d
+__DECIMAL_POINT	langinfo.h	/^  __DECIMAL_POINT = _NL_ITEM (__LC_NUMERIC, 0),$/;"	e
+__END_NAMESPACE_C99	sys/cdefs.h	73;"	d
+__END_NAMESPACE_STD	sys/cdefs.h	70;"	d
+__ERA_YEAR	langinfo.h	/^  __ERA_YEAR,			\/* Year in alternate era format.  *\/$/;"	e
+__FAVOR_BSD	features.h	107;"	d
+__FAVOR_BSD	features.h	134;"	d
+__FRAC_DIGITS	langinfo.h	/^  __FRAC_DIGITS,$/;"	e
+__GLIBC_MINOR__	features.h	300;"	d
+__GLIBC_PREREQ	features.h	317;"	d
+__GLIBC__	features.h	299;"	d
+__GNUC_PREREQ	features.h	311;"	d
+__GNUC_PREREQ	features.h	314;"	d
+__GNUC__	features.h	110;"	d
+__GNUC__	features.h	112;"	d
+__GNU_LIBRARY__	features.h	298;"	d
+__GROUPING	langinfo.h	/^  __GROUPING,$/;"	e
+__HAVE_ELF__	features.h	118;"	d
+__INT64_C	stdint.h	153;"	d
+__INT64_C	stdint.h	156;"	d
+__INT_CURR_SYMBOL	langinfo.h	/^  __INT_CURR_SYMBOL = _NL_ITEM (__LC_MONETARY, 0),$/;"	e
+__INT_FRAC_DIGITS	langinfo.h	/^  __INT_FRAC_DIGITS,$/;"	e
+__INT_N_CS_PRECEDES	langinfo.h	/^  __INT_N_CS_PRECEDES,$/;"	e
+__INT_N_SEP_BY_SPACE	langinfo.h	/^  __INT_N_SEP_BY_SPACE,$/;"	e
+__INT_N_SIGN_POSN	langinfo.h	/^  __INT_N_SIGN_POSN,$/;"	e
+__INT_P_CS_PRECEDES	langinfo.h	/^  __INT_P_CS_PRECEDES,$/;"	e
+__INT_P_SEP_BY_SPACE	langinfo.h	/^  __INT_P_SEP_BY_SPACE,$/;"	e
+__INT_P_SIGN_POSN	langinfo.h	/^  __INT_P_SIGN_POSN,$/;"	e
+__KERNEL_STRICT_NAMES	features.h	108;"	d
+__KERNEL_STRICT_NAMES	features.h	123;"	d
+__LINUX_COMPILER_H	features.h	438;"	d
+__MON_DECIMAL_POINT	langinfo.h	/^  __MON_DECIMAL_POINT,$/;"	e
+__MON_GROUPING	langinfo.h	/^  __MON_GROUPING,$/;"	e
+__MON_THOUSANDS_SEP	langinfo.h	/^  __MON_THOUSANDS_SEP,$/;"	e
+__NEGATIVE_SIGN	langinfo.h	/^  __NEGATIVE_SIGN,$/;"	e
+__NOEXPR	langinfo.h	/^  __NOEXPR,			\/* Regex matching ``no'' input.  *\/$/;"	e
+__NOSTR	langinfo.h	/^  __NOSTR,			\/* Output string for ``no''.  *\/$/;"	e
+__NTH	sys/cdefs.h	41;"	d
+__N_CS_PRECEDES	langinfo.h	/^  __N_CS_PRECEDES,$/;"	e
+__N_SEP_BY_SPACE	langinfo.h	/^  __N_SEP_BY_SPACE,$/;"	e
+__N_SIGN_POSN	langinfo.h	/^  __N_SIGN_POSN,$/;"	e
+__OPTIMIZE_SIZE__	features.h	24;"	d
+__P	sys/cdefs.h	33;"	d
+__P	sys/cdefs.h	51;"	d
+__PA_FLAG_CHAR	printf.h	222;"	d
+__PA_INTMASK	printf.h	229;"	d
+__PA_NOARG	printf.h	/^  __PA_NOARG,			\/* non-glibc -- signals non-arg width or prec *\/$/;"	e
+__PMT	sys/cdefs.h	34;"	d
+__PMT	sys/cdefs.h	52;"	d
+__POSITIVE_SIGN	langinfo.h	/^  __POSITIVE_SIGN,$/;"	e
+__PRINT_INFO_FLAG_alt	printf.h	113;"	d
+__PRINT_INFO_FLAG_extra	printf.h	111;"	d
+__PRINT_INFO_FLAG_group	printf.h	114;"	d
+__PRINT_INFO_FLAG_i18n	printf.h	115;"	d
+__PRINT_INFO_FLAG_is_char	printf.h	118;"	d
+__PRINT_INFO_FLAG_is_long	printf.h	120;"	d
+__PRINT_INFO_FLAG_is_long_double	printf.h	121;"	d
+__PRINT_INFO_FLAG_is_short	printf.h	119;"	d
+__PRINT_INFO_FLAG_left	printf.h	112;"	d
+__PRINT_INFO_FLAG_showsign	printf.h	110;"	d
+__PRINT_INFO_FLAG_space	printf.h	109;"	d
+__PRINT_INFO_FLAG_wide	printf.h	116;"	d
+__P_CS_PRECEDES	langinfo.h	/^  __P_CS_PRECEDES,$/;"	e
+__P_SEP_BY_SPACE	langinfo.h	/^  __P_SEP_BY_SPACE,$/;"	e
+__P_SIGN_POSN	langinfo.h	/^  __P_SIGN_POSN,$/;"	e
+__REDIRECT	sys/cdefs.h	117;"	d
+__STDC_IEC_559_COMPLEX__	features.h	264;"	d
+__STDC_IEC_559__	features.h	263;"	d
+__STDC_ISO_10646__	features.h	287;"	d
+__STDIO_VA_ARG_PTR	features.h	468;"	d
+__STRING	sys/cdefs.h	58;"	d
+__THOUSANDS_SEP	langinfo.h	/^  __THOUSANDS_SEP,$/;"	e
+__THROW	sys/cdefs.h	40;"	d
+__UCLIBC_HAS_FLOATS__	stdio.h	14;"	d
+__UCLIBC__	features.h	269;"	d
+__UINT64_C	stdint.h	154;"	d
+__UINT64_C	stdint.h	157;"	d
+__USE_ANSI	features.h	127;"	d
+__USE_BSD	features.h	102;"	d
+__USE_BSD	features.h	247;"	d
+__USE_EXTERN_INLINES	features.h	338;"	d
+__USE_FILE_OFFSET64	features.h	101;"	d
+__USE_FILE_OFFSET64	features.h	239;"	d
+__USE_FILE_OFFSET64	features.h	368;"	d
+__USE_GNU	features.h	105;"	d
+__USE_GNU	features.h	255;"	d
+__USE_ISOC99	features.h	180;"	d
+__USE_ISOC99	features.h	220;"	d
+__USE_ISOC99	features.h	221;"	d
+__USE_ISOC99	features.h	90;"	d
+__USE_LARGEFILE	features.h	231;"	d
+__USE_LARGEFILE	features.h	329;"	d
+__USE_LARGEFILE	features.h	366;"	d
+__USE_LARGEFILE	features.h	371;"	d
+__USE_LARGEFILE	features.h	99;"	d
+__USE_LARGEFILE64	features.h	100;"	d
+__USE_LARGEFILE64	features.h	235;"	d
+__USE_LARGEFILE64	features.h	330;"	d
+__USE_LARGEFILE64	features.h	357;"	d
+__USE_LARGEFILE64	features.h	367;"	d
+__USE_LARGEFILE64	features.h	372;"	d
+__USE_MISC	features.h	104;"	d
+__USE_MISC	features.h	243;"	d
+__USE_POSIX	features.h	196;"	d
+__USE_POSIX	features.h	91;"	d
+__USE_POSIX199309	features.h	204;"	d
+__USE_POSIX199309	features.h	93;"	d
+__USE_POSIX199506	features.h	208;"	d
+__USE_POSIX199506	features.h	94;"	d
+__USE_POSIX2	features.h	200;"	d
+__USE_POSIX2	features.h	92;"	d
+__USE_REENTRANT	features.h	106;"	d
+__USE_REENTRANT	features.h	259;"	d
+__USE_SVID	features.h	103;"	d
+__USE_SVID	features.h	251;"	d
+__USE_UNIX98	features.h	215;"	d
+__USE_UNIX98	features.h	455;"	d
+__USE_UNIX98	features.h	97;"	d
+__USE_XOPEN	features.h	212;"	d
+__USE_XOPEN	features.h	95;"	d
+__USE_XOPEN2K	features.h	219;"	d
+__USE_XOPEN2K	features.h	98;"	d
+__USE_XOPEN_EXTENDED	features.h	214;"	d
+__USE_XOPEN_EXTENDED	features.h	225;"	d
+__USE_XOPEN_EXTENDED	features.h	96;"	d
+__USING_NAMESPACE_C99	sys/cdefs.h	74;"	d
+__USING_NAMESPACE_STD	sys/cdefs.h	71;"	d
+__YESEXPR	langinfo.h	/^  __YESEXPR = _NL_ITEM (__LC_MESSAGES, 0), \/* Regex matching ``yes'' input.  *\/$/;"	e
+__YESSTR	langinfo.h	/^  __YESSTR,			\/* Output string for ``yes''.  *\/$/;"	e
+__always_inline	sys/cdefs.h	213;"	d
+__always_inline	sys/cdefs.h	215;"	d
+__attribute__	sys/cdefs.h	126;"	d
+__attribute_deprecated__	sys/cdefs.h	160;"	d
+__attribute_deprecated__	sys/cdefs.h	162;"	d
+__attribute_format_arg__	sys/cdefs.h	172;"	d
+__attribute_format_arg__	sys/cdefs.h	174;"	d
+__attribute_format_strfmon__	sys/cdefs.h	182;"	d
+__attribute_format_strfmon__	sys/cdefs.h	185;"	d
+__attribute_malloc__	sys/cdefs.h	133;"	d
+__attribute_malloc__	sys/cdefs.h	135;"	d
+__attribute_noinline__	sys/cdefs.h	152;"	d
+__attribute_noinline__	sys/cdefs.h	155;"	d
+__attribute_pure__	sys/cdefs.h	142;"	d
+__attribute_pure__	sys/cdefs.h	144;"	d
+__attribute_used__	sys/cdefs.h	151;"	d
+__attribute_used__	sys/cdefs.h	154;"	d
+__attribute_warn_unused_result__	sys/cdefs.h	199;"	d
+__attribute_warn_unused_result__	sys/cdefs.h	205;"	d
+__bos	sys/cdefs.h	84;"	d
+__bos0	sys/cdefs.h	85;"	d
+__bounded	sys/cdefs.h	78;"	d
+__builtin_expect	features.h	429;"	d
+__cast__	features.h	441;"	d
+__const	sys/cdefs.h	43;"	d
+__extension__	sys/cdefs.h	223;"	d
+__flexarr	sys/cdefs.h	100;"	d
+__flexarr	sys/cdefs.h	91;"	d
+__flexarr	sys/cdefs.h	94;"	d
+__flexarr	sys/cdefs.h	97;"	d
+__inline	sys/cdefs.h	38;"	d
+__int8_t_defined	stdint.h	38;"	d
+__intptr_t_defined	stdint.h	124;"	d
+__intptr_t_defined	stdint.h	130;"	d
+__isdigit_char	ctype.h	10;"	d
+__isdigit_int	ctype.h	11;"	d
+__ldiv_t_defined	stdlib.h	81;"	d
+__linux__	features.h	460;"	d
+__long_double_t	sys/cdefs.h	62;"	d
+__need_FILE	printf.h	31;"	d
+__need_NULL	stdio.h	47;"	d
+__need_NULL	string.h	31;"	d
+__need_size_t	printf.h	33;"	d
+__need_size_t	stdio.h	46;"	d
+__need_size_t	string.h	30;"	d
+__need_wchar_t	printf.h	34;"	d
+__nonnull	sys/cdefs.h	191;"	d
+__nonnull	sys/cdefs.h	193;"	d
+__padding	printf.h	/^  unsigned int __padding:20;\/* non-gnu -- total of 32 bits on 32bit arch *\/$/;"	m	struct:printf_info
+__ptr_t	sys/cdefs.h	61;"	d
+__ptrvalue	sys/cdefs.h	80;"	d
+__restrict	sys/cdefs.h	228;"	d
+__restrict_arr	sys/cdefs.h	235;"	d
+__restrict_arr	sys/cdefs.h	238;"	d
+__restrict_arr	sys/cdefs.h	241;"	d
+__restrict_arr	sys/cdefs.h	244;"	d
+__signed	sys/cdefs.h	44;"	d
+__toascii	ctype.h	55;"	d
+__uint32_t_defined	stdint.h	56;"	d
+__unbounded	sys/cdefs.h	79;"	d
+__user	features.h	465;"	d
+__volatile	sys/cdefs.h	45;"	d
+__warndecl	sys/cdefs.h	86;"	d
+__wur	sys/cdefs.h	202;"	d
+__wur	sys/cdefs.h	208;"	d
+_exit	mosstd.h	39;"	d
+_flags	printf.h	/^  unsigned int _flags;		\/* non-gnu *\/$/;"	m	struct:printf_info
+_strong_alias	features.h	384;"	d
+_strong_alias	features.h	403;"	d
+_weak_alias	features.h	380;"	d
+alt	printf.h	/^  unsigned int alt:1;		\/* # flag.  *\/$/;"	m	struct:printf_info
+assert	assert.h	32;"	d
+assert	assert.h	38;"	d
+attribute_hidden	features.h	446;"	d
+attribute_hidden	features.h	448;"	d
+bCentury	dtime.h	/^	byte bCentury ;$/;"	m
+bDayOfMonth	dtime.h	/^	byte bDayOfMonth ;$/;"	m
+bDayOfWeek	dtime.h	/^	byte bDayOfWeek ;$/;"	m
+bHour	dtime.h	/^	byte bHour ;$/;"	m
+bMinute	dtime.h	/^	byte bMinute ;$/;"	m
+bMonth	dtime.h	/^	byte bMonth ;$/;"	m
+bMounted	drive.h	/^	byte			bMounted ;$/;"	m
+bParentSectorPos	fs.h	/^	byte	 		bParentSectorPos ;$/;"	m
+bSecond	dtime.h	/^	byte bSecond ;$/;"	m
+bYear	dtime.h	/^	byte bYear ;$/;"	m
+boolean	ctype.h	/^} boolean ;$/;"	t
+buf	stdio.h	/^	char* buf ;$/;"	m
+byte	stdlib.h	/^typedef unsigned char byte ;$/;"	t
+c_cc	termios.h	/^	cc_t c_cc[NCCS] ; \/\/ control chars$/;"	m	struct:termios
+c_cflag	termios.h	/^	tcflag_t c_cflag ; \/\/ control modes$/;"	m	struct:termios
+c_iflag	termios.h	/^	tcflag_t c_iflag ; \/\/ input modes$/;"	m	struct:termios
+c_lflag	termios.h	/^	tcflag_t c_lflag ; \/\/ local modes$/;"	m	struct:termios
+c_oflag	termios.h	/^	tcflag_t c_oflag ; \/\/ output modes$/;"	m	struct:termios
+cc_t	termios.h	/^typedef unsigned char cc_t ;$/;"	t
+cecho_func	stdio.h	/^typedef void cecho_func(char ch) ;$/;"	t
+chdir	fs.h	96;"	d
+chdrive	drive.h	75;"	d
+clrline	display.h	17;"	d
+clrscr	stdio.h	16;"	d
+dayOfMonth	mdate.h	/^	int dayOfMonth ;$/;"	m
+dayOfWeek	mdate.h	/^	int dayOfWeek ;$/;"	m
+deviceType	drive.h	/^	DEVICE_TYPE		deviceType ;$/;"	m
+div_t	stdlib.h	/^  } div_t;$/;"	t
+drive	drive.h	/^	Drive		drive ;$/;"	m
+driveName	drive.h	/^	char			driveName[33] ;$/;"	m
+driveNumber	drive.h	/^	DRIVE_NO		driveNumber ;$/;"	m
+driveSpace	drive.h	/^	DriveSpace	driveSpace ;$/;"	m
+dtime	dtime.h	22;"	d
+execl	mosstd.h	36;"	d
+execv	mosstd.h	37;"	d
+extra	printf.h	/^  unsigned int extra:1;		\/* For special use.  *\/$/;"	m	struct:printf_info
+false	ctype.h	/^	false = 0,$/;"	e
+format	drive.h	79;"	d
+fpos_t	stdio.h	/^typedef __STDIO_fpos_t fpos_t;$/;"	t
+freepslist	mosstd.h	42;"	d
+fsType	drive.h	/^	FS_TYPE			fsType ;$/;"	m
+get_cursor	display.h	19;"	d
+get_dir_content	fs.h	100;"	d
+get_drive_list	drive.h	76;"	d
+getcurdrive	drive.h	80;"	d
+getpid	mosstd.h	40;"	d
+getpslist	mosstd.h	41;"	d
+getpwd	fs.h	97;"	d
+group	printf.h	/^  unsigned int group:1;		\/* ' flag.  *\/$/;"	m	struct:printf_info
+i18n	printf.h	/^  unsigned int i18n:1;		\/* I flag.  *\/$/;"	m	struct:printf_info
+iParentProcessID	mosstd.h	/^	int iParentProcessID ;$/;"	m
+iProcessGroupID	mosstd.h	/^	int iProcessGroupID ;$/;"	m
+iUserID	fs.h	/^	int				iUserID ;$/;"	m
+iUserID	mosstd.h	/^	int iUserID ;$/;"	m
+int16_t	stdint.h	/^typedef short int		int16_t;$/;"	t
+int32_t	stdint.h	/^typedef int			int32_t;$/;"	t
+int64_t	stdint.h	/^typedef long int		int64_t;$/;"	t
+int64_t	stdint.h	/^typedef long long int		int64_t;$/;"	t
+int8_t	stdint.h	/^typedef signed char		int8_t;$/;"	t
+int_fast16_t	stdint.h	/^typedef int			int_fast16_t;$/;"	t
+int_fast16_t	stdint.h	/^typedef long int		int_fast16_t;$/;"	t
+int_fast32_t	stdint.h	/^typedef int			int_fast32_t;$/;"	t
+int_fast32_t	stdint.h	/^typedef long int		int_fast32_t;$/;"	t
+int_fast64_t	stdint.h	/^typedef long int		int_fast64_t;$/;"	t
+int_fast64_t	stdint.h	/^typedef long long int		int_fast64_t;$/;"	t
+int_fast8_t	stdint.h	/^typedef signed char		int_fast8_t;$/;"	t
+int_least16_t	stdint.h	/^typedef short int		int_least16_t;$/;"	t
+int_least32_t	stdint.h	/^typedef int			int_least32_t;$/;"	t
+int_least64_t	stdint.h	/^typedef long int		int_least64_t;$/;"	t
+int_least64_t	stdint.h	/^typedef long long int		int_least64_t;$/;"	t
+int_least8_t	stdint.h	/^typedef signed char		int_least8_t;$/;"	t
+internal_function	features.h	424;"	d
+intmax_t	stdint.h	/^typedef long int		intmax_t;$/;"	t
+intmax_t	stdint.h	/^typedef long long int		intmax_t;$/;"	t
+intptr_t	stdint.h	/^typedef int			intptr_t;$/;"	t
+intptr_t	stdint.h	/^typedef long int		intptr_t;$/;"	t
+is_char	printf.h	/^  unsigned int is_char:1;	\/* hh flag.  *\/$/;"	m	struct:printf_info
+is_long	printf.h	/^  unsigned int is_long:1;	\/* l flag.  *\/$/;"	m	struct:printf_info
+is_long_double	printf.h	/^  unsigned int is_long_double:1;\/* L flag.  *\/$/;"	m	struct:printf_info
+is_short	printf.h	/^  unsigned int is_short:1;	\/* h flag.  *\/$/;"	m	struct:printf_info
+kb_get_ch_wait	kb.h	43;"	d
+ldiv_t	stdlib.h	/^  } ldiv_t;$/;"	t
+left	printf.h	/^  unsigned int left:1;		\/* - flag.  *\/$/;"	m	struct:printf_info
+likely	features.h	432;"	d
+link_warning	features.h	393;"	d
+link_warning	features.h	395;"	d
+link_warning	features.h	406;"	d
+mdate	mdate.h	/^} mdate ;$/;"	t
+mkdir	fs.h	98;"	d
+month	mdate.h	/^	int month ;$/;"	m
+mount	drive.h	77;"	d
+movcursor	display.h	16;"	d
+nl_catd	nl_types.h	/^typedef void *nl_catd;$/;"	t
+nl_item	nl_types.h	/^typedef int nl_item;$/;"	t
+pad	printf.h	/^  int pad;$/;"	m	struct:printf_info
+pad	printf.h	/^  wchar_t pad;			\/* Padding character.  *\/$/;"	m	struct:printf_info
+pid	mosstd.h	/^	int pid ;$/;"	m
+pid_t	mosstd.h	4;"	d
+pname	mosstd.h	/^	char* pname ;$/;"	m
+pos	stdio.h	/^	int pos ;$/;"	m
+prec	printf.h	/^  int prec;			\/* Precision.  *\/$/;"	m	struct:printf_info
+printf_arginfo_function	printf.h	/^typedef int printf_arginfo_function (__const struct printf_info *__info,$/;"	t
+printf_function	printf.h	/^typedef int (*printf_function) (FILE *__stream,$/;"	t
+printf_info	printf.h	/^struct printf_info$/;"	s
+putchar	stdio.h	17;"	d
+putnum	stdio.h	19;"	d
+putrawc	stdio.h	20;"	d
+quot	stdlib.h	/^    int quot;			\/* Quotient.  *\/$/;"	m
+quot	stdlib.h	/^    long int quot;		\/* Quotient.  *\/$/;"	m
+reboot	stdlib.h	61;"	d
+rem	stdlib.h	/^    int rem;			\/* Remainder.  *\/$/;"	m
+rem	stdlib.h	/^    long int rem;		\/* Remainder.  *\/$/;"	m
+set_cursor	display.h	18;"	d
+showsign	printf.h	/^  unsigned int showsign:1;	\/* + flag.  *\/$/;"	m	struct:printf_info
+size_t	stddef.h	/^typedef int size_t ;$/;"	t
+sleep	stdlib.h	62;"	d
+space	printf.h	/^  unsigned int space:1;		\/* Space flag.  *\/$/;"	m	struct:printf_info
+spec	printf.h	/^  int spec;$/;"	m	struct:printf_info
+spec	printf.h	/^  wchar_t spec;			\/* Format letter.  *\/$/;"	m	struct:printf_info
+ssize_t	stddef.h	/^typedef long ssize_t ;$/;"	t
+st_atime	fs.h	/^	struct timeval    	st_atime;   \/* time of last access *\/$/;"	m	struct:stat
+st_blksize	fs.h	/^	unsigned	st_blksize; \/* blocksize for filesystem I\/O *\/$/;"	m	struct:stat
+st_blocks	fs.h	/^	unsigned  	st_blocks;  \/* number of blocks allocated *\/$/;"	m	struct:stat
+st_ctime	fs.h	/^	struct timeval   	st_ctime;   \/* time of last status change *\/$/;"	m	struct:stat
+st_dev	fs.h	/^	int 	    st_dev;     \/* ID of device containing file *\/$/;"	m	struct:stat
+st_gid	fs.h	/^	int     	st_gid;     \/* group ID of owner *\/$/;"	m	struct:stat
+st_ino	fs.h	/^	int     	st_ino;     \/* inode number *\/$/;"	m	struct:stat
+st_mode	fs.h	/^	unsigned short    	st_mode;    \/* protection *\/$/;"	m	struct:stat
+st_mtime	fs.h	/^	struct timeval    	st_mtime;   \/* time of last modification *\/$/;"	m	struct:stat
+st_nlink	fs.h	/^	int   		st_nlink;   \/* number of hard links *\/$/;"	m	struct:stat
+st_rdev	fs.h	/^	int     	st_rdev;    \/* device ID (if special file) *\/$/;"	m	struct:stat
+st_size	fs.h	/^	unsigned    st_size;    \/* total size, in bytes *\/$/;"	m	struct:stat
+st_uid	fs.h	/^	int     	st_uid;     \/* user ID of owner *\/$/;"	m	struct:stat
+stat	fs.h	/^struct stat$/;"	s
+status	mosstd.h	/^	PROCESS_STATUS status ;$/;"	m
+stderr	stdio.h	136;"	d
+stdin	stdio.h	134;"	d
+stdout	stdio.h	135;"	d
+strong_alias	features.h	383;"	d
+strong_alias	features.h	401;"	d
+strtok_r	string.h	134;"	d
+tSec	dtime.h	/^	time_t tSec ;$/;"	m	struct:timeval
+tcflag_t	termios.h	/^typedef unsigned tcflag_t ;$/;"	t
+termios	termios.h	/^struct termios$/;"	s
+termios_consts	termios.h	/^} termios_consts ;$/;"	t
+time_t	dtime.h	/^typedef unsigned time_t ;$/;"	t
+timeval	dtime.h	/^struct timeval$/;"	s
+tok_compare_func	string.h	/^typedef boolean tok_compare_func(char ch) ;$/;"	t
+tok_copy_func	string.h	/^typedef void tok_copy_func(int index, const char* src, int len) ;$/;"	t
+tok_group_func	string.h	/^typedef boolean tok_group_func(char ch) ;$/;"	t
+true	ctype.h	/^	true$/;"	e
+u_int32_t	stdint.h	/^typedef unsigned int		u_int32_t;$/;"	t
+uiEndCynlider	drive.h	/^	unsigned		uiEndCynlider ;$/;"	m
+uiEndHead	drive.h	/^	unsigned		uiEndHead ;$/;"	m
+uiEndSector	drive.h	/^	unsigned		uiEndSector ;$/;"	m
+uiID	drive.h	/^	unsigned		uiID ;$/;"	m
+uiLBAStartSector	drive.h	/^	unsigned		uiLBAStartSector ;$/;"	m
+uiNoOfHeads	drive.h	/^	unsigned		uiNoOfHeads ;$/;"	m
+uiParentSecID	fs.h	/^	unsigned		uiParentSecID ;$/;"	m
+uiSectorsPerTrack	drive.h	/^	unsigned		uiSectorsPerTrack ;$/;"	m
+uiSize	fs.h	/^	unsigned		uiSize ;$/;"	m
+uiSizeInSectors	drive.h	/^	unsigned		uiSizeInSectors ;$/;"	m
+uiStartCynlider	drive.h	/^	unsigned		uiStartCynlider ;$/;"	m
+uiStartHead	drive.h	/^	unsigned		uiStartHead ;$/;"	m
+uiStartSector	drive.h	/^	unsigned		uiStartSector ;$/;"	m
+uiStartSectorID	fs.h	/^	unsigned		uiStartSectorID ;$/;"	m
+uiTracksPerHead	drive.h	/^	unsigned		uiTracksPerHead ;$/;"	m
+uint16_t	stdint.h	/^typedef unsigned short int	uint16_t;$/;"	t
+uint32_t	stdint.h	/^typedef unsigned int		uint32_t;$/;"	t
+uint64_t	stdint.h	/^typedef unsigned long int	uint64_t;$/;"	t
+uint64_t	stdint.h	/^typedef unsigned long long int	uint64_t;$/;"	t
+uint8_t	stdint.h	/^typedef unsigned char		uint8_t;$/;"	t
+uint_fast16_t	stdint.h	/^typedef unsigned int		uint_fast16_t;$/;"	t
+uint_fast16_t	stdint.h	/^typedef unsigned long int	uint_fast16_t;$/;"	t
+uint_fast32_t	stdint.h	/^typedef unsigned int		uint_fast32_t;$/;"	t
+uint_fast32_t	stdint.h	/^typedef unsigned long int	uint_fast32_t;$/;"	t
+uint_fast64_t	stdint.h	/^typedef unsigned long int	uint_fast64_t;$/;"	t
+uint_fast64_t	stdint.h	/^typedef unsigned long long int	uint_fast64_t;$/;"	t
+uint_fast8_t	stdint.h	/^typedef unsigned char		uint_fast8_t;$/;"	t
+uint_least16_t	stdint.h	/^typedef unsigned short int	uint_least16_t;$/;"	t
+uint_least32_t	stdint.h	/^typedef unsigned int		uint_least32_t;$/;"	t
+uint_least64_t	stdint.h	/^typedef unsigned long int	uint_least64_t;$/;"	t
+uint_least64_t	stdint.h	/^typedef unsigned long long int	uint_least64_t;$/;"	t
+uint_least8_t	stdint.h	/^typedef unsigned char		uint_least8_t;$/;"	t
+uintmax_t	stdint.h	/^typedef unsigned long int	uintmax_t;$/;"	t
+uintmax_t	stdint.h	/^typedef unsigned long long int	uintmax_t;$/;"	t
+uintptr_t	stdint.h	/^typedef unsigned int		uintptr_t;$/;"	t
+uintptr_t	stdint.h	/^typedef unsigned long int	uintptr_t;$/;"	t
+ulTotalSize	drive.h	/^	unsigned long	ulTotalSize ;$/;"	m
+ulUsedSize	drive.h	/^	unsigned long	ulUsedSize ;$/;"	m
+umount	drive.h	78;"	d
+unlikely	features.h	435;"	d
+unlink	fs.h	99;"	d
+usAttribute	fs.h	/^	unsigned short	usAttribute ;$/;"	m
+va_arg	stdarg.h	11;"	d
+va_copy	stdarg.h	14;"	d
+va_end	stdarg.h	9;"	d
+va_list	stdarg.h	/^typedef void* va_list ;$/;"	t
+va_start	stdarg.h	6;"	d
+waitpid	mosstd.h	38;"	d
+weak_alias	features.h	379;"	d
+weak_alias	features.h	402;"	d
+weak_const_function	features.h	389;"	d
+weak_const_function	features.h	417;"	d
+weak_function	features.h	388;"	d
+weak_function	features.h	416;"	d
+wide	printf.h	/^  unsigned int wide:1;		\/* Nonzero for wide character streams.  *\/$/;"	m	struct:printf_info
+width	printf.h	/^  int width;			\/* Width.  *\/$/;"	m	struct:printf_info
+year	mdate.h	/^	int year ;$/;"	m
