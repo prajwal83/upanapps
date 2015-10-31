@@ -14,26 +14,26 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/
 
-MOSAPP_HOME=`pwd`
-export MOSAPP_HOME
+export COMPILER=i686-elf-gcc
 
-MOS_HOME=$MOSAPP_HOME/../
-export MOS_HOME
+export MOSAPP_HOME=`pwd`
 
-MOSAPP_SHELL_HOME=${MOSAPP_HOME}/shell
-export MOSAPP_SHELL_HOME
+export MOS_HOME=$MOSAPP_HOME/../
 
-MOSAPP_LIBC_HOME=${MOSAPP_HOME}/libc
-export MOSAPP_LIBC_HOME
+export MOSAPP_SHELL_HOME=${MOSAPP_HOME}/shell
 
-MOSAPP_LIBMTERM_HOME=${MOSAPP_HOME}/libmterm
-export MOSAPP_LIBMTERM_HOME
+export MOSAPP_LIBC_HOME=${MOSAPP_HOME}/libc
 
-MOSAPP_LIBM_HOME=${MOSAPP_HOME}/libm
-export MOSAPP_LIBM_HOME
+export MOSAPP_LIBMTERM_HOME=${MOSAPP_HOME}/libmterm
 
-MOSAPP_EDIT_HOME=${MOSAPP_HOME}/editor
-export MOSAPP_EDIT_HOME
+export MOSAPP_LIBMCAL_HOME=${MOSAPP_HOME}/libmcal
 
-MOSAPP_NASM_HOME=${MOSAPP_HOME}/nasm
-export MOSAPP_NASM_HOME
+export MOSAPP_LIBM_HOME=${MOSAPP_HOME}/libm
+
+export MOSAPP_LIBIT_HOME=${MOSAPP_HOME}/libit
+
+export MOSAPP_EDIT_HOME=${MOSAPP_HOME}/editor
+
+export MOSAPP_NASM_HOME=${MOSAPP_HOME}/nasm
+
+export MOSAPP_BINUTILS_HOME=${MOSAPP_HOME}/binutils/binutils-2.17

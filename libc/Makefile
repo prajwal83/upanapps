@@ -13,8 +13,7 @@
 #                                                                            
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/
-CC = gcc
-LD = ld
+CC = i686-elf-gcc
 
 LIB_PORT = ${MOSAPP_LIBC_HOME}/lib_port
 CTYPE = ${MOSAPP_LIBC_HOME}/ctype
@@ -39,7 +38,7 @@ libc:
 	cd ${DISPLAY} && make
 	
 	@make -f Makefile.act 
-	@cp libc.so ${MOS_HOME}/MOSTools/yard/
+	@cp libc.so ${MOS_HOME}/tools/yard/
 	
 clean:
 	cd ${CTYPE} && make clean

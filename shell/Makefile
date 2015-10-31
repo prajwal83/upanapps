@@ -13,8 +13,7 @@
 #                                                                            
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/
-CC = gcc
-LD = ld
+CC = ${COMPILER}
 
 MAIN = ${MOSAPP_SHELL_HOME}/main
 
@@ -25,7 +24,7 @@ CFLAGS = ${C_FLAGS} ${INCLUDE}
 shell:
 	cd ${MAIN} && make
 	@make -f Makefile.act 
-	@cp msh ${MOS_HOME}/MOSTools/yard/
+	@cp msh ${MOS_HOME}/tools/yard/
 	
 clean:
 	cd ${MAIN} && make clean

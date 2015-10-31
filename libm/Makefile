@@ -13,8 +13,7 @@
 #                                                                            
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/
-CC = gcc
-LD = ld
+CC = ${COMPILER}
 
 INCLUDE = ${INCLUDES}
 
@@ -24,7 +23,7 @@ libm:
 	@${CC} ${INCLUDE} -M *.c > depend.d
 	@make -f Makefile.act 
 	@make -f Makefile.act.link
-	@cp libm.so ${MOS_HOME}/MOSTools/yard/
+	@cp libm.so ${MOS_HOME}/tools/yard/
 	
 clean:
 	rm -f *.o

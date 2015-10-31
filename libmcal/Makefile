@@ -1,5 +1,4 @@
-CC = gcc
-LD = ld
+CC = ${COMPILER}
 
 MAIN = ${MOSAPP_LIBMCAL_HOME}/main
 
@@ -11,7 +10,7 @@ libc:
 	cd ${MAIN} && make
 	
 	@make -f Makefile.act 
-	@cp libmcal.so ${MOS_HOME}/MOSTools/yard/
+	@cp libmcal.so ${MOS_HOME}/tools/yard/
 	
 clean:
 	cd ${MAIN} && make clean

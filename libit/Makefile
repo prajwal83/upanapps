@@ -1,4 +1,4 @@
-CC = gcc
+CC = ${COMPILER}
 AR = ar
 INCLUDE = ${INCLUDES}
 
@@ -9,7 +9,7 @@ it:
 	${AR} -rf libit.a it.o
 	
 clean:
-	rm *.o *.a
+	rm -f *.o *.a
 
 distclean:
-	rm *.o *.a
+	rm -f *.o *.a

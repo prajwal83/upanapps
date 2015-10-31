@@ -1,7 +1,0 @@
-include/MTerm.h
-Makefile.act
-main/Makefile.act
-main/MTerm.c
-main/Makefile
-setup.sh
-Makefile

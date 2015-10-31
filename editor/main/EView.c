@@ -133,7 +133,6 @@ static void EView_WarningBox(char text[], int interact)
 
 static void EView_MessageBox(char text[], int margin, int *value, int option)
 {
-	int len = 3 ;
 	char tempfl[105] = "\0" ;
 
 	MWindow* pMsgWin = MTerm_CreateWindow(10, 40) ;
@@ -147,7 +146,6 @@ static void EView_MessageBox(char text[], int margin, int *value, int option)
 		char b[20] ;
 		sprintf(b, ": %d", *value) ;
 		MTerm_WinMovePutString(pMsgWin, 1, 30, b) ;
-		len = 1 ;
 	}
 
 	EView_DrawBorderInBack(pMsgWin) ;

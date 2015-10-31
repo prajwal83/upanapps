@@ -13,8 +13,7 @@
 #                                                                            
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/
-CC = gcc
-LD = ld
+CC = ${COMPILER}
 
 MAIN = ${MOSAPP_LIBMTERM_HOME}/main
 
@@ -26,7 +25,7 @@ libc:
 	cd ${MAIN} && make
 	
 	@make -f Makefile.act 
-	@cp libmterm.so ${MOS_HOME}/MOSTools/yard/
+	@cp libmterm.so ${MOS_HOME}/tools/yard/
 	
 clean:
 	cd ${MAIN} && make clean

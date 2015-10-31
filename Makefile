@@ -1,5 +1,4 @@
 CC = ${COMPILER}
-LD = ld
 
 SHELL = ${MOSAPP_HOME}/shell/
 LIBC = ${MOSAPP_HOME}/libc/
