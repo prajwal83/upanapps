@@ -13,23 +13,21 @@
 #                                                                            
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/
-CC = ${COMPILER}
+DEPS := $(shell $(UPANAPPS_HOME)/depend.sh)
+LD_FLAGS := $(shell . $(UPANAPPS_HOME)/setup.sh; env | grep "\<LD_FLAGS\>" | cut -d"=" -f2)
+CC := $(shell . $(UPANAPPS_HOME)/setup.sh; env | grep "\<CC\>" | cut -d"=" -f2)
+EDITOR_OBJS := $(patsubst %.c,%.o,$(shell find . -name "*.c"))
 
-MAIN = ${MOSAPP_EDIT_HOME}/main
+build: ${EDITOR_OBJS} editor
 
-INCLUDE = ${INCLUDES}
+include depend.d
 
-CFLAGS = ${C_FLAGS} ${INCLUDE}
+editor: ${EDITOR_OBJS}
+	${CC} ${LD_FLAGS} ${EDITOR_OBJS} -o edit -e main -L${UPANAPPS_HOME}/libc -lc -L${UPANAPPS_HOME}/libmterm -lmterm
 
-editor:
-	cd ${MAIN} && make
-	@make -f Makefile.act 
-	@cp edit ${MOS_HOME}/tools/yard/
-	
 clean:
-	cd ${MAIN} && make clean
+	rm -f *.o
 
 distclean:
-	cd ${MAIN} && make distclean
-	rm -f msh
-	find . -name "depend.d" -exec rm {} \;
+	rm -f *.o
+	rm -f edit

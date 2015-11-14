@@ -13,24 +13,21 @@
 #                                                                            
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/
-CC = ${COMPILER}
+DEPS := $(shell $(UPANAPPS_HOME)/depend.sh)
+LD_FLAGS := $(shell . $(UPANAPPS_HOME)/setup.sh; env | grep "\<LD_FLAGS\>" | cut -d"=" -f2)
+CC := $(shell . $(UPANAPPS_HOME)/setup.sh; env | grep "\<CC\>" | cut -d"=" -f2)
+LIBM_OBJS := $(patsubst %.c,%.o,$(shell find . -name "*.c"))
 
-INCLUDE = ${INCLUDES}
+build: ${LIBM_OBJS} libm
 
-CFLAGS = ${C_FLAGS} ${INCLUDE}
+include depend.d
 
-libm:
-	@${CC} ${INCLUDE} -M *.c > depend.d
-	@make -f Makefile.act 
-	@make -f Makefile.act.link
-	@cp libm.so ${MOS_HOME}/tools/yard/
-	
+libm: ${LIBM_OBJS}
+	${CC} ${LD_FLAGS} ${LIBM_OBJS} -o libm.so
+
 clean:
 	rm -f *.o
-	rm -f libm.so
 
 distclean:
 	rm -f *.o
 	rm -f libm.so
-	find . -name "depend.d" -exec rm {} \;
-

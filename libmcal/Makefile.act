@@ -1,5 +1,0 @@
-CC = ${COMPILER}
-
-libmcal-build:
-	${CC} ${C_FLAGS_OUT} ${shell find . -name *.o} -o libmcal.so
-

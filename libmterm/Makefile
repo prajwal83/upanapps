@@ -13,26 +13,21 @@
 #                                                                            
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/
-CC = ${COMPILER}
+DEPS := $(shell $(UPANAPPS_HOME)/depend.sh)
+LD_FLAGS := $(shell . $(UPANAPPS_HOME)/setup.sh; env | grep "\<LD_FLAGS\>" | cut -d"=" -f2)
+CC := $(shell . $(UPANAPPS_HOME)/setup.sh; env | grep "\<CC\>" | cut -d"=" -f2)
+LIBMTERM_OBJS := $(patsubst %.c,%.o,$(shell find . -name "*.c"))
 
-MAIN = ${MOSAPP_LIBMTERM_HOME}/main
+build: ${LIBMTERM_OBJS} libmterm
 
-INCLUDE = ${INCLUDES}
+include depend.d
 
-CFLAGS = ${C_FLAGS} ${INCLUDE}
+libmterm: ${LIBMTERM_OBJS}
+	${CC} ${LD_FLAGS} ${LIBMTERM_OBJS} -o libmterm.so
 
-libc:
-	cd ${MAIN} && make
-	
-	@make -f Makefile.act 
-	@cp libmterm.so ${MOS_HOME}/tools/yard/
-	
 clean:
-	cd ${MAIN} && make clean
+	rm -f *.o
 
 distclean:
-	cd ${MAIN} && make distclean
-
+	rm -f *.o
 	rm -f libmterm.so
-	find . -name "depend.d" -exec rm {} \;
-

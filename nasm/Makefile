@@ -13,26 +13,29 @@
 #                                                                            
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/
-CC = ${COMPILER}
+LD_FLAGS := $(shell . $(UPANAPPS_HOME)/setup.sh; env | grep "\<LD_FLAGS\>" | cut -d"=" -f2)
+CC := $(shell . $(UPANAPPS_HOME)/setup.sh; env | grep "\<CC\>" | cut -d"=" -f2)
+NASM_OBJS := $(patsubst %.c,%.o,$(shell find nasm_src -name *.c))
+NDISASM_OBJS := $(patsubst %.c,%.o,$(shell find ndisasm_src -name *.c))
 
-MAIN = ${MOSAPP_NASM_HOME}/main
+build: subdir nasm ndisasm
 
-INCLUDE = ${INCLUDES}
+subdir:
+	cd nasm_src && make
+	cd ndisasm_src && make
 
-CFLAGS = ${C_FLAGS} ${INCLUDE}
+nasm: ${NASM_OBJS}
+	${CC} ${LD_FLAGS} ${NASM_OBJS} -o nasm -e main -L${UPANAPPS_HOME}/libc -lc
 
-nasm:
-	cd ${MAIN} && make
-	@make -f Makefile.act 
-	@cp nasm ndisasm ${MOS_HOME}/tools/yard/
-	
+ndisasm: ${NDISASM_OBJS}
+	${CC} ${LD_FLAGS} ${NDISASM_OBJS} -o ndisasm -e main -L${UPANAPPS_HOME}/libc -lc
+
 clean:
-	cd ${MAIN} && make clean
-	rm -f nasm
-	rm -f ndisasm
+	cd nasm_src && make clean
+	cd ndisasm_src && make clean
 
 distclean:
-	cd ${MAIN} && make distclean
+	cd nasm_src && make clean
+	cd ndisasm_src && make clean
 	rm -f nasm
 	rm -f ndisasm
-	find . -name "depend.d" -exec rm {} \;

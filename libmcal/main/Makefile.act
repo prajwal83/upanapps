@@ -1,9 +1,0 @@
-CC = ${COMPILER}
-INCLUDE = ${INCLUDES}
-CFLAGS = ${C_FLAGS} ${INCLUDE}
-
-OBJS := $(patsubst %.c,%.o,$(wildcard *.c))
-
-mcal-build: ${OBJS}
-include depend.d
-

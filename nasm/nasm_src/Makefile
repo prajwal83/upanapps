@@ -13,19 +13,15 @@
 #                                                                            
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/
-CC = ${COMPILER}
-INCLUDE = ${INCLUDES}
+DEPS := $(shell $(UPANAPPS_HOME)/depend.sh)
+OBJS := $(patsubst %.c,%.o,$(wildcard *.c))
 
-msh-main: 
-	@${CC} ${INCLUDE} -M *.c > depend.d
-	cd output && make
-	@make -f Makefile.act
+build: ${OBJS}
+
+include depend.d
 
 clean:
-	cd output && make clean
 	rm -f *.o
 
 distclean:
-	cd output && make distclean
 	rm -f *.o
-	

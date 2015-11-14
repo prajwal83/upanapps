@@ -13,51 +13,39 @@
 #                                                                            
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/
-CC = i686-elf-gcc
+LD_FLAGS := $(shell . $(UPANAPPS_HOME)/setup.sh; env | grep "\<LD_FLAGS\>" | cut -d"=" -f2)
+CC := $(shell . $(UPANAPPS_HOME)/setup.sh; env | grep "\<CC\>" | cut -d"=" -f2)
+LIBC_OBJS := $(patsubst %.c,%.o,$(shell find . -name *.c))
 
-LIB_PORT = ${MOSAPP_LIBC_HOME}/lib_port
-CTYPE = ${MOSAPP_LIBC_HOME}/ctype
-STRING = ${MOSAPP_LIBC_HOME}/string
-SYS = ${MOSAPP_LIBC_HOME}/sys
-STDIO = ${MOSAPP_LIBC_HOME}/stdio
-STDLIB = ${MOSAPP_LIBC_HOME}/stdlib
-STDCAL = ${MOSAPP_LIBC_HOME}/stdcal
-DISPLAY = ${MOSAPP_LIBC_HOME}/display
+build: subdir libc.so
 
-INCLUDE = ${INCLUDES}
+subdir:
+	cd ctype && make
+	cd string && make
+	cd sys && make
+	cd stdio && make
+	cd stdlib && make
+	cd stdcal && make
+	cd display && make
 
-CFLAGS = ${C_FLAGS} ${INCLUDE}
+libc.so: ${LIBC_OBJS}
+	${CC} ${LD_FLAGS} ${LIBC_OBJS} -o libc.so
 
-libc:
-	cd ${CTYPE} && make
-	cd ${STRING} && make
-	cd ${SYS} && make
-	cd ${STDIO} && make
-	cd ${STDLIB} && make
-	cd ${STDCAL} && make
-	cd ${DISPLAY} && make
-	
-	@make -f Makefile.act 
-	@cp libc.so ${MOS_HOME}/tools/yard/
-	
 clean:
-	cd ${CTYPE} && make clean
-	cd ${STRING} && make clean
-	cd ${SYS} && make clean
-	cd ${STDIO} && make clean
-	cd ${STDLIB} && make clean
-	cd ${STDCAL} && make clean
-	cd ${DISPLAY} && make clean
+	cd ctype && make clean
+	cd string && make clean
+	cd sys && make clean
+	cd stdio && make clean
+	cd stdlib && make clean
+	cd stdcal && make clean
+	cd display && make clean
 
 distclean:
-	cd ${CTYPE} && make distclean
-	cd ${STRING} && make distclean
-	cd ${SYS} && make distclean
-	cd ${STDIO} && make distclean
-	cd ${STDLIB} && make distclean
-	cd ${STDCAL} && make distclean
-	cd ${DISPLAY} && make distclean
-
+	cd ctype && make distclean
+	cd string && make distclean
+	cd sys && make distclean
+	cd stdio && make distclean
+	cd stdlib && make distclean
+	cd stdcal && make distclean
+	cd display && make distclean
 	rm -f libc.so
-	find . -name "depend.d" -exec rm {} \;
-

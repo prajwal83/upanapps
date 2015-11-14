@@ -1,23 +1,33 @@
-CC = ${COMPILER}
+#    Mother Operating System - An x86 based Operating System
+#    Copyright (C) 2011 'Prajwala Prabhakar' 'srinivasa_prajwal@yahoo.co.in'
+#                                                                            
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#                                                                            
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#                                                                            
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/
+DEPS := $(shell $(UPANAPPS_HOME)/depend.sh)
+LD_FLAGS := $(shell . $(UPANAPPS_HOME)/setup.sh; env | grep "\<LD_FLAGS\>" | cut -d"=" -f2)
+CC := $(shell . $(UPANAPPS_HOME)/setup.sh; env | grep "\<CC\>" | cut -d"=" -f2)
+LIBMCAL_OBJS := $(patsubst %.c,%.o,$(shell find . -name "*.c"))
 
-MAIN = ${MOSAPP_LIBMCAL_HOME}/main
+build: ${LIBMCAL_OBJS} libmcal
 
-INCLUDE = ${INCLUDES}
+include depend.d
 
-CFLAGS = ${C_FLAGS} ${INCLUDE}
+libmcal: ${LIBMCAL_OBJS}
+	${CC} ${LD_FLAGS} ${LIBMCAL_OBJS} -o libmcal.so
 
-libc:
-	cd ${MAIN} && make
-	
-	@make -f Makefile.act 
-	@cp libmcal.so ${MOS_HOME}/tools/yard/
-	
 clean:
-	cd ${MAIN} && make clean
+	rm -f *.o
 
 distclean:
-	cd ${MAIN} && make distclean
-
+	rm -f *.o
 	rm -f libmcal.so
-	find . -name "depend.d" -exec rm {} \;
-

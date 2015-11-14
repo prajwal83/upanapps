@@ -13,27 +13,62 @@
 #                                                                            
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/
+export CXX=i686-elf-g++
+export CC=i686-elf-gcc
 
-export COMPILER=i686-elf-gcc
+UPANAPPS=`basename $UPANAPPS_HOME`
+PWD=`pwd`
+COMP=`echo $PWD | sed "s/^.*$UPANAPPS//g" | cut -d"/" -f2`
 
-export UPANIXAPP_HOME=`pwd`
+IS_LIB="no"
 
-export UPANIX_HOME=$UPANIXAPP_HOME/../
+LIBC_INCLUDE="-I${UPANAPPS_HOME}/libc/include \
+-I${UPANAPPS_HOME}/libc/sysdeps/mos/common/ \
+-I${UPANAPPS_HOME}/libc/sysdeps/mos/common/bits"
 
-export UPANIXAPP_SHELL_HOME=${UPANIXAPP_HOME}/shell
+LIBM_INCLUDE="-I${UPANAPPS_HOME}/libm/include -I${UPANAPPS_HOME}/libm/include/bits"
 
-export UPANIXAPP_LIBC_HOME=${UPANIXAPP_HOME}/libc
+LIBMCAL_INCLUDE="-I${UPANAPPS_HOME}/libmcal/include"
 
-export UPANIXAPP_LIBMTERM_HOME=${UPANIXAPP_HOME}/libmterm
+LIBMTERM_INCLUDE="-I${UPANAPPS_HOME}/libmterm/include"
 
-export UPANIXAPP_LIBMCAL_HOME=${UPANIXAPP_HOME}/libmcal
+if [ $COMP = "libc" ]
+then
+  export INCLUDE=" -I./ ${LIBC_INCLUDE}"
+  IS_LIB="yes"
+elif [ $COMP = "libm" ]
+then
+  export INCLUDE=" -I./ ${LIBM_INCLUDE} ${LIBC_INCLUDE}"
+  IS_LIB="yes"
+elif [ $COMP = "libmcal" ]
+then
+  export INCLUDE=" -I./ ${LIBMCAL_INCLUDE} ${LIBC_INCLUDE}"
+  IS_LIB="yes"
+elif [ $COMP = "libmterm" ]
+then
+  export INCLUDE=" -I./ ${LIBMTERM_INCLUDE} ${LIBC_INCLUDE}"
+  IS_LIB="yes"
+elif [ $COMP = "libit" ]
+then
+  export INCLUDE=" -I./ ${LIBC_INCLUDE}"
+elif [ $COMP = "editor" ]
+then
+  export INCLUDE=" -I./ ${LIBC_INCLUDE} ${LIBMTERM_INCLUDE}"
+elif [ $COMP = "nasm" ]
+then
+  export INCLUDE=" -I./ -I${UPANAPPS_HOME}/nasm/include ${LIBC_INCLUDE}"
+elif [ $COMP = "shell" ]
+then
+  export INCLUDE=" -I./ ${LIBC_INCLUDE}"
+fi
 
-export UPANIXAPP_LIBM_HOME=${UPANIXAPP_HOME}/libm
+SO_FLAGS=""
+if [ $IS_LIB = "yes" ]
+then
+  SO_FLAGS="-shared -fPIC"
+  SO_LD_FLAGS="-Wl,-shared -Wl,-fPIC"
+fi
 
-export UPANIXAPP_LIBIT_HOME=${UPANIXAPP_HOME}/libit
-
-export UPANIXAPP_EDIT_HOME=${UPANIXAPP_HOME}/editor
-
-export UPANIXAPP_NASM_HOME=${UPANIXAPP_HOME}/nasm
-
-export UPANIXAPP_BINUTILS_HOME=${UPANIXAPP_HOME}/binutils/binutils-2.17
+COMPILE_FLAGS=" -Wall -O2 -nostdlib -nodefaultlibs -ffreestanding -nostdinc -nostartfiles -D__GCC__"
+export CFLAGS="-c $COMPILE_FLAGS $SO_FLAGS"
+export LD_FLAGS="$COMPILE_FLAGS $SO_LD_FLAGS"

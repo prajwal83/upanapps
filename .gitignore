@@ -1,1 +1,8 @@
 *.o
+*.so
+*.a
+msh
+edit
+nasm/nasm
+ndisasm
+depend.d

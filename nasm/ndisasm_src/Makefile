@@ -13,8 +13,15 @@
 #                                                                            
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/
-CC = ${COMPILER}
+DEPS := $(shell $(UPANAPPS_HOME)/depend.sh)
+OBJS := $(patsubst %.c,%.o,$(wildcard *.c))
 
-libc-build:
-	${CC} ${C_FLAGS_OUT} ${shell find . -name *.o} -o libc.so
+build: ${OBJS}
 
+include depend.d
+
+clean:
+	rm -f *.o
+
+distclean:
+	rm -f *.o
