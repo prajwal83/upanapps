@@ -32,9 +32,13 @@ LIBMCAL_INCLUDE="-I${UPANAPPS_HOME}/libmcal/include"
 
 LIBMTERM_INCLUDE="-I${UPANAPPS_HOME}/libmterm/include"
 
+COMPILE_OPTIMIZE="-O2"
+
 if [ $COMP = "libc" ]
 then
   export INCLUDE=" -I./ ${LIBC_INCLUDE}"
+#because of inline asm codes in syscall sections
+  COMPILE_OPTIMIZE="-O0"
   IS_LIB="yes"
 elif [ $COMP = "libm" ]
 then
@@ -69,6 +73,6 @@ then
   SO_LD_FLAGS="-Wl,-shared -Wl,-fPIC"
 fi
 
-COMPILE_FLAGS=" -Wall -O2 -nostdlib -nodefaultlibs -ffreestanding -nostdinc -nostartfiles -D__GCC__"
+COMPILE_FLAGS=" -Wall ${COMPILE_OPTIMIZE} -nostdlib -nodefaultlibs -ffreestanding -nostdinc -nostartfiles -D__GCC__"
 export CFLAGS="-c $COMPILE_FLAGS $SO_FLAGS"
 export LD_FLAGS="$COMPILE_FLAGS $SO_LD_FLAGS"
