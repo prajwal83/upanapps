@@ -129,6 +129,6 @@ int fstat(int iFD, struct stat* pFileStat) ;
 int access(const char* szFileName, int mode) ;
 int dup2(int oldFD, int newFD) ;
 int resetstd(int stdfd) ;
-char* getcwd(char* buf, size_t size) ;
+int getcwd(char* buf, size_t size) ;
 
 #endif

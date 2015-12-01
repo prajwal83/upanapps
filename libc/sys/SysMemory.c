@@ -17,9 +17,9 @@
  */
 # include <SysCall.h>
 
-void* SysMemory_Alloc(unsigned uiSizeInBytes)
+int SysMemory_Alloc(void** addr, unsigned uiSizeInBytes)
 {
-	__volatile__ int iAllocAddress ;
+	__volatile__ int iRetStatus ;
 
 	__asm__ __volatile__("push %eax") ;
 	__asm__ __volatile__("pushl $0x20") ;
@@ -29,14 +29,14 @@ void* SysMemory_Alloc(unsigned uiSizeInBytes)
 	__asm__ __volatile__("pushl $0x20") ;
 	__asm__ __volatile__("pushl $0x20") ;
 	__asm__ __volatile__("pushl $0x20") ;
-	__asm__ __volatile__("pushl $0x20") ;
 
 	__asm__ __volatile__("pushl %0" : : "rm"(uiSizeInBytes)) ;
+	__asm__ __volatile__("pushl %0" : : "rm"(addr)) ;
 	DO_SYS_CALL(SYS_CALL_ALLOC) ;
 
-	__asm__ __volatile__("movl %%eax, %0" : "=m"(iAllocAddress) : ) ;
+	__asm__ __volatile__("movl %%eax, %0" : "=m"(iRetStatus) : ) ;
 	__asm__ __volatile__("pop %eax") ;
-	return (void*)iAllocAddress ;
+	return iRetStatus;
 }
 
 int SysMemory_Free(void* uiAddress)

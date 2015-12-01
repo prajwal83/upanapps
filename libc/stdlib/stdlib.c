@@ -768,12 +768,15 @@ void exit(int rv)
 	_exit(rv);
 }
 
-extern char* SysProcess_GetEnv(const char* szVar) ;
+extern char* SysProcess_GetEnv(const char* szVar, char** szVal) ;
 extern int SysProcess_SetEnv(const char* szVar, const char* szVal) ;
 
 char* getenv(const char* var)
 {
-	return SysProcess_GetEnv(var) ;
+  char* szVal;
+	if(SysProcess_GetEnv(var, &szVal) < 0)
+    return NULL;
+  return szVal;
 }
 
 int setenv(const char* var, const char* val)

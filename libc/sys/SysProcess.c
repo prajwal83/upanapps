@@ -138,7 +138,7 @@ int SysProcess_GetPID()
 	return iProcessID ;
 }
 
-char* SysProcess_GetEnv(const char* szVar, char* szVal)
+int SysProcess_GetEnv(const char* szVar, char** szVal)
 {
 	__volatile__ int iRetStatus ;
 
@@ -150,14 +150,14 @@ char* SysProcess_GetEnv(const char* szVar, char* szVal)
 	__asm__ __volatile__("pushl $0x20") ;
 	__asm__ __volatile__("pushl $0x20") ;
 	__asm__ __volatile__("pushl $0x20") ;
-	__asm__ __volatile__("pushl $0x20") ;
 
 	__asm__ __volatile__("pushl %0" : : "rm"(szVar)) ;
+	__asm__ __volatile__("pushl %0" : : "rm"(szVal)) ;
 	DO_SYS_CALL(SYS_CALL_PROCESS_GET_ENV) ;
 
 	__asm__ __volatile__("movl %%eax, %0" : "=m"(iRetStatus) : ) ;
 	__asm__ __volatile__("pop %eax") ;
-	return (char*)iRetStatus ;
+	return iRetStatus ;
 }
 
 int SysProcess_SetEnv(const char* szVar, const char* szVal)
@@ -260,7 +260,7 @@ int exec(const char* szFileName, ...)
 {
 	__volatile__ int iProcessID ;
 	__volatile__ int argc ;
-	__volatile__ int* argv = NULL ;
+	char** argv = NULL ;
 
 	__volatile__ int i ;
 	__volatile__ int* ref = (int*)&szFileName + 1 ;
@@ -268,22 +268,22 @@ int exec(const char* szFileName, ...)
 
 	if(argc)
 	{
-		argv = (int*)malloc(sizeof(int) * argc) ;
+		argv = (char**)malloc(sizeof(char**) * argc) ;
 		if(!argv)
 			return -1 ;
 
 		for(i = 0; i < argc; i++)
 		{
-			argv[i] = malloc(strlen((char*)(*(ref + i))) + 1) ;
-			strcpy((char*)argv[i], (char*)(*(ref + i))) ;
+			argv[i] = (char*)malloc(strlen((char*)(*(ref + i))) + 1) ;
+			strcpy(argv[i], (char*)(*(ref + i))) ;
 		}
 	}
 
 	iProcessID = SysProcess_Exec(szFileName, argc, argv) ;
 
 	for(i = 0; i < argc; i++)
-		free((void*)argv[i]) ;
-	free((void*)argv) ;
+		free(argv[i]) ;
+	free(argv) ;
 
 	return iProcessID ;
 }

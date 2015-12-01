@@ -20,10 +20,6 @@
 
 #include <stddef.h>
 
-extern void* SysMemory_Alloc(unsigned uiSizeInBytes) ;
-extern int SysMemory_Free(void* uiAddress) ;
-extern int SysMemory_GetAllocSize(void* uiAddress, int* size) ;
-
 void* malloc(unsigned uiSizeInBytes) ;
 void* calloc(size_t n, size_t s) ;
 void* realloc(void* ptr, int s) ;

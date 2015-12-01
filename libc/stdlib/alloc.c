@@ -19,6 +19,10 @@
 # include <stdlib.h>
 # include <string.h>
 
+extern int SysMemory_Alloc(void** addr, unsigned uiSizeInBytes) ;
+extern int SysMemory_Free(void* uiAddress) ;
+extern int SysMemory_GetAllocSize(void* uiAddress, int* size) ;
+
 void* calloc(size_t n, size_t s)
 {
 	void* a = malloc(n * s) ;
@@ -28,7 +32,10 @@ void* calloc(size_t n, size_t s)
 
 void* malloc(unsigned uiSizeInBytes)
 {
-	return SysMemory_Alloc(uiSizeInBytes) ;
+  void* addr;
+	if(SysMemory_Alloc(&addr, uiSizeInBytes) < 0)
+    return NULL;
+  return addr;
 }
 
 void free(void* uiAddress)

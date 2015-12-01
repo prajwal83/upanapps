@@ -57,7 +57,7 @@ void SysFS_PWD(char** uiReturnDirPathAddress)
 	__asm__ __volatile__("pop %eax") ;
 }
 
-char* SysFS_CWD(char* uiReturnDirPathAddress, int len)
+int SysFS_CWD(char* uiReturnDirPathAddress, int len)
 {
 	__volatile__ int iRetStatus ;
 
@@ -76,7 +76,7 @@ char* SysFS_CWD(char* uiReturnDirPathAddress, int len)
 
 	__asm__ __volatile__("movl %%eax, %0" : "=m"(iRetStatus) : ) ;
 	__asm__ __volatile__("pop %eax") ;
-	return (char*)iRetStatus ;
+	return iRetStatus ;
 }
 
 int SysFS_CreateDirectory(const char* szDirPath, unsigned short usAttribute)
@@ -496,7 +496,7 @@ int resetstd(int stdfd)
 	return SysFS_ResetSTD(stdfd) ;
 }
 
-char* getcwd(char* buf, size_t size)
+int getcwd(char* buf, size_t size)
 {
 	return SysFS_CWD(buf, size) ;
 }
