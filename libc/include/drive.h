@@ -53,54 +53,25 @@ typedef enum
 
 typedef struct 
 {
-	char			driveName[33] ;
-	unsigned		uiID ;
-	byte			bMounted ;
-
-	DEVICE_TYPE		deviceType ;
-	FS_TYPE			fsType ;
-	DRIVE_NO		driveNumber ;
-	
-	unsigned		uiLBAStartSector ;
-	unsigned		uiSizeInSectors ;
-
-	unsigned		uiStartCynlider ;
-	unsigned		uiStartHead ;
-	unsigned		uiStartSector ;
-
-	unsigned		uiEndCynlider ;
-	unsigned		uiEndHead ;
-	unsigned		uiEndSector ;
-
-	unsigned		uiSectorsPerTrack ;
-	unsigned		uiTracksPerHead ;
-	unsigned		uiNoOfHeads ;
-} Drive ;
-
-typedef struct
-{
+	char			    driveName[33];
+	byte			    bMounted;
+	unsigned		  uiSizeInSectors ;
 	unsigned long	ulTotalSize ;
 	unsigned long	ulUsedSize ;
-} DriveSpace ;
-
-typedef struct
-{
-	Drive		drive ;
-	DriveSpace	driveSpace ;
-} DriveStat ;
+} DriveStat;
 
 extern int SysDrive_ChangeDrive(const char* szDriveName) ;
 extern int SysDrive_ShowDrives(DriveStat** pDriveList, int* iListSize) ;
 extern int SysDrive_Mount(const char* szDriveName) ;
 extern int SysDrive_UnMount(const char* szDriveName) ;
 extern int SysDrive_Format(const char* szDriveName) ;
-extern int SysDrive_GetCurrentDrive(Drive* pDrive) ;
+extern int SysDrive_GetCurrentDriveStat(DriveStat* pDriveStat) ;
 
 #define chdrive(drive) SysDrive_ChangeDrive(drive)
 #define get_drive_list(drive_list, list_size) SysDrive_ShowDrives(drive_list, list_size)
 #define mount(drive) SysDrive_Mount(drive) 
 #define umount(drive) SysDrive_UnMount(drive) 
 #define format(drive) SysDrive_Format(drive) 
-#define getcurdrive(pdrive) SysDrive_GetCurrentDrive(pdrive)
+#define getcurdrive(pdrive) SysDrive_GetCurrentDriveStat(pdrive)
 
 #endif

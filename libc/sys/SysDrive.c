@@ -128,7 +128,7 @@ int SysDrive_Format(const char* szDriveName)
 	return iRetStatus ;
 }
 
-int SysDrive_GetCurrentDrive(Drive* pDrive)
+int SysDrive_GetCurrentDriveStat(DriveStat* pDriveStat)
 {
 	__volatile__ int iRetStatus ;
 
@@ -142,8 +142,8 @@ int SysDrive_GetCurrentDrive(Drive* pDrive)
 	__asm__ __volatile__("pushl $0x20") ;
 	__asm__ __volatile__("pushl $0x20") ;
 
-	__asm__ __volatile__("pushl %0" : : "rm"(pDrive)) ;
-	DO_SYS_CALL(SYS_CALL_CURRENT_DRIVE) ;
+	__asm__ __volatile__("pushl %0" : : "rm"(pDriveStat)) ;
+	DO_SYS_CALL(SYS_CALL_CURRENT_DRIVE_STAT) ;
 
 	__asm__ __volatile__("movl %%eax, %0" : "=m"(iRetStatus) : ) ;
 	__asm__ __volatile__("pop %eax") ;

@@ -480,10 +480,10 @@ void MshCommands_ShowDrives(const MshCommand* pCommand)
 		//printf("\n[Drive %d] %s (%f MB)", i + 1, pDriveList[i].driveName, fSize) ;
 
 		printf("\n%-4d   %-10s  %-10d  %-10d  %-10d  %-10d  %-8s", i + 1, 
-		pDriveList[i].drive.driveName, (pDriveList[i].drive.uiSizeInSectors * 512), 
-		pDriveList[i].driveSpace.ulTotalSize, pDriveList[i].driveSpace.ulUsedSize,
-		(pDriveList[i].driveSpace.ulTotalSize - pDriveList[i].driveSpace.ulUsedSize),
-		(pDriveList[i].drive.bMounted) ? "Yes" : "No") ;
+		pDriveList[i].driveName, (pDriveList[i].uiSizeInSectors * 512), 
+		pDriveList[i].ulTotalSize, pDriveList[i].ulUsedSize,
+		(pDriveList[i].ulTotalSize - pDriveList[i].ulUsedSize),
+		(pDriveList[i].bMounted) ? "Yes" : "No") ;
 	}
 
 	free(pDriveList) ;
@@ -688,13 +688,13 @@ void MshCommands_FormatDrive(const MshCommand* pCommand)
 
 void MshCommands_ShowCurrentDrive(const MshCommand* pCommand)
 {
-	Drive drive ;
+	DriveStat driveStat;
 	
-	if(getcurdrive(&drive) < 0)
+	if(getcurdrive(&driveStat) < 0)
 		printerr("Failed to get current drive") ;
 
-	printf("%s (%d B) %s", drive.driveName, drive.uiSizeInSectors * 512,
-		(drive.bMounted) ? "-- mounted" : "not mounted") ;
+	printf("%s (%d B) %s", driveStat.driveName, driveStat.uiSizeInSectors * 512,
+		(driveStat.bMounted) ? "-- mounted" : "not mounted") ;
 }
 
 void MshCommands_Help(const MshCommand* pCommand)
