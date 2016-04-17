@@ -82,9 +82,9 @@ void Edit_Init()
 	Edit_row = 0 ;
 	Edit_col = 0 ;
 	Edit_yMin = 0 ;
-	Edit_yMax = MAX_ROWS - 5 ;
+	Edit_yMax = MTerm_MaxRows() - 5 ;
    	Edit_xMin = 0 ;
-	Edit_xMax = MAX_COLS - 3 ;
+	Edit_xMax = MTerm_MaxColumns() - 3 ;
 
 	wy = 0 ;
 	wx = 0 ;

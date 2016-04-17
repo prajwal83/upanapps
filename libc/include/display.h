@@ -21,21 +21,20 @@
 # include <ctype.h>
 #define Display_CURSOR_CUR -1
 
-#define Display_NO_ROWS 25
-#define Display_NO_COLUMNS 80 
-
 #define Display_WHITE_ON_BLACK 0x07 
 
 extern void	SysDisplay_MoveCursor(int n) ;
 extern void	SysDisplay_ClearLine(int pos) ;
 extern void	SysDisplay_SetCursor(int pos, boolean bUpdateCursorOnScreen) ;
 extern int	SysDisplay_GetCursor() ;
+extern void SysDisplay_GetSize(unsigned* retMaxRows, unsigned* retMaxCols);
 
 #define movcursor(n)		SysDisplay_MoveCursor(n)
 #define clrline(pos)		SysDisplay_ClearLine(pos)
 #define set_cursor(pos)		SysDisplay_SetCursor(pos, true)
 #define set_cursor_val(pos)	SysDisplay_SetCursor(pos, false)
 #define get_cursor()		SysDisplay_GetCursor()
+#define console_size(mr, mc) SysDisplay_GetSize(mr, mc)
 
 void showprogress(int startCur, const char* msg, unsigned progNum) ;
 

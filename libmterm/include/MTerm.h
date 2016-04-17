@@ -21,10 +21,6 @@
 # include <display.h>
 # include <stdlib.h>
 
-#define MAX_ROWS			Display_NO_ROWS
-#define MAX_COLS			Display_NO_COLUMNS
-#define MAX_WIN_BUFFER		(MAX_ROWS * MAX_COLS)
-
 #define WIN_SIZE(Win)		( Win->Rows * Win->Cols )
 
 #define MTERM_LINE_END (-1)
@@ -94,7 +90,7 @@ typedef struct
 	
 	byte		WinCharAttr ;
 
-	MChar		CharContent[MAX_WIN_BUFFER] ;
+	MChar*	CharContent;
 
 	int			CursorPos ;
 	int			PilotPoint ;
@@ -108,6 +104,8 @@ typedef struct
 MWindow* MTerm_CreateWindow(byte nRows, byte nCols) ;
 void MTerm_DestroyWindow(MWindow* pMWindow) ;
 void MTerm_InitScr() ;
+unsigned MTerm_MaxRows();
+unsigned MTerm_MaxColumns();
 void MTerm_WinRefresh(const MWindow* pMWindow) ;
 void MTerm_Refresh(const MWindow* pMWindow) ;
 void MTerm_WinPutCharSpec(MWindow* pMWindow, char Ch, byte Attr) ;

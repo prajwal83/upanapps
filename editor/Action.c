@@ -110,11 +110,11 @@ void Action_FileSave()
 void Action_DrawOkCancel(int pos)
 {
 	pOkWin = MTerm_CreateWindow(1, 8) ;
-	MTerm_SetWinPilotPoint(pOkWin, pos * MAX_COLS + 27) ;
+	MTerm_SetWinPilotPoint(pOkWin, pos * MTerm_MaxColumns() + 27) ;
 	MTerm_SetWinAttr(pOkWin, ATTR_NOBLINK | FG_BLACK | BG_RED) ;
 
 	pCancelWin = MTerm_CreateWindow(1, 8) ;
-	MTerm_SetWinPilotPoint(pCancelWin, pos * MAX_COLS + 43) ;
+	MTerm_SetWinPilotPoint(pCancelWin, pos * MTerm_MaxColumns() + 43) ;
 	MTerm_SetWinAttr(pCancelWin, ATTR_NOBLINK | FG_BLACK | BG_RED) ;
 
 	MTerm_WinMovePutString(pOkWin, 0, 3, "OK") ;

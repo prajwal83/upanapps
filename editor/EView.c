@@ -47,7 +47,7 @@ static int EView_DrawMenu(char *text[], int no_rows, int start_y, int start_x)
 	int i, j, ch, res = -1, over = 0 ;
 
 	MWindow* pMenuWin = MTerm_CreateWindow(no_rows, MENU_COLS) ;
-	MTerm_SetWinPilotPoint(pMenuWin, start_y * MAX_COLS + start_x) ;
+	MTerm_SetWinPilotPoint(pMenuWin, start_y * MTerm_MaxColumns() + start_x) ;
 	MTerm_SetWinAttr(pMenuWin, ATTR_NOBLINK | FG_BLACK | BG_WHITE) ;
 	MTerm_WinFocus(pMenuWin, true) ;
 
@@ -107,7 +107,7 @@ static void EView_WarningBox(char text[], int interact)
 {
 	int ch ;
 	MWindow* pWarnWin = MTerm_CreateWindow(7, 40) ;
-	MTerm_SetWinPilotPoint(pWarnWin, 5 * MAX_COLS + 20) ;
+	MTerm_SetWinPilotPoint(pWarnWin, 5 * MTerm_MaxColumns() + 20) ;
 	MTerm_SetWinAttr(pWarnWin, ATTR_BLINK | FG_BLACK | BG_WHITE) ;
 
 	EView_DrawBorderInBack(pWarnWin) ;
@@ -136,7 +136,7 @@ static void EView_MessageBox(char text[], int margin, int *value, int option)
 	char tempfl[105] = "\0" ;
 
 	MWindow* pMsgWin = MTerm_CreateWindow(10, 40) ;
-	MTerm_SetWinPilotPoint(pMsgWin, 5 * MAX_COLS + 20) ;
+	MTerm_SetWinPilotPoint(pMsgWin, 5 * MTerm_MaxColumns() + 20) ;
 	MTerm_SetWinAttr(pMsgWin, ATTR_NOBLINK | FG_BLACK | BG_WHITE) ;
 
 	MTerm_WinMovePutString(pMsgWin, 1, 1, text) ;
@@ -267,7 +267,7 @@ static void help(int abus)
 {
 	int key ;
 	MWindow* pHelpWin = MTerm_CreateWindow(21, 75) ;
-	MTerm_SetWinPilotPoint(pHelpWin, 2 * MAX_COLS + 2) ;
+	MTerm_SetWinPilotPoint(pHelpWin, 2 * MTerm_MaxColumns() + 2) ;
 	MTerm_SetWinAttr(pHelpWin, ATTR_NOBLINK | FG_WHITE | BG_BLACK) ;
 
 	if(abus)
@@ -331,11 +331,11 @@ static void help(int abus)
 
 void EView_DrawInitBack()
 {
-	EView_backWinRows = MAX_ROWS - 2 ;
-	EView_backWinCols = MAX_COLS ;
+	EView_backWinRows = MTerm_MaxRows() - 2 ;
+	EView_backWinCols = MTerm_MaxColumns() ;
 
-	EView_editWinRows = MAX_ROWS - 4 ;
-	EView_editWinCols = MAX_COLS - 2 ;
+	EView_editWinRows = MTerm_MaxRows() - 4 ;
+	EView_editWinCols = MTerm_MaxColumns() - 2 ;
 
 	Edit_pBackWin = MTerm_CreateWindow(EView_backWinRows, EView_backWinCols) ;
 	MTerm_SetWinAttr(Edit_pBackWin, ATTR_NOBLINK | FG_WHITE | BG_BLUE) ;
@@ -343,7 +343,7 @@ void EView_DrawInitBack()
 
 	Edit_pEditWin = MTerm_CreateWindow(EView_editWinRows, EView_editWinCols) ;
 	MTerm_SetWinAttr(Edit_pEditWin, ATTR_NOBLINK | FG_WHITE | BG_BLUE) ;
-	MTerm_SetWinPilotPoint(Edit_pEditWin, Edit_pBackWin->PilotPoint + MAX_COLS + 1) ;
+	MTerm_SetWinPilotPoint(Edit_pEditWin, Edit_pBackWin->PilotPoint + MTerm_MaxColumns() + 1) ;
 	MTerm_WinFocus(Edit_pEditWin, true) ;
 //	MTerm_WinInstantUpdate(Edit_pEditWin, true) ;
 	MTerm_WinScrollLock(Edit_pEditWin, false) ;
@@ -359,7 +359,7 @@ void EView_DrawMenuBar()
 	char text[] = { "File            Edit                           Options          Help" } ;
 	int i ;
 
-	Edit_pMenuWin = MTerm_CreateWindow(1, MAX_COLS) ;
+	Edit_pMenuWin = MTerm_CreateWindow(1, MTerm_MaxColumns()) ;
 	MTerm_SetWinAttr(Edit_pMenuWin, ATTR_NOBLINK | FG_BLACK | BG_WHITE) ;
 	MTerm_SetWinPilotPoint(Edit_pMenuWin, 0) ;
 
@@ -375,9 +375,9 @@ void EView_DrawMenuBar()
 
 void EView_DrawStatusBar()
 {
-	Edit_pStatusWin = MTerm_CreateWindow(1, MAX_COLS) ;
+	Edit_pStatusWin = MTerm_CreateWindow(1, MTerm_MaxColumns()) ;
 	MTerm_SetWinAttr(Edit_pStatusWin, ATTR_NOBLINK | FG_BLACK | BG_WHITE) ;
-	MTerm_SetWinPilotPoint(Edit_pStatusWin, MAX_ROWS * MAX_COLS - MAX_COLS) ;
+	MTerm_SetWinPilotPoint(Edit_pStatusWin, MTerm_MaxRows() * MTerm_MaxColumns() - MTerm_MaxColumns()) ;
 
 	MTerm_WinRefresh(Edit_pStatusWin) ;
 

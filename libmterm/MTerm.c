@@ -21,6 +21,10 @@
 # include <ctype.h>
 # include <string.h>
 
+static unsigned MAX_ROWS;
+static unsigned MAX_COLS;
+static unsigned MAX_WIN_BUFFER;
+
 /**************************** static functions **************************************/
 static int MTerm_GetActualCursorPosGeneric(byte bCols, int iPilot, int iCurPos)
 {
@@ -40,7 +44,7 @@ static void MTerm_InitWindow(MWindow* pMWindow, byte nRows, byte nCols)
 	pMWindow->Rows = pMWindow->ERows = nRows ;
 	pMWindow->Cols = pMWindow->ECols = nCols ;
 
-   	pMWindow->WinCharAttr = DEF_ATTR ;
+ 	pMWindow->WinCharAttr = DEF_ATTR ;
 	pMWindow->CursorPos = 0 ;
 
 	pMWindow->PilotPoint = 0 ;
@@ -61,6 +65,7 @@ MWindow* MTerm_CreateWindow(byte nRows, byte nCols)
 {
 	// Change this to malloc once moved out as a seperate library	
 	MWindow* pMWindow = (MWindow*)malloc(sizeof(MWindow)) ;
+  pMWindow->CharContent = (MChar*)malloc(sizeof(MChar) * MAX_WIN_BUFFER);
 
 	MTerm_InitWindow(pMWindow, nRows, nCols) ;
 
@@ -72,13 +77,26 @@ void MTerm_DestroyWindow(MWindow* pMWindow)
 	// Change this to free once moved out as a seperate library
 	if(pMWindow)
 	{
+    free(pMWindow->CharContent);
 		free(pMWindow) ;
 	}	
 }
 
 void MTerm_InitScr()
 {
+  console_size(&MAX_ROWS, &MAX_COLS);
+  MAX_WIN_BUFFER = MAX_ROWS * MAX_COLS;
 	clrscr() ;
+}
+
+unsigned MTerm_MaxRows()
+{
+  return MAX_ROWS;
+}
+
+unsigned MTerm_MaxColumns()
+{
+  return MAX_COLS;
 }
 
 /******* Win Attrs Start ******/
