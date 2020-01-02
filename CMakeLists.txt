@@ -16,7 +16,6 @@
 cmake_minimum_required(VERSION 3.15)
 project(UpanixApps)
 
-set(UA_TARGET upanapps)
 set(CROSS_TOOL_PATH $ENV{HOME}/opt/cross)
 set(OUTPUT_DIR ${PROJECT_SOURCE_DIR}/out)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR})
