@@ -21,6 +21,7 @@
 typedef unsigned size_t ;
 typedef unsigned long ssize_t ;
 
+#define offsetof(st, m) __builtin_offsetof(st, m)
 #if !defined __cplusplus
 typedef int wchar_t ;
 #endif

@@ -71,21 +71,11 @@ void Msh_ProcessCommandLine()
 	Msh_ClearCommandLine() ;
 }
 
-class TestClass {
-  public:
-  TestClass() {
-    printf("\n TestClass Initialized");
-  }
-};
-
-static TestClass testClassInstance;
-
 void Msh_Start()
 {
 	char ch ;
 
 	puts("\n\n Welcome to Mos Shell") ;
-  printf("\n Testing C++ MSH");
 
 	Msh_DisplayCommandPrompt() ;
 

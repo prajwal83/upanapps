@@ -132,7 +132,7 @@ typedef unsigned long int	uintptr_t;
 typedef int			intptr_t;
 #  define __intptr_t_defined
 # endif
-//typedef unsigned int uintptr_t;
+typedef unsigned int uintptr_t;
 #endif
 
 

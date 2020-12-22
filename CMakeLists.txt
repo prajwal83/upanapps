@@ -27,11 +27,18 @@ set(CMAKE_C_COMPILER ${CROSS_TOOL_PATH}/bin/i686-elf-gcc)
 set(CMAKE_LINKER ${CROSS_TOOL_PATH}/i686-elf/bin/ld)
 set(CMAKE_AR ${CROSS_TOOL_PATH}/i686-elf/bin/ar)
 
+set(ENABLE_CXX_RT ON)
+	
+set(EXCEPTION_SUP " -fno-exceptions -fno-rtti")
+if(ENABLE_CXX_RT)
+	set(EXCEPTION_SUP " -fexceptions -frtti")
+endif()
+
 set(SO_COMPILE_FLAGS -shared -fPIC)
 set(SO_LD_FLAGS " -Wl,-shared -Wl,-fPIC")
 
 set(CMAKE_CXX_FLAGS " -O0 -Wall -ffreestanding -nodefaultlibs -nostdlib -nostartfiles -nostdinc -std=c++11 -nostdinc++ -fno-threadsafe-statics -fpermissive ${EXCEPTION_SUP}")
-set(COMMON_COMPILE_FLAGS " -Wall -nostdlib -nodefaultlibs -ffreestanding -nostdinc -nostartfiles -D__GCC__")
+set(COMMON_COMPILE_FLAGS " -O0 -Wall -std=c11 -nostdlib -nodefaultlibs -ffreestanding -nostartfiles -D__GCC__")
 set(CMAKE_C_FLAGS ${COMMON_COMPILE_FLAGS})
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_CXX_FLAGS} ${COMMON_COMPILE_FLAGS}")
 set(CMAKE_SHARED_LINKER_FLAGS "${COMMON_COMPILE_FLAGS} ${SO_LD_FLAGS}")
@@ -49,6 +56,8 @@ include_directories(${PROJECT_SOURCE_DIR}/libm/include/bits)
 include_directories(${PROJECT_SOURCE_DIR}/libmcal/include)
 
 include_directories(${PROJECT_SOURCE_DIR}/libmterm/include)
+
+include_directories(${PROJECT_SOURCE_DIR}/libcxxrt)
 
 #LIBC
 execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libc -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE LIBC_SRC)
@@ -78,6 +87,19 @@ execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libmterm -name
 string(REPLACE "\n" ";" LIBMTERM_SRC ${LIBMTERM_SRC})
 add_library(mterm SHARED "${LIBMTERM_SRC}")
 target_compile_options(mterm PRIVATE ${SO_COMPILE_FLAGS})
+
+#LIBGCCEH
+execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libgcceh -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE GCCEH_SRC)
+string(REPLACE "\n" ";" GCCEH_SRC ${GCCEH_SRC})
+add_library(gcceh STATIC "${GCCEH_SRC}")
+target_compile_options(gcceh PRIVATE -DIN_GCC -DIN_LIBGCC2 -Dinhibit_libc -fbuilding-libgcc -fno-stack-protector)
+
+#LIBCXXRT
+execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libcxxrt -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE CXXRT_SRC1)
+string(REPLACE "\n" ";" CXXRT_SRC1 ${CXXRT_SRC1})
+execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libcxxrt -name '*.cc' | grep -v CMakeFile" OUTPUT_VARIABLE CXXRT_SRC2)
+string(REPLACE "\n" ";" CXXRT_SRC2 ${CXXRT_SRC2})
+add_library(cxxrt STATIC ${CXXRT_SRC1} ${CXXRT_SRC2})
 
 link_directories(${OUTPUT_DIR})
 
@@ -120,9 +142,13 @@ string(REPLACE "\n" ";" MSH_SRC ${MSH_SRC})
 add_executable(msh "${MSH_SRC}")
 add_dependencies(msh c)
 add_dependencies(msh crt)
+add_dependencies(msh gcceh)
+add_dependencies(msh cxxrt)
 target_include_directories(msh PRIVATE ${PROJECT_SOURCE_DIR}/shell)
 target_compile_options(msh PRIVATE -O2)
+target_link_libraries(msh cxxrt)
 target_link_libraries(msh c)
+target_link_libraries(msh gcceh)
 
 #EDITOR
 execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./editor -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE EDITOR_SRC)

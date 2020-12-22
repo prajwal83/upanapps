@@ -24,6 +24,7 @@
 #define	__ASSERT_H
 
 #include <features.h>
+#include <ctype.h>
 /* If NDEBUG is defined, do nothing.
    If not, and EXPRESSION is zero, print an error message and abort.  */
 

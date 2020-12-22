@@ -276,11 +276,11 @@
  *	#define	__UCLIBC_SUBLEVEL__	26
  */
 
-/* MOS PORTING
+/* Upanix PORTING
 #define __need_uClibc_config_h
 #include <bits/uClibc_config.h>
 #undef __need_uClibc_config_h
-MOS PORTING */
+Upanix PORTING */
 
 #ifdef __UCLIBC_HAS_WCHAR__
 /* wchar_t uses ISO 10646-1 (2nd ed., published 2000-09-15) / Unicode 3.0.  */
@@ -393,7 +393,7 @@ uClibc was built without large file support enabled.
 #    define link_warning(symbol, msg)
 #  else
 #    define link_warning(symbol, msg)					      \
-	asm (".section "  ".gnu.warning." #symbol  "\n\t.previous");	      \
+	__asm__ (".section "  ".gnu.warning." #symbol  "\n\t.previous");	      \
 	    static const char __evoke_link_warning_##symbol[]		      \
 	    __attribute__ ((unused, section (".gnu.warning." #symbol "\n\t#"))) = msg;
 #endif
