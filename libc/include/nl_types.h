@@ -21,6 +21,10 @@
 
 #include <features.h>
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 /* The default message set used by the gencat program.  */
 #define NL_SETD 1
 
@@ -47,5 +51,9 @@ extern char *catgets (nl_catd __catalog, int __set, int __number,
 
 /* Close message CATALOG.  */
 extern int catclose (nl_catd __catalog) __THROW;
+
+#if defined __cplusplus
+}
+#endif
 
 #endif /* nl_types.h  */

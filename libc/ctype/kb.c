@@ -40,8 +40,8 @@ boolean is_special_char(char ch)
 		case Keyboard_RIGHT_SHIFT:
 		case Keyboard_ESC:
 		case Keyboard_ENTER:
-			return true ;
+			return TRUE;
 	}
 
-	return false ;
+	return FALSE;
 }

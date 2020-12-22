@@ -48,9 +48,9 @@ static void MTerm_InitWindow(MWindow* pMWindow, byte nRows, byte nCols)
 	pMWindow->CursorPos = 0 ;
 
 	pMWindow->PilotPoint = 0 ;
-	pMWindow->Focus = false ;
-	pMWindow->InstantUpdate = false ;
-	pMWindow->ScrollLock = true ;
+	pMWindow->Focus = FALSE ;
+	pMWindow->InstantUpdate = FALSE ;
+	pMWindow->ScrollLock = TRUE ;
 
 	MTerm_WinClear(pMWindow) ;
 }
@@ -186,7 +186,7 @@ void MTerm_WinPutCharSpec(MWindow* pMWindow, char Ch, byte Attr)
 		int iOldPos = get_cursor() ;
 		set_cursor(iCurPos) ;
 
-		putrawc(Ch, Attr, true) ;
+		putrawc(Ch, Attr, TRUE) ;
 
 		if(pMWindow->Focus)
 			set_cursor(iCurPos + 1) ;
@@ -258,9 +258,9 @@ void MTerm_WinRefresh(const MWindow* pMWindow)
 			pMChar = (MChar*)&(pMWindow->CharContent[index++]) ;
 
 			if(pMChar->Ch == NO_CHAR)
- 				putrawc(' ', pMWindow->WinCharAttr, false) ;
+ 				putrawc(' ', pMWindow->WinCharAttr, FALSE) ;
 			else
-				putrawc(pMChar->Ch, pMChar->Attr, false) ;
+				putrawc(pMChar->Ch, pMChar->Attr, FALSE) ;
 		}
 
 		iCurPos += MAX_COLS ;

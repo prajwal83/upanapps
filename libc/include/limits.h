@@ -25,6 +25,10 @@
 
 #include <features.h>
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 /* Maximum length of any multibyte character in any locale.
    We define this value here since the gcc header does not define
    the correct value.  */
@@ -111,6 +115,10 @@
 
 # endif	/* limits.h  */
 #endif	/* GCC 2.  */
+
+#if defined __cplusplus
+}
+#endif
 
 #endif	/* !_LIBC_LIMITS_H_ */
 

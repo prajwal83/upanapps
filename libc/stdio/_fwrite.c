@@ -21,7 +21,7 @@ size_t __stdio_fwrite(const unsigned char * __restrict buffer, size_t bytes, reg
 	assert(buffer);
 	assert(bytes);
 
-	boolean commit = false ;
+	boolean commit = FALSE;
 
 	if (!__STDIO_STREAM_IS_NBF(stream)) { /* FBF or LBF. */
 #ifdef __UCLIBC_MJN3_ONLY__
@@ -48,17 +48,17 @@ size_t __stdio_fwrite(const unsigned char * __restrict buffer, size_t bytes, reg
 			memcpy(stream->__bufpos, buffer, bytes);
 			stream->__bufpos += bytes;
 
-			commit = false ;
+			commit = FALSE;
 			if (IS_STD_STREAM(stream))
 			{
-				commit = true ;
+				commit = TRUE;
 			}
 			else if (__STDIO_STREAM_IS_LBF(stream) && memrchr(buffer, '\n', bytes)	/* Search backwards. */) 
 			{
-				commit = true ;
+				commit = TRUE;
 			}
 
-			if(commit == true)
+			if(commit != FALSE)
 			{
 				if ((pending = __STDIO_COMMIT_WRITE_BUFFER(stream)) > 0) 
 				{

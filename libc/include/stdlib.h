@@ -23,6 +23,10 @@
 # include <stddef.h>
 # include <bits/uClibc_uintmaxtostr.h>
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 typedef unsigned char byte ;
 
 #ifndef NULL
@@ -116,5 +120,9 @@ int putenv(char* env) ;
 void format_dir_attr(unsigned short attr, char* fmAttr) ;
 
 const char* getProcStatusDesc(int iStatus) ;
+
+#if defined __cplusplus
+}
+#endif
 
 #endif

@@ -18,6 +18,10 @@
 #ifndef _DRIVE_H_
 #define _DRIVE_H_
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 typedef enum
 {
 	FS_UNKNOWN = 0x0,
@@ -73,5 +77,9 @@ extern int SysDrive_GetCurrentDriveStat(DriveStat* pDriveStat) ;
 #define umount(drive) SysDrive_UnMount(drive) 
 #define format(drive) SysDrive_Format(drive) 
 #define getcurdrive(pdrive) SysDrive_GetCurrentDriveStat(pdrive)
+
+#if defined __cplusplus
+}
+#endif
 
 #endif

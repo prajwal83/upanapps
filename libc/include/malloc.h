@@ -20,10 +20,18 @@
 
 #include <stddef.h>
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 void* malloc(unsigned uiSizeInBytes) ;
 void* calloc(size_t n, size_t s) ;
 void* realloc(void* ptr, int s) ;
 void free(void* uiAddress) ;
 int get_alloc_size(void* uiAddress, int* size) ;
+
+#if defined __cplusplus
+}
+#endif
 
 #endif

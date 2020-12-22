@@ -329,7 +329,7 @@ void strtok_c(const char* src,
     int index ;
     int iStartIndex = 0 ;
     int iTokenIndex = 0 ;
-	byte bGroupStarted = false ;
+	  byte bGroupStarted = FALSE;
 
     for(index = 0; src[index] != '\0'; index++)
     {
@@ -342,9 +342,9 @@ void strtok_c(const char* src,
             }
 
 			if(!bGroupStarted)
-				bGroupStarted = true ;
+				bGroupStarted = TRUE;
 			else
-				bGroupStarted = false ;
+				bGroupStarted = FALSE;
 			
 			iStartIndex = index + 1 ;
 			continue ;

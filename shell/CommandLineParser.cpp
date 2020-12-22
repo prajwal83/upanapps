@@ -18,6 +18,7 @@
 # include <CommandLineParser.h>
 # include <string.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 char CommandLineParser_szCommandLineEntries[MAX_COMMAND_LINE_ENTRIES][COMMAND_LINE_SIZE] ;
 char CommandLineParser_szParameters[MAX_COMMAND_LINE_ENTRIES][COMMAND_LINE_SIZE] ;
@@ -34,7 +35,7 @@ boolean CommandLineParser_TokenCompare(char ch)
 
 boolean CommandLineParser_GroupToken(char ch)
 {
-	return (ch == '"') ;
+	return (int) (ch == '"') ;
 }
 
 void CommandLineParser_Copy(int index, const char* src, int len)
@@ -160,7 +161,7 @@ char** CommandLineParser_GetArgV()
 	return CommandLineParser_ArgV ;
 }
 
-boolean CommandLineParser_IsOptPresent(char* opt)
+bool CommandLineParser_IsOptPresent(char* opt)
 {
 	int i ;
 	for(i = 0; i < CommandLineParser_iNoOfOptions; i++)
@@ -169,5 +170,5 @@ boolean CommandLineParser_IsOptPresent(char* opt)
 			return true ;
 	}
 
-	return false ;
+	return FALSE ;
 }

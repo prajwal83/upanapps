@@ -47,7 +47,7 @@ void MshCommands_PresentWorkingDir(const MshCommand* pCommand) ;
 void MshCommands_CopyFile(const MshCommand* pCommand) ;
 void MshCommands_ShowFileContent(const MshCommand* pCommand) ;
 void MshCommands_GetDateTime(const MshCommand* pCommand) ;
-void MshCommands_Reboot() ;
+void MshCommands_Reboot(const MshCommand* pCommand) ;
 void MshCommands_Help(const MshCommand* pCommand) ;
 void MshCommands_GetProcessDetails(const MshCommand* pCommand) ;
 void MshCommands_Export(const MshCommand* pCommand) ;
@@ -280,7 +280,7 @@ static void MshCommands_DisplayCommandUsage(const MshCommand* pCommand)
 	printf("Usage: %s %s\n", pCommand->szCommand, pCommand->szUsage) ;
 }
 
-static boolean MshCommands_GenericValidation(const MshCommand* pCommand)
+static bool MshCommands_GenericValidation(const MshCommand* pCommand)
 {
 	if(CommandLineParser_GetNoOfCommandLineEntries() - 1 >= pCommand->iMinParCount
 		&& CommandLineParser_GetNoOfCommandLineEntries() - 1 <= pCommand->iMaxParCount)
@@ -301,7 +301,7 @@ void MshCommands_Init()
 		MshCommands_NoOfInterCommands++) ;
 }
 
-boolean MshCommands_ExecuteInternalCommand()
+bool MshCommands_ExecuteInternalCommand()
 {
 	int i ;
 	for(i = 0; i < MshCommands_NoOfInterCommands; i++)
@@ -320,7 +320,7 @@ boolean MshCommands_ExecuteInternalCommand()
 	return false ;
 }
 
-boolean MshCommands_ExecuteProcess()
+bool MshCommands_ExecuteProcess()
 {
 	int pid ;
 	pid = execv(CommandLineParser_GetCommand(), 
@@ -404,7 +404,7 @@ void MshCommands_GetDirContent(const MshCommand* pCommand)
 	if(CommandLineParser_GetNoOfParameters())
 	{
 		int i ;
-		boolean bDisplayParentDirName = CommandLineParser_GetNoOfParameters() > 1 ;
+		bool bDisplayParentDirName = CommandLineParser_GetNoOfParameters() > 1 ;
 
 		for(i = 0; i < CommandLineParser_GetNoOfParameters(); i++)
 		{

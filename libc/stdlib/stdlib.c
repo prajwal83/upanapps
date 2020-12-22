@@ -849,3 +849,6 @@ const char* getProcStatusDesc(int iStatus)
 
 	return PROC_STATUS_DESC[iStatus] ;
 }
+
+extern void initialize_standard_library() {
+}

@@ -39,7 +39,7 @@ int main(int argc, char** argv)
 
 	int ch, y ;
 
-	while(true)
+	while(TRUE)
 	{
 		MTerm_GetWinYX(Edit_pEditWin, &y, &Edit_col) ;
 		EView_DisplayStatus() ;
@@ -126,13 +126,13 @@ int main(int argc, char** argv)
 		else if(ch == Keyboard_KEY_DEL)
 		{
 			Edit_DeleteCh() ;
-			Edit_bSave = false ;
+			Edit_bSave = FALSE ;
 			Edit_DisplayLine() ;
 		}
 		else if(ch == Keyboard_BACKSPACE)
 		{
 			Edit_BakSpace() ;
-			Edit_bSave = false ;
+			Edit_bSave = FALSE ;
 			Edit_DisplayLine() ;
 		}
 		else if(ch == Keyboard_KEY_PG_UP)
@@ -151,7 +151,7 @@ int main(int argc, char** argv)
 					ch = '\n' ;
 
 				Edit_InsertCh(ch) ;
-				Edit_bSave = false ;
+				Edit_bSave = FALSE ;
 				Edit_DisplayLine() ;
 			}
 		}

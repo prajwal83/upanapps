@@ -30,7 +30,7 @@ int CommandLineParser_GetNoOfParameters() ;
 int CommandLineParser_GetNoOfOptions() ;
 char* CommandLineParser_GetParameterAt(int iPos) ;
 char** CommandLineParser_GetArgV() ;
-boolean CommandLineParser_IsOptPresent(char* opt) ;
+bool CommandLineParser_IsOptPresent(char* opt) ;
 
 #endif
 

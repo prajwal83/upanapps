@@ -90,7 +90,7 @@ void Edit_Init()
 	wx = 0 ;
 	ok = 1 ;
 
-	Edit_bSave = true ;
+	Edit_bSave = TRUE ;
 	word = NULL ;
 
 	strcpy(Edit_szFilename, "\0") ;
@@ -161,7 +161,7 @@ void Edit_DisplayLine()
 	int y, x ;
 
 	MTerm_GetWinYX(Edit_pEditWin, &wy, &wx) ;
-	MTerm_WinScrollLock(Edit_pEditWin, true) ;
+	MTerm_WinScrollLock(Edit_pEditWin, TRUE) ;
  
 	MTerm_WinClearFromCursor(Edit_pEditWin) ;
 
@@ -187,7 +187,7 @@ void Edit_DisplayLine()
 	}
 
 	MTerm_WinMove(Edit_pEditWin, wy, wx) ;
-	MTerm_WinScrollLock(Edit_pEditWin, false) ;
+	MTerm_WinScrollLock(Edit_pEditWin, FALSE) ;
 }
 
 void Edit_Home()
@@ -252,7 +252,7 @@ void Edit_MoveDown()
 	int i, y, x ;
  
 	MTerm_GetWinYX(Edit_pEditWin, &y, &x) ;
-	MTerm_WinScrollLock(Edit_pEditWin, true) ;
+	MTerm_WinScrollLock(Edit_pEditWin, TRUE) ;
 	Edit_End() ;
 
 	if(Edit_curNode->flink == NULL)
@@ -274,7 +274,7 @@ void Edit_MoveDown()
 	else
 		MTerm_WinMove(Edit_pEditWin, y + 1, i) ;
 
-	MTerm_WinScrollLock(Edit_pEditWin, false) ;
+	MTerm_WinScrollLock(Edit_pEditWin, FALSE) ;
 }
 
 void Edit_MoveLeft()

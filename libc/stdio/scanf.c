@@ -1932,7 +1932,7 @@ void read_input_till_char(cecho_func* cechoFunc, char* in_buf, const int max_rea
 	int cur_read_pos = 0 ;
 	int ch ;
 
-	while(true)
+	while(TRUE)
 	{
 		kb_get_ch_wait(&ch) ;
 		
@@ -2012,7 +2012,7 @@ int vfscanf_cecho (cecho_func* cechoFunc, const char* scan_buf, const Wchar *__r
 	if(scan_buf)
 		memcpy(sc.input_buffer, scan_buf, strlen(scan_buf)) ;
 	else
-		read_input_till_char(cechoFunc, sc.input_buffer, MAX_READ_LEN - 1, true, Keyboard_ENTER) ;
+		read_input_till_char(cechoFunc, sc.input_buffer, MAX_READ_LEN - 1, TRUE, Keyboard_ENTER) ;
 
 #define MAX_DIGITS 65			/* Allow one leading 0. */
 	unsigned char buf[MAX_DIGITS+2];

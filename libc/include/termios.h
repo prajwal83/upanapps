@@ -23,6 +23,10 @@ typedef unsigned char cc_t ;
 
 #define NCCS 20
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 typedef enum
 {
 	ECHO,
@@ -43,5 +47,9 @@ struct termios
 	tcflag_t c_lflag ; // local modes
 	cc_t c_cc[NCCS] ; // control chars
 } ;
+
+#if defined __cplusplus
+}
+#endif
 
 #endif

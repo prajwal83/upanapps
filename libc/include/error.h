@@ -18,6 +18,14 @@
 #ifndef _ERROR_H_
 #define	_ERROR_H_
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 int printerr(const char * __restrict format, ...) ;
+
+#if defined __cplusplus
+}
+#endif
 
 #endif

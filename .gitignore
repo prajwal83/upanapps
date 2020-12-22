@@ -6,3 +6,10 @@ edit
 nasm/nasm
 ndisasm
 depend.d
+tags
+CMakeCache.txt
+CMakeFiles
+cmake_install.cmake
+Makefile
+.idea/workspace.xml
+.cmake

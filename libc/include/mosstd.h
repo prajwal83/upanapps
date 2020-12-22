@@ -20,6 +20,10 @@
 
 #define pid_t int
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 typedef enum
 {
 	NEW,
@@ -61,5 +65,9 @@ int childalive(int pid) ;
 #define getpid() SysProcess_GetPID()
 #define getpslist(pslist, size) SysProcess_GetProcList(pslist, size)
 #define freepslist(pslist, size) SysProcess_FreeProcListMem(pslist, size)
+
+#if defined __cplusplus
+}
+#endif
 
 #endif

@@ -20,9 +20,13 @@
 
 typedef enum
 {
-	false = 0,
-	true
+  FALSE = 0,
+  TRUE
 } boolean ;
+
+#if defined __cplusplus
+extern "C" {
+#endif
 
 #define __isdigit_char(C)    (((unsigned char)((C) - '0')) <= 9)
 #define __isdigit_int(C)     (((unsigned int)((C) - '0')) <= 9)
@@ -90,5 +94,9 @@ int toupper(int c) ;
 
 //void memset(char* dest, char ch, int len) ;
 //void* memcpy(char* dest, const char* src, int len) ;
+//
+#if defined __cplusplus
+}
+#endif
 
 #endif

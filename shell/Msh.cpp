@@ -29,7 +29,7 @@
 
 char Msh_PROMPT[10] ;
 char Msh_commandLine[COMMAND_LINE_SIZE] ;
-unsigned int Msh_currentCommandPos ;
+unsigned int Msh_currentCommandPos;
 
 void Msh_Initialize()
 {
@@ -71,17 +71,27 @@ void Msh_ProcessCommandLine()
 	Msh_ClearCommandLine() ;
 }
 
+class TestClass {
+  public:
+  TestClass() {
+    printf("\n TestClass Initialized");
+  }
+};
+
+static TestClass testClassInstance;
+
 void Msh_Start()
 {
 	char ch ;
 
 	puts("\n\n Welcome to Mos Shell") ;
+  printf("\n Testing C++ MSH");
 
 	Msh_DisplayCommandPrompt() ;
 
 	while(1)
 	{
-		kb_get_ch_wait(&ch) ;
+		kb_get_ch_wait((int*)&ch) ;
 		
 		switch(ch)
 		{	

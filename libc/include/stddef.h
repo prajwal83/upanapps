@@ -20,6 +20,9 @@
 
 typedef unsigned size_t ;
 typedef unsigned long ssize_t ;
+
+#if !defined __cplusplus
 typedef int wchar_t ;
+#endif
 
 #endif

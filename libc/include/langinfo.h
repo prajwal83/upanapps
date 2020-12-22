@@ -36,6 +36,9 @@
 #define _NL_ITEM_CATEGORY(item)		((int) (item) >> __NL_ITEM_CATEGORY_SHIFT)
 #define _NL_ITEM_INDEX(item)		((int) (item) & __NL_ITEM_INDEX_MASK)
 
+#if defined __cplusplus
+extern "C" {
+#endif
 
 /* Enumeration of locale items that can be queried with `nl_langinfo'.  */
 enum
@@ -618,6 +621,10 @@ extern char *nl_langinfo_l (nl_item __item, __locale_t l);
 extern char *__nl_langinfo_l (nl_item __item, __locale_t l);
 
 #endif
+#endif
+
+#if defined __cplusplus
+}
 #endif
 
 #endif	/* langinfo.h */

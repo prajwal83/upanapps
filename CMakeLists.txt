@@ -30,10 +30,10 @@ set(CMAKE_AR ${CROSS_TOOL_PATH}/i686-elf/bin/ar)
 set(SO_COMPILE_FLAGS -shared -fPIC)
 set(SO_LD_FLAGS " -Wl,-shared -Wl,-fPIC")
 
-#set(CMAKE_CXX_FLAGS " -O0 -Wall -ffreestanding -nodefaultlibs -nostdlib -nostartfiles -nostdinc -std=c++11 -nostdinc++ -fno-threadsafe-statics -fpermissive ${EXCEPTION_SUP}")
+set(CMAKE_CXX_FLAGS " -O0 -Wall -ffreestanding -nodefaultlibs -nostdlib -nostartfiles -nostdinc -std=c++11 -nostdinc++ -fno-threadsafe-statics -fpermissive ${EXCEPTION_SUP}")
 set(COMMON_COMPILE_FLAGS " -Wall -nostdlib -nodefaultlibs -ffreestanding -nostdinc -nostartfiles -D__GCC__")
 set(CMAKE_C_FLAGS ${COMMON_COMPILE_FLAGS})
-set(CMAKE_EXE_LINKER_FLAGS ${COMMON_COMPILE_FLAGS})
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_CXX_FLAGS} ${COMMON_COMPILE_FLAGS}")
 set(CMAKE_SHARED_LINKER_FLAGS "${COMMON_COMPILE_FLAGS} ${SO_LD_FLAGS}")
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -81,6 +81,19 @@ target_compile_options(mterm PRIVATE ${SO_COMPILE_FLAGS})
 
 link_directories(${OUTPUT_DIR})
 
+add_custom_target(crt 
+  COMMAND make WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/crt
+  BYPRODUCTS ./crt/crt0.o ./crt/crti.o ./crt/crtn.o)
+
+execute_process(COMMAND bash -c "${CMAKE_CXX_COMPILER} -print-file-name=crtbegin.o" OUTPUT_VARIABLE CRTBEGIN_OBJ)
+string(REPLACE "\n" "" CRTBEGIN_OBJ ${CRTBEGIN_OBJ})
+execute_process(COMMAND bash -c "${CMAKE_CXX_COMPILER} -print-file-name=crtend.o" OUTPUT_VARIABLE CRTEND_OBJ)
+string(REPLACE "\n" "" CRTEND_OBJ ${CRTEND_OBJ})
+
+set(CRTINIT_OBJ "./crt/crt0.o ./crt/crti.o ${CRTBEGIN_OBJ}")
+set(CRTFINI_OBJ "${CRTEND_OBJ} ./crt/crtn.o")
+set(CMAKE_CXX_LINK_EXECUTABLE "<CMAKE_CXX_COMPILER> ${CMAKE_CXX_FLAGS} ${CMAKE_EXE_LINKER_FLAGS} ${CRTINIT_OBJ} <OBJECTS> -o <TARGET> <LINK_LIBRARIES> ${CRTFINI_OBJ}")
+
 #NASM
 execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./nasm/nasm_src -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE NASM_SRC)
 string(REPLACE "\n" ";" NASM_SRC ${NASM_SRC})
@@ -102,13 +115,13 @@ target_include_directories(ndisasm PRIVATE ${PROJECT_SOURCE_DIR}/nasm/include)
 target_link_libraries(ndisasm c)
 
 #SHELL
-execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./shell -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE MSH_SRC)
+execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./shell -name '*.cpp' | grep -v CMakeFile" OUTPUT_VARIABLE MSH_SRC)
 string(REPLACE "\n" ";" MSH_SRC ${MSH_SRC})
 add_executable(msh "${MSH_SRC}")
 add_dependencies(msh c)
+add_dependencies(msh crt)
 target_include_directories(msh PRIVATE ${PROJECT_SOURCE_DIR}/shell)
 target_compile_options(msh PRIVATE -O2)
-target_link_options(msh PRIVATE -e main)
 target_link_libraries(msh c)
 
 #EDITOR

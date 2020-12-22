@@ -21,6 +21,10 @@
 # include <stdlib.h>
 # include <mosstd.h>
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 #define NO_OF_SYSCALL_PARAMS 10
 
 #define DO_SYS_CALL(SYS_CALL_ID) \
@@ -122,5 +126,9 @@ __volatile__ unsigned uiP6,
 __volatile__ unsigned uiP7, 
 __volatile__ unsigned uiP8, 
 __volatile__ unsigned uiP9) ;
+
+#if defined __cplusplus
+}
+#endif
 
 #endif

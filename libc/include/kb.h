@@ -20,6 +20,10 @@
 
 # include <ctype.h>
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 typedef enum
 {
   Keyboard_ESC = 1,
@@ -67,6 +71,10 @@ extern void SysKB_GetWait(int* ch) ;
 #define kb_get_ch_wait(ch) SysKB_GetWait(ch)
 
 boolean is_special_char(char ch) ;
+
+#if defined __cplusplus
+}
+#endif
 
 #endif
 

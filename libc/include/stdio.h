@@ -23,6 +23,10 @@
 
 #define Display_WHITE_ON_BLACK 0x07
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 extern void SysDisplay_ClearScreen() ;
 extern void SysDisplay_Character(const char ch, unsigned uiAttr) ;
 extern void SysDisplay_Message(const char* szMessage, unsigned uiAttr) ;
@@ -164,5 +168,9 @@ extern void _stdio_term(void) ;
 
 void rewind(register FILE *stream) ;
 int ferror(register FILE *stream) ;
+
+#if defined __cplusplus
+}
+#endif
 
 #endif /* Don't need FILE.  */

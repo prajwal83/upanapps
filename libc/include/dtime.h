@@ -20,6 +20,10 @@
 
 # include <stdlib.h>
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 typedef unsigned time_t ;
 typedef int clock_t ;
 
@@ -67,5 +71,9 @@ struct timeval
 // As per POSIX...
 #define CLOCKS_PER_SEC 1000000
 clock_t clock() ;
+
+#if defined __cplusplus
+}
+#endif
 
 #endif

@@ -34,6 +34,10 @@ MOS PORTING */
 #define __need_wchar_t
 #include <stddef.h>
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 /* WARNING -- This is definitely nonportable... but it seems to work
  * with gcc, which is currently the only "supported" compiler.
  * The library code uses bitmasks for space-efficiency (you can't
@@ -244,6 +248,10 @@ extern int printf_size_info (__const struct printf_info *__restrict
 			     __info, size_t __n, int *__restrict __argtypes)
      ;
 
+#endif
+
+#if defined __cplusplus
+}
 #endif
 
 #endif /* printf.h  */

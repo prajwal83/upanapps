@@ -32,6 +32,10 @@
 #include <stddef.h>
 #include <ctype.h>
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 typedef boolean tok_compare_func(char ch) ;
 typedef boolean tok_group_func(char ch) ;
 typedef void tok_copy_func(int index, const char* src, int len) ;
@@ -132,5 +136,9 @@ int strncasecmp(register const char *s1, register const char *s2, size_t n) ;
 int ffs(int i) ;
 
 #define strtok_r(p, d, sp) __strtok_r(p, d, sp)
+
+#if defined __cplusplus
+}
+#endif
 
 #endif /* string.h  */

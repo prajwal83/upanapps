@@ -55,6 +55,10 @@
 #define	SEEK_CUR 1
 #define	SEEK_END 2
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 typedef enum
 {	
 	O_RDONLY = 1,
@@ -130,5 +134,9 @@ int access(const char* szFileName, int mode) ;
 int dup2(int oldFD, int newFD) ;
 int resetstd(int stdfd) ;
 int getcwd(char* buf, size_t size) ;
+
+#if defined __cplusplus
+}
+#endif
 
 #endif

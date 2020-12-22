@@ -35,7 +35,7 @@ struct MshCommand
 
 
 void MshCommands_Init() ;
-boolean MshCommands_ExecuteInternalCommand() ;
-boolean MshCommands_ExecuteProcess() ;
+bool MshCommands_ExecuteInternalCommand() ;
+bool MshCommands_ExecuteProcess() ;
 
 #endif

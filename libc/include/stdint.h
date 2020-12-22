@@ -29,6 +29,10 @@
 #endif /* __UCLIBC_HAS_WCHAR__ */
 #include <bits/wordsize.h>
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 /* Exact integral types.  */
 
 /* Signed.  */
@@ -328,5 +332,9 @@ typedef unsigned long long int	uintmax_t;
 # endif
 
 #endif	/* C++ && constant macros */
+
+#if defined __cplusplus
+}
+#endif
 
 #endif /* stdint.h */

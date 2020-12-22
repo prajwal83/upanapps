@@ -20,6 +20,10 @@
 
 typedef void* va_list ;
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 #define va_start(var_list, last_known_arg) \
 var_list = (va_list)((unsigned)&last_known_arg) + sizeof(unsigned) ;
 
@@ -30,5 +34,9 @@ var_list = (va_list)((unsigned)&last_known_arg) + sizeof(unsigned) ;
 
 #define va_copy(var_list_dest, var_list_src) \
 var_list_dest = var_list_src ;
+
+#if defined __cplusplus
+}
+#endif
 
 #endif

@@ -20,6 +20,10 @@
 
 #include <ctype.h>
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 /* Day of Month is the only one which is 1 based index */
 
 typedef struct
@@ -109,5 +113,9 @@ boolean mdate_SetDayOfWeek(mdate* date) ;
 
 const char* mdate_GetMonthName(const mdate* date) ;
 const char* mdate_GetDayName(const mdate* date) ;
+
+#if defined __cplusplus
+}
+#endif
 
 #endif
