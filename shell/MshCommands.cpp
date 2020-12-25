@@ -1,5 +1,5 @@
 /*
- *  Mother Operating System - An x86 based Operating System
+ *  Upanix - An x86 based Operating System
  *  Copyright (C) 2011 'Prajwala Prabhakar' 'srinivasa_prajwal@yahoo.co.in'
  *                                                                          
  *  This program is free software: you can redistribute it and/or modify
@@ -15,9 +15,6 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/
  */
-# include <MshCommands.h>
-# include <CommandLineParser.h>
-# include <MshCommandExecutor.h>
 # include <string.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -28,65 +25,55 @@
 # include <error.h>
 # include <dtime.h>
 # include <cdisplay.h>
+# include <stringalgo.h>
+# include <MshCommands.h>
+# include <MshCommandExecutor.h>
+# include <Msh.h>
 
-void MshCommandEcho::execute() {
-  if(CommandLineParser_GetNoOfParameters())
-    puts(CommandLineParser_GetParameterAt(0));
+void MshCommandEcho::execute(const MshCommandExecutor& cmdExec) {
+  if (!cmdExec.params().empty()) {
+    puts(cmdExec.params()[0].c_str());
+  }
 }
 
-void MshCommandClearScreen::execute() {
+void MshCommandClearScreen::execute(const MshCommandExecutor& cmdExec) {
   clrscr();
 }
 
-void MshCommandExit::execute() {
+void MshCommandExit::execute(const MshCommandExecutor& cmdExec) {
   exit(0);
 }
 
-void MshCommandCreateDir::execute() {
-  if(CommandLineParser_GetNoOfParameters())
-  {
-    int i ;
-    for(i = 0; i < CommandLineParser_GetNoOfParameters(); i++)
-    {
-      if(mkdir(CommandLineParser_GetParameterAt(i), ATTR_DIR_DEFAULT | ATTR_TYPE_DIRECTORY) < 0)
-      {
-        printerr("%s : Directory Creation Failed", CommandLineParser_GetParameterAt(i)) ;
-      }
+void MshCommandCreateDir::execute(const MshCommandExecutor& cmdExec) {
+  for(const auto& param : cmdExec.params()) {
+    if(mkdir(param.c_str(), ATTR_DIR_DEFAULT | ATTR_TYPE_DIRECTORY) < 0) {
+      printerr("%s : Directory Creation Failed", param.c_str()) ;
     }
   }
 }
 
-void MshCommandDeleteFile::execute() {
-  if(CommandLineParser_GetNoOfParameters())
-  {
-    int i ;
-    for(i = 0; i < CommandLineParser_GetNoOfParameters(); i++)
-    {
-      if(unlink(CommandLineParser_GetParameterAt(i)) < 0)
-      {
-        printerr("%s : Directory Deletion Failed", CommandLineParser_GetParameterAt(i)) ;
-      }
+void MshCommandDeleteFile::execute(const MshCommandExecutor& cmdExec) {
+  for(const auto& param : cmdExec.params()) {
+    if(unlink(param.c_str()) < 0) {
+      printerr("%s : Directory Deletion Failed", param.c_str()) ;
     }
   }
 }
 
-void MshCommandListDir::execute() {
+void MshCommandListDir::execute(const MshCommandExecutor& cmdExec) {
   FS_Node *pDirList;
   int iListSize;
 
-  if (CommandLineParser_GetNoOfParameters()) {
-    int i;
-    bool bDisplayParentDirName = CommandLineParser_GetNoOfParameters() > 1;
+  if (!cmdExec.params().empty()) {
+    bool bDisplayParentDirName = cmdExec.params().size() > 1;
 
-    for (i = 0; i < CommandLineParser_GetNoOfParameters(); i++) {
-      if (get_dir_content(CommandLineParser_GetParameterAt(i), &pDirList, &iListSize) < 0) {
-        printerr("%s : No Such Directory/File", CommandLineParser_GetParameterAt(i));
+    for (const auto& param : cmdExec.params()) {
+      if (get_dir_content(param.c_str(), &pDirList, &iListSize) < 0) {
+        printerr("%s : No Such Directory/File", param.c_str());
       } else {
         if (bDisplayParentDirName)
-          printf("\n\n %s :", CommandLineParser_GetParameterAt(i));
-
-        showDirContent(pDirList, iListSize);
-
+          printf("\n\n %s :", param.c_str());
+        showDirContent(cmdExec, pDirList, iListSize);
         free(pDirList);
       }
     }
@@ -94,26 +81,22 @@ void MshCommandListDir::execute() {
     if (get_dir_content("", &pDirList, &iListSize) < 0) {
       puts("\nFailed to Get Directory Content");
     } else {
-      showDirContent(pDirList, iListSize);
+      showDirContent(cmdExec, pDirList, iListSize);
       free(pDirList);
     }
   }
 }
 
-void MshCommandListDir::showDirContent(const FS_Node* pDirList, int iListSize) {
-  if(CommandLineParser_IsOptPresent("-l")) {
+void MshCommandListDir::showDirContent(const MshCommandExecutor& cmdExec, const FS_Node* pDirList, int iListSize) {
+  if(cmdExec.isOptPresent("-l")) {
     char rwx[12] ;
-    int i ;
-
     // Attr, User, Size, Create Time, Modify Time, Access Time, Name
-    for(i = 0; i < iListSize; i++)
-    {
+    for(int i = 0; i < iListSize; i++) {
       format_dir_attr(pDirList[i]._attribute, rwx) ;
       printf("\n%-15s%-15d%s", rwx, pDirList[i]._size, pDirList[i]._name) ;
     }
   } else {
-    int i ;
-    for(i = 0; i < iListSize; i++)
+    for(int i = 0; i < iListSize; i++)
     {
       if(!(i % 3) && i != 0)
         putc('\n', stdout) ;
@@ -122,52 +105,51 @@ void MshCommandListDir::showDirContent(const FS_Node* pDirList, int iListSize) {
   }
 }
 
-void MshCommandChangeDir::execute() {
-  if(CommandLineParser_GetNoOfParameters())
-  {
-    if(chdir(CommandLineParser_GetParameterAt(0)) < 0)
-      printerr("%s : No Such Directory", CommandLineParser_GetParameterAt(1)) ;
+void MshCommandChangeDir::execute(const MshCommandExecutor& cmdExec) {
+  if (!cmdExec.params().empty()) {
+    if(chdir(cmdExec.params()[0].c_str()) < 0)
+      printerr("%s : No Such Directory", cmdExec.params()[0].c_str());
   }
 }
 
-void MshCommandPresentWorkingDir::execute() {
+void MshCommandPresentWorkingDir::execute(const MshCommandExecutor& cmdExec) {
   char* szPWD ;
   getpwd(&szPWD) ;
   printf("%s", szPWD) ;
   free(szPWD) ;
 }
 
-void MshCommandCopyFile::execute() {
-  if(CommandLineParser_GetNoOfParameters() < 1)
+void MshCommandCopyFile::execute(const MshCommandExecutor& cmdExec) {
+  if(cmdExec.params().size() < 2)
     return ;
 
-  const char* szSrcFileName = CommandLineParser_GetParameterAt(0) ;
-  const char* szDestFileName = CommandLineParser_GetParameterAt(1) ;
+  const auto& szSrcFileName = cmdExec.params()[0];
+  const auto& szDestFileName = cmdExec.params()[1];
 
-  if(strcmp(szSrcFileName, szDestFileName) == 0)
+  if(szSrcFileName == szDestFileName)
   {
     printerr("Src and Dest files must be different") ;
     return ;
   }
 
   int fdSrc ;
-  if((fdSrc = open(szSrcFileName, O_RDONLY)) < 0)
+  if((fdSrc = open(szSrcFileName.c_str(), O_RDONLY)) < 0)
   {
-    printerr("Failed to open file %s", szSrcFileName) ;
+    printerr("Failed to open file %s", szSrcFileName.c_str()) ;
     return ;
   }
 
-  if(create(szDestFileName, ATTR_FILE_DEFAULT) < 0)
+  if(create(szDestFileName.c_str(), ATTR_FILE_DEFAULT) < 0)
   {
-    printerr("Failed to create file %s", szDestFileName) ;
+    printerr("Failed to create file %s", szDestFileName.c_str()) ;
     close(fdSrc) ;
     return ;
   }
 
   int fdDest ;
-  if((fdDest = open(szDestFileName, O_RDWR)) < 0)
+  if((fdDest = open(szDestFileName.c_str(), O_RDWR)) < 0)
   {
-    printerr("Failed to open file %s", szDestFileName) ;
+    printerr("Failed to open file %s", szDestFileName.c_str()) ;
     close(fdSrc) ;
     return ;
   }
@@ -180,7 +162,7 @@ void MshCommandCopyFile::execute() {
   struct stat fStat;
   if(fstat(fdSrc, &fStat) < 0)
   {
-    printf("\n Failed to get stat on file: %s", szSrcFileName) ;
+    printf("\n Failed to get stat on file: %s", szSrcFileName.c_str()) ;
     close(fdSrc) ;
     close(fdDest) ;
     return ;
@@ -205,7 +187,7 @@ void MshCommandCopyFile::execute() {
   {
     if((n = read(fdSrc, buffer, BUF_SIZE)) < 0)
     {
-      printerr(" error reading file %s", szSrcFileName) ;
+      printerr(" error reading file %s", szSrcFileName.c_str()) ;
       break ;
     }
 
@@ -216,7 +198,7 @@ void MshCommandCopyFile::execute() {
 
       if(write(fdDest, buffer, n) < 0)
       {
-        printerr(" error writing file %s", szDestFileName) ;
+        printerr(" error writing file %s", szDestFileName.c_str()) ;
         break ;
       }
 
@@ -226,7 +208,7 @@ void MshCommandCopyFile::execute() {
 
     if(write(fdDest, buffer, n) < 0)
     {
-      printerr(" error writing file %s", szDestFileName) ;
+      printerr(" error writing file %s", szDestFileName.c_str()) ;
       break ;
     }
 
@@ -239,16 +221,16 @@ void MshCommandCopyFile::execute() {
   close(fdDest) ;
 }
 
-void MshCommandShowFile::execute() {
-  if(CommandLineParser_GetNoOfParameters() < 1)
+void MshCommandShowFile::execute(const MshCommandExecutor& cmdExec) {
+  if(cmdExec.params().size() < 1)
     return ;
 
-  const char* szFileName = CommandLineParser_GetParameterAt(0) ;
+  const auto& szFileName = cmdExec.params()[0];
 
   int fd ;
-  if((fd = open(szFileName, O_RDONLY)) < 0)
+  if((fd = open(szFileName.c_str(), O_RDONLY)) < 0)
   {
-    printerr("Failed to open file %s", szFileName) ;
+    printerr("Failed to open file %s", szFileName.c_str()) ;
     return ;
   }
 
@@ -259,7 +241,7 @@ void MshCommandShowFile::execute() {
   {
     if((n = read(fd, buffer, 512)) < 0)
     {
-      printerr(" error reading file %s", szFileName) ;
+      printerr(" error reading file %s", szFileName.c_str()) ;
       break ;
     }
 
@@ -276,7 +258,7 @@ void MshCommandShowFile::execute() {
   close(fd) ;
 }
 
-void MshCommandDate::execute() {
+void MshCommandDate::execute(const MshCommandExecutor& cmdExec) {
   RTCTime rtcTime ;
   dtime(&rtcTime) ;
 
@@ -285,15 +267,14 @@ void MshCommandDate::execute() {
          rtcTime.bSecond) ;
 }
 
-void MshCommandChangeDrive::execute() {
-  if(CommandLineParser_GetNoOfParameters())
-  {
-    if(chdrive(CommandLineParser_GetParameterAt(0)) < 0)
-      printerr("Failed to switch drive to %s", CommandLineParser_GetParameterAt(1)) ;
+void MshCommandChangeDrive::execute(const MshCommandExecutor& cmdExec) {
+  if(!cmdExec.params().empty()) {
+    if(chdrive(cmdExec.params()[0].c_str()) < 0)
+      printerr("Failed to switch drive to %s", cmdExec.params()[0].c_str()) ;
   }
 }
 
-void MshCommandShowDrives::execute() {
+void MshCommandShowDrives::execute(const MshCommandExecutor& cmdExec) {
   DriveStat* pDriveList ;
   int iListSize ;
 
@@ -326,37 +307,37 @@ void MshCommandShowDrives::execute() {
   free(pDriveList) ;
 }
 
-void MshCommandMountDrive::execute() {
-  if(CommandLineParser_GetNoOfParameters() < 1)
+void MshCommandMountDrive::execute(const MshCommandExecutor& cmdExec) {
+  if(cmdExec.params().size() < 1)
     return ;
 
-  const char* szDriveName = CommandLineParser_GetParameterAt(0) ;
+  const auto& szDriveName = cmdExec.params()[0];
 
-  if(mount(szDriveName) < 0)
-    printerr("Failed to mount drive %s", szDriveName) ;
+  if(mount(szDriveName.c_str()) < 0)
+    printerr("Failed to mount drive %s", szDriveName.c_str()) ;
 }
 
-void MshCommandUnMountDrive::execute() {
-  if(CommandLineParser_GetNoOfParameters() < 1)
+void MshCommandUnMountDrive::execute(const MshCommandExecutor& cmdExec) {
+  if(cmdExec.params().size() < 1)
     return ;
 
-  const char* szDriveName = CommandLineParser_GetParameterAt(0) ;
+  const auto& szDriveName = cmdExec.params()[0];
 
-  if(umount(szDriveName) < 0)
-    printerr("Failed to unmount drive %s", szDriveName) ;
+  if(umount(szDriveName.c_str()) < 0)
+    printerr("Failed to unmount drive %s", szDriveName.c_str()) ;
 }
 
-void MshCommandFormatDrive::execute() {
-  if(CommandLineParser_GetNoOfParameters() < 1)
+void MshCommandFormatDrive::execute(const MshCommandExecutor& cmdExec) {
+  if(cmdExec.params().size() < 1)
     return ;
 
-  const char* szDriveName = CommandLineParser_GetParameterAt(0) ;
+  const auto& szDriveName = cmdExec.params()[0];
 
-  if(format(szDriveName) < 0)
-    printerr("Failed to format drive %s", szDriveName) ;
+  if(format(szDriveName.c_str()) < 0)
+    printerr("Failed to format drive %s", szDriveName.c_str()) ;
 }
 
-void MshCommandShowCurrentDrive::execute() {
+void MshCommandShowCurrentDrive::execute(const MshCommandExecutor& cmdExec) {
   DriveStat driveStat;
 
   if(getcurdrive(&driveStat) < 0)
@@ -366,13 +347,13 @@ void MshCommandShowCurrentDrive::execute() {
          (driveStat.bMounted) ? "-- mounted" : "not mounted") ;
 }
 
-void MshCommandReboot::execute() {
+void MshCommandReboot::execute(const MshCommandExecutor& cmdExec) {
   reboot();
 }
 
-void MshCommandHelp::execute() {
+void MshCommandHelp::execute(const MshCommandExecutor& cmdExec) {
   int i = 0;
-  for(auto cmd : MshCommandExecutor::Instance().getCommands()) {
+  for(auto cmd : Msh::Instance().getCommands()) {
     if(!(i % 3) && i != 0)
       putc('\n', stdout) ;
     printf("%-20s", cmd.second->name().c_str()) ;
@@ -380,7 +361,7 @@ void MshCommandHelp::execute() {
   }
 }
 
-void MshCommandGetProcessDetails::execute() {
+void MshCommandGetProcessDetails::execute(const MshCommandExecutor& cmdExec) {
   PS* pPS ;
   unsigned uiSize ;
 
@@ -403,23 +384,17 @@ void MshCommandGetProcessDetails::execute() {
   freepslist(pPS, uiSize) ;
 }
 
-void MshCommandExportEvnVar::execute() {
-  if(CommandLineParser_GetNoOfParameters() < 1)
+void MshCommandExportEvnVar::execute(const MshCommandExecutor& cmdExec) {
+  if(cmdExec.params().size() < 1)
     return ;
 
-  char* szExp = CommandLineParser_GetParameterAt(0) ;
-  char* var = szExp ;
-  char* val = strchr(szExp, '=') ;
-
-  if(val == NULL) {
+  const auto& szExp = cmdExec.params()[0];
+  const auto& tokens = upan::tokenize(szExp.c_str(), '=');
+  if (tokens.size() < 2) {
     printUsage();
     return ;
   }
-
-  val[0] = '\0' ;
-  val = val + 1 ;
-
-  if(setenv(var, val) < 0)
+  if(setenv(tokens[0].c_str(), tokens[1].c_str()) < 0)
   {
     printf("\n Failed to set env variable\n") ;
     return ;

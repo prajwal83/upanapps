@@ -1,5 +1,5 @@
 /*
- *  Mother Operating System - An x86 based Operating System
+ *  Upanix - An x86 based Operating System
  *  Copyright (C) 2011 'Prajwala Prabhakar' 'srinivasa_prajwal@yahoo.co.in'
  *                                                                          
  *  This program is free software: you can redistribute it and/or modify
@@ -23,8 +23,7 @@
 int main(int argc, char** argv)
 {
   try {
-    Msh_Initialize();
-    Msh_Start();
+    Msh::Instance().start();
   } catch(const upan::exception& e) {
     printf("\nError: %s", e.ErrorMsg().c_str());
   }

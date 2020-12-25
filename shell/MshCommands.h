@@ -1,5 +1,5 @@
 /*
- *  Mother Operating System - An x86 based Operating System
+ *  Upanix - An x86 based Operating System
  *  Copyright (C) 2011 'Prajwala Prabhakar' 'srinivasa_prajwal@yahoo.co.in'
  *                                                                          
  *  This program is free software: you can redistribute it and/or modify
@@ -21,11 +21,13 @@
 #include <ustring.h>
 #include <fs.h>
 
+class MshCommandExecutor;
+
 class MshCommand {
 public:
   MshCommand(const upan::string& name, const upan::string& usage, int minParamCount, int maxParamCount) :
    _name(name), _usage(usage), _minParamCount(minParamCount), _maxParamCount(maxParamCount) {}
-  virtual void execute() = 0;
+  virtual void execute(const MshCommandExecutor&) = 0;
 
   const upan::string& name() {
     return _name;
@@ -58,147 +60,147 @@ class MshCommandEcho : public MshCommand {
 public:
   MshCommandEcho() : MshCommand("echo", "[\"]<string to be displayed>[\"] - Use \" if msg conatains whitespace", 1, 1) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandClearScreen : public MshCommand {
 public:
   MshCommandClearScreen() : MshCommand("clear", "", 0, 0) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandExit : public MshCommand {
 public:
   MshCommandExit() : MshCommand("exit", "", 0, 0) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandCreateDir : public MshCommand {
 public:
   MshCommandCreateDir() : MshCommand("mkdir", "<new_dir_name> [<new_dir_name> ...]", 1, 10) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandDeleteFile : public MshCommand {
 public:
   MshCommandDeleteFile() : MshCommand("rm", "<file_name> [<file_name> ...]", 1, 10) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandListDir : public MshCommand {
 public:
   MshCommandListDir() : MshCommand("ls", "<file_name> [<file_name> ...]", 0, 20) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 private:
-  void showDirContent(const FS_Node* pDirList, int iListSize);
+  void showDirContent(const MshCommandExecutor& cmdExec, const FS_Node* pDirList, int iListSize);
 };
 
 class MshCommandChangeDir : public MshCommand {
 public:
   MshCommandChangeDir() : MshCommand("cd", "<dir_name>", 1, 1) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandPresentWorkingDir : public MshCommand {
 public:
   MshCommandPresentWorkingDir() : MshCommand("pwd", "", 0, 0) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandCopyFile : public MshCommand {
 public:
   MshCommandCopyFile() : MshCommand("cp", "<src_file_name> <dest_file_name>", 2, 2) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandShowFile : public MshCommand {
 public:
   MshCommandShowFile() : MshCommand("see", "<text_file_name>", 1, 1) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandDate : public MshCommand {
 public:
   MshCommandDate() : MshCommand("date", "", 0, 0) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandChangeDrive : public MshCommand {
 public:
   MshCommandChangeDrive() : MshCommand("chd", "<Drive name> - Use the one listed by \"shd\" command", 1, 1) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandShowDrives : public MshCommand {
 public:
   MshCommandShowDrives() : MshCommand("shd", "", 0, 0) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandMountDrive : public MshCommand {
 public:
   MshCommandMountDrive() : MshCommand("mount", "<Drive name> - Use the one listed by \"shd\" command", 1, 1) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandUnMountDrive : public MshCommand {
 public:
   MshCommandUnMountDrive() : MshCommand("umount", "<Drive name> - Use the one listed by \"shd\" command", 1, 1) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandFormatDrive : public MshCommand {
 public:
   MshCommandFormatDrive() : MshCommand("format", "<Drive name> - Use the one listed by \"shd\" command", 1, 1) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandShowCurrentDrive : public MshCommand {
 public:
   MshCommandShowCurrentDrive() : MshCommand("cud", "", 0, 0) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandReboot : public MshCommand {
 public:
   MshCommandReboot() : MshCommand("reboot", "", 0, 0) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandHelp : public MshCommand {
 public:
   MshCommandHelp() : MshCommand("help", "", 0, 0) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandGetProcessDetails : public MshCommand {
 public:
   MshCommandGetProcessDetails() : MshCommand("ps", "", 0, 0) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };
 
 class MshCommandExportEvnVar : public MshCommand {
 public:
   MshCommandExportEvnVar() : MshCommand("export", "<var>=<val>", 1, 1) {
   }
-  virtual void execute() override;
+  virtual void execute(const MshCommandExecutor&) override;
 };

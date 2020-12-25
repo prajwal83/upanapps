@@ -1,5 +1,5 @@
 /*
- *  Mother Operating System - An x86 based Operating System
+ *  Upanix - An x86 based Operating System
  *  Copyright (C) 2011 'Prajwala Prabhakar' 'srinivasa_prajwal@yahoo.co.in'
  *                                                                          
  *  This program is free software: you can redistribute it and/or modify
@@ -16,60 +16,101 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/
  */
 # include <MshCommands.h>
-# include <CommandLineParser.h>
 # include <MshCommandExecutor.h>
+# include <Msh.h>
 # include <mosstd.h>
+# include <malloc.h>
 
-MshCommandExecutor::MshCommandExecutor() {
-  auto add_cmd = [&](MshCommand* cmd) {
-    auto r = _commands.insert(CmdMap::value_type(cmd->name(), cmd));
-    if (!r.second) {
-      throw upan::exception(XLOC, "duplicate command: %s", cmd->name().c_str());
-    }
-  };
-  add_cmd(new MshCommandEcho());
-  add_cmd(new MshCommandClearScreen());
-  add_cmd(new MshCommandExit());
-  add_cmd(new MshCommandCreateDir());
-  add_cmd(new MshCommandDeleteFile());
-  add_cmd(new MshCommandListDir());
-  add_cmd(new MshCommandChangeDir());
-  add_cmd(new MshCommandPresentWorkingDir());
-  add_cmd(new MshCommandCopyFile());
-  add_cmd(new MshCommandShowFile());
-  add_cmd(new MshCommandDate());
-  add_cmd(new MshCommandChangeDrive());
-  add_cmd(new MshCommandShowDrives());
-  add_cmd(new MshCommandMountDrive());
-  add_cmd(new MshCommandUnMountDrive());
-  add_cmd(new MshCommandFormatDrive());
-  add_cmd(new MshCommandShowCurrentDrive());
-  add_cmd(new MshCommandReboot());
-  add_cmd(new MshCommandHelp());
-  add_cmd(new MshCommandGetProcessDetails());
-  add_cmd(new MshCommandExportEvnVar());
+MshCommandExecutor::MshCommandExecutor(const upan::string& cmdLine) : _cmd(upan::option<MshCommand*>::empty()) {
+  parse(cmdLine);
+  _cmdName = _cmdLineTokens.empty() ? "" : _cmdLineTokens[0];
+  auto it = Msh::Instance().getCommands().find(_cmdName);
+  if (it != Msh::Instance().getCommands().end()) {
+    _cmd = upan::option<MshCommand*>(it->second);
+  }
 }
 
-bool MshCommandExecutor::executeInternalCommand() {
-  const upan::string cmdName(CommandLineParser_GetCommand());
-  auto it = _commands.find(cmdName);
-  if (it == _commands.end()) {
-    return false;
+static bool CommandLineParser_TokenCompare(char ch) {
+  return iswhitespace(ch) ;
+}
+
+static bool CommandLineParser_GroupToken(char ch) {
+  return (int) (ch == '"') ;
+}
+
+static void CommandLineParser_Copy(int index, const char* src, int len, void* context) {
+  MshCommandExecutor* c = reinterpret_cast<MshCommandExecutor*>(context);
+  c->addCmdToken(upan::string(src, len));
+}
+
+void MshCommandExecutor::parse(const upan::string& cmdLine) {
+  int tokenCount;
+  strtok_c(cmdLine.c_str(),
+           &CommandLineParser_TokenCompare,
+           &CommandLineParser_GroupToken,
+           &CommandLineParser_Copy,
+           &tokenCount,
+           this);
+
+  expandCmdLine();
+
+  for(int i = 1; i < _cmdLineTokens.size(); ++i) {
+    const auto& token = _cmdLineTokens[i];
+    if (token.length()) {
+      if (token[0] == '-') {
+        _options.insert(token);
+      } else {
+        _params.push_back(token);
+      }
+    }
   }
-  const MshCommand& cmd = *it->second;
-  const int noOfParams = CommandLineParser_GetNoOfCommandLineEntries() - 1;
+}
+
+void MshCommandExecutor::expandCmdLine() {
+  for(auto& token : _cmdLineTokens) {
+    if (token.length() > 1) {
+      if(token[0] == '$' && !iswhitespace(token[1]))
+      {
+        int j ;
+        for(j = 0; token[j] != '\0' && !iswhitespace(token[j]) && token[j] != '/'; j++) ;
+
+        const upan::string temp(token.c_str() + j);
+        char* val = getenv(upan::string(token.c_str() + 1, j - 1).c_str());
+        token = val == NULL ? "" : val;
+        token += temp;
+      }
+    }
+  }
+}
+
+void MshCommandExecutor::execute() {
+  if (_cmd.isEmpty()) {
+    if (!executeProcess()) {
+      puts("\n No Such Command or Execuable") ;
+    }
+  } else {
+    executeInternalCommand(*_cmd.value());
+  }
+}
+
+void MshCommandExecutor::executeInternalCommand(MshCommand& cmd) {
+  const int noOfParams = _params.size();
   if (noOfParams < cmd.minParamCount() || noOfParams > cmd.maxParamCount()) {
     cmd.printUsage();
-    return false;
+  } else {
+    cmd.execute(*this);
+  }
+}
+
+bool MshCommandExecutor::executeProcess() {
+  char** argv = (char**)malloc(sizeof(char*) * _cmdLineTokens.size());
+  for(int i = 0; i < _cmdLineTokens.size(); ++i) {
+    argv[i] = _cmdLineTokens[i].c_str();
   }
 
-  cmd.execute();
-  return true;
-}
-bool MshCommandExecutor::executeProcess() {
-	const int pid = execv(CommandLineParser_GetCommand(),
-				CommandLineParser_GetNoOfCommandLineEntries(),
-				CommandLineParser_GetArgV()) ;
+	const int pid = execv(_cmdName.c_str(), _cmdLineTokens.size(), argv) ;
+
+  free(argv);
 
 	/* --> way to work using execvp */
 	/*
@@ -78,14 +119,10 @@ bool MshCommandExecutor::executeProcess() {
 	pid = execvp(CommandLineParser_GetCommand(), argv );
 	*/
 	
-	if(pid < 0)
-	{
+	if(pid < 0) {
 		return false ;
-	}
-	else
-	{
+	} else {
 		waitpid(pid) ;
 	}
-
 	return true ;
 }

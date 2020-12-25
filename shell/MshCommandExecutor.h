@@ -1,5 +1,5 @@
 /*
- *  Mother Operating System - An x86 based Operating System
+ *  Upanix - An x86 based Operating System
  *  Copyright (C) 2011 'Prajwala Prabhakar' 'srinivasa_prajwal@yahoo.co.in'
  *                                                                          
  *  This program is free software: you can redistribute it and/or modify
@@ -17,30 +17,41 @@
  */
 #pragma once
 
-#include <ctype.h>
 #include <ustring.h>
-#include <map.h>
+#include <option.h>
+#include <vector.h>
+#include <set.h>
 
 class MshCommand;
 
 class MshCommandExecutor {
-private:
-  MshCommandExecutor();
-
 public:
-  static MshCommandExecutor& Instance() {
-    static MshCommandExecutor cmdExecutor;
-    return cmdExecutor;
+  MshCommandExecutor(const upan::string& cmdLine);
+
+  void execute();
+
+  bool isOptPresent(const upan::string& opt) const {
+    return _options.exists(opt);
   }
 
-  typedef upan::map<upan::string, MshCommand*> CmdMap;
-  const CmdMap& getCommands() {
-    return _commands;
+  const upan::vector<upan::string>& params() const {
+    return _params;
   }
 
-  bool executeInternalCommand();
+  void addCmdToken(const upan::string& token) {
+    _cmdLineTokens.push_back(token);
+  }
+
+private:
+  void parse(const upan::string& cmdLine);
+  void expandCmdLine();
+  void executeInternalCommand(MshCommand& cmd);
   bool executeProcess();
 
 private:
-  CmdMap _commands;
+  upan::string _cmdName;
+  upan::option<MshCommand*> _cmd;
+  upan::vector<upan::string> _cmdLineTokens;
+  upan::vector<upan::string> _params;
+  upan::set<upan::string> _options;
 };
