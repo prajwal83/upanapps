@@ -61,7 +61,7 @@ include_directories(${PROJECT_SOURCE_DIR}/libmcal/include)
 
 include_directories(${PROJECT_SOURCE_DIR}/libmterm/include)
 
-include_directories(${PROJECT_SOURCE_DIR}/libcxxrt)
+include_directories(${UPANLIB_SOURCE_DIR}/libcxxrt)
 
 #LIBIT
 execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libit -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE LIBIT_SRC)
@@ -85,19 +85,6 @@ execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libmterm -name
 string(REPLACE "\n" ";" LIBMTERM_SRC ${LIBMTERM_SRC})
 add_library(mterm SHARED "${LIBMTERM_SRC}")
 target_compile_options(mterm PRIVATE ${SO_COMPILE_FLAGS})
-
-#LIBGCCEH
-execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libgcceh -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE GCCEH_SRC)
-string(REPLACE "\n" ";" GCCEH_SRC ${GCCEH_SRC})
-add_library(gcceh STATIC "${GCCEH_SRC}")
-target_compile_options(gcceh PRIVATE -DIN_GCC -DIN_LIBGCC2 -Dinhibit_libc -fbuilding-libgcc -fno-stack-protector)
-
-#LIBCXXRT
-execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libcxxrt -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE CXXRT_SRC1)
-string(REPLACE "\n" ";" CXXRT_SRC1 ${CXXRT_SRC1})
-execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libcxxrt -name '*.cc' | grep -v CMakeFile" OUTPUT_VARIABLE CXXRT_SRC2)
-string(REPLACE "\n" ";" CXXRT_SRC2 ${CXXRT_SRC2})
-add_library(cxxrt STATIC ${CXXRT_SRC1} ${CXXRT_SRC2})
 
 link_directories(${OUTPUT_DIR})
 
@@ -137,12 +124,10 @@ execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./shell -name '*
 string(REPLACE "\n" ";" MSH_SRC ${MSH_SRC})
 add_executable(msh "${MSH_SRC}")
 add_dependencies(msh crt)
-add_dependencies(msh gcceh)
-add_dependencies(msh cxxrt)
 target_include_directories(msh PRIVATE ${PROJECT_SOURCE_DIR}/shell)
 target_compile_options(msh PRIVATE -O2)
 target_link_libraries(msh cxxrt)
-target_link_libraries(msh ${UPANLIB_OUT_DIR}/libc.so)
+target_link_libraries(msh ${UPANLIB_OUT_DIR}/libc.so ${UPANLIB_OUT_DIR}/libgcceh.a ${UPANLIB_OUT_DIR}/libcxxrt.a)
 target_link_libraries(msh gcceh)
 
 #EDITOR
