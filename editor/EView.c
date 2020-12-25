@@ -49,7 +49,7 @@ static int EView_DrawMenu(char *text[], int no_rows, int start_y, int start_x)
 	MWindow* pMenuWin = MTerm_CreateWindow(no_rows, MENU_COLS) ;
 	MTerm_SetWinPilotPoint(pMenuWin, start_y * MTerm_MaxColumns() + start_x) ;
 	MTerm_SetWinAttr(pMenuWin, ATTR_NOBLINK | FG_BLACK | BG_WHITE) ;
-	MTerm_WinFocus(pMenuWin, TRUE) ;
+	MTerm_WinFocus(pMenuWin, true) ;
 
 	EView_DrawBorderInBack(pMenuWin) ;
 
@@ -60,7 +60,7 @@ static int EView_DrawMenu(char *text[], int no_rows, int start_y, int start_x)
 
 	MTerm_WinRefresh(pMenuWin) ;
 
-	while(TRUE)
+	while(true)
 	{
 		MTerm_SetAttr(pMenuWin, i, 1, MENU_COLS - 2, ATTR_NOBLINK | FG_BLACK | BG_RED) ;
 
@@ -344,9 +344,9 @@ void EView_DrawInitBack()
 	Edit_pEditWin = MTerm_CreateWindow(EView_editWinRows, EView_editWinCols) ;
 	MTerm_SetWinAttr(Edit_pEditWin, ATTR_NOBLINK | FG_WHITE | BG_BLUE) ;
 	MTerm_SetWinPilotPoint(Edit_pEditWin, Edit_pBackWin->PilotPoint + MTerm_MaxColumns() + 1) ;
-	MTerm_WinFocus(Edit_pEditWin, TRUE) ;
-//	MTerm_WinInstantUpdate(Edit_pEditWin, TRUE) ;
-	MTerm_WinScrollLock(Edit_pEditWin, FALSE) ;
+	MTerm_WinFocus(Edit_pEditWin, true) ;
+//	MTerm_WinInstantUpdate(Edit_pEditWin, true) ;
+	MTerm_WinScrollLock(Edit_pEditWin, false) ;
 
 	EView_DrawBorderInBack(Edit_pBackWin) ;
 
@@ -459,7 +459,7 @@ void EView_FileMenu(int scut)
 
 		MTerm_WinClear(Edit_pEditWin) ;
 		MTerm_WinRefresh(Edit_pEditWin) ;
-		Edit_bSave = TRUE ;
+		Edit_bSave = true ;
 		break ;
 
 	case 2: // Open
@@ -533,22 +533,22 @@ void EView_EditMenu(int scut)
 	{
 	case 1://Delete line
 		Edit_DeleteLine() ;
-		Edit_bSave = FALSE ;
+		Edit_bSave = false ;
 		break ;
 	case 2://Delete word
 		Edit_DeleteWord() ;
-		Edit_bSave = FALSE ;
+		Edit_bSave = false ;
 		break ;
 	case 3://Insert line
 		Edit_InsertLine() ;
-		Edit_bSave = FALSE ;
+		Edit_bSave = false ;
 		break ;
 	case 4://Insert word
 		EView_MessageBox("Enter the word to be Inserted :", 0, 0, editw) ;
 		if(ok)
 		{
 			Edit_InsertWord() ;
-			Edit_bSave = FALSE ;
+			Edit_bSave = false ;
 		}
 		else
 			free(word) ;

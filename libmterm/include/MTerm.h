@@ -18,7 +18,7 @@
 #ifndef _MTERM_H_
 #define _MTERM_H_
 
-# include <display.h>
+# include <cdisplay.h>
 # include <stdlib.h>
 
 #define WIN_SIZE(Win)		( Win->Rows * Win->Cols )

@@ -109,10 +109,10 @@ static double zero = 0.0;	/* used as const */
 		exc.type = DOMAIN;
 		exc.name = type < 100 ? "acos" : "acosf";
 		exc.retval = zero;
-		if (TRUE)//_LIB_VERSION == _POSIX_)
+		if (true)//_LIB_VERSION == _POSIX_)
 		  errno = EDOM;
 		else if (!matherr(&exc)) {
-		  if(FALSE)//_LIB_VERSION == _SVID_)
+		  if(false)//_LIB_VERSION == _SVID_)
 		  {
 		    (void) WRITE2("acos: DOMAIN error\n", 19);
 		  }
@@ -125,10 +125,10 @@ static double zero = 0.0;	/* used as const */
 		exc.type = DOMAIN;
 		exc.name = type < 100 ? "asin" : "asinf";
 		exc.retval = zero;
-		if(TRUE)//_LIB_VERSION == _POSIX_)
+		if(true)//_LIB_VERSION == _POSIX_)
 		  errno = EDOM;
 		else if (!matherr(&exc)) {
-		  if(FALSE)//_LIB_VERSION == _SVID_)
+		  if(false)//_LIB_VERSION == _SVID_)
 		  {
 		    	(void) WRITE2("asin: DOMAIN error\n", 19);
 		  }
@@ -143,10 +143,10 @@ static double zero = 0.0;	/* used as const */
 		exc.type = DOMAIN;
 		exc.name = type < 100 ? "atan2" : "atan2f";
 		exc.retval = zero;
-		if(TRUE)//_LIB_VERSION == _POSIX_)
+		if(true)//_LIB_VERSION == _POSIX_)
 		  errno = EDOM;
 		else if (!matherr(&exc)) {
-		  if(FALSE)//_LIB_VERSION == _SVID_)
+		  if(false)//_LIB_VERSION == _SVID_)
 		  {
 			(void) WRITE2("atan2: DOMAIN error\n", 20);
 		      }
@@ -158,11 +158,11 @@ static double zero = 0.0;	/* used as const */
 		/* hypot(finite,finite) overflow */
 		exc.type = OVERFLOW;
 		exc.name = type < 100 ? "hypot" : "hypotf";
-		if (FALSE)//_LIB_VERSION == _SVID_)
+		if (false)//_LIB_VERSION == _SVID_)
 		  exc.retval = HUGE;
 		else
 		  exc.retval = HUGE_VAL;
-		if (TRUE)//_LIB_VERSION == _POSIX_)
+		if (true)//_LIB_VERSION == _POSIX_)
 		  errno = ERANGE;
 		else if (!matherr(&exc)) {
 			errno = ERANGE;
@@ -173,11 +173,11 @@ static double zero = 0.0;	/* used as const */
 		/* cosh(finite) overflow */
 		exc.type = OVERFLOW;
 		exc.name = type < 100 ? "cosh" : "coshf";
-		if (FALSE)//_LIB_VERSION == _SVID_)
+		if (false)//_LIB_VERSION == _SVID_)
 		  exc.retval = HUGE;
 		else
 		  exc.retval = HUGE_VAL;
-		if (TRUE)//_LIB_VERSION == _POSIX_)
+		if (true)//_LIB_VERSION == _POSIX_)
 		  errno = ERANGE;
 		else if (!matherr(&exc)) {
 			errno = ERANGE;
@@ -188,11 +188,11 @@ static double zero = 0.0;	/* used as const */
 		/* exp(finite) overflow */
 		exc.type = OVERFLOW;
 		exc.name = type < 100 ? "exp" : "expf";
-		if (FALSE)//_LIB_VERSION == _SVID_)
+		if (false)//_LIB_VERSION == _SVID_)
 		  exc.retval = HUGE;
 		else
 		  exc.retval = HUGE_VAL;
-		if (TRUE)//_LIB_VERSION == _POSIX_)
+		if (true)//_LIB_VERSION == _POSIX_)
 		  errno = ERANGE;
 		else if (!matherr(&exc)) {
 			errno = ERANGE;
@@ -204,7 +204,7 @@ static double zero = 0.0;	/* used as const */
 		exc.type = UNDERFLOW;
 		exc.name = type < 100 ? "exp" : "expf";
 		exc.retval = zero;
-		if (TRUE)//_LIB_VERSION == _POSIX_)
+		if (true)//_LIB_VERSION == _POSIX_)
 		  errno = ERANGE;
 		else if (!matherr(&exc)) {
 			errno = ERANGE;
@@ -215,7 +215,7 @@ static double zero = 0.0;	/* used as const */
 		/* y0(0) = -inf */
 		exc.type = DOMAIN;	/* should be SING for IEEE */
 		exc.name = type < 100 ? "y0" : "y0f";
-		if (FALSE)//_LIB_VERSION == _SVID_)
+		if (false)//_LIB_VERSION == _SVID_)
 		  exc.retval = -HUGE;
 		else
 		  exc.retval = -HUGE_VAL;

@@ -22,7 +22,7 @@
 /* Type definitions */
 typedef unsigned long uint32;
 typedef unsigned short uint16;
-typedef unsigned int bool;
+//typedef unsigned int bool;
 
 /* RDOFF format revision (currently used only when printing the version) */
 #define RDOFF2_REVISION		"0.6.1"

@@ -18,13 +18,13 @@
 # include <Msh.h>
 # include <CommandLineParser.h>
 # include <MshCommands.h>
-# include <SysCall.h>
+//# include <SysCall.h>
 # include <kb.h>
 # include <string.h>
 # include <stdio.h>
 # include <malloc.h>
 # include <fs.h>
-# include <display.h>
+# include <cdisplay.h>
 # include <mosstd.h>
 
 char Msh_PROMPT[10] ;

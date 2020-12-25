@@ -17,6 +17,10 @@ cmake_minimum_required(VERSION 3.15)
 project(UpanixApps)
 
 set(CROSS_TOOL_PATH $ENV{HOME}/opt/cross)
+
+set(UPANLIB_SOURCE_DIR ${PROJECT_SOURCE_DIR}/../upanlibs)
+set(UPANLIB_OUT_DIR ${UPANLIB_SOURCE_DIR}/out)
+
 set(OUTPUT_DIR ${PROJECT_SOURCE_DIR}/out)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR})
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_DIR})
@@ -45,10 +49,10 @@ set(CMAKE_SHARED_LINKER_FLAGS "${COMMON_COMPILE_FLAGS} ${SO_LD_FLAGS}")
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-include_directories(${PROJECT_SOURCE_DIR}/libc/include)
-include_directories(${PROJECT_SOURCE_DIR}/libc/stdio)
-include_directories(${PROJECT_SOURCE_DIR}/libc/sysdeps/mos/common)
-include_directories(${PROJECT_SOURCE_DIR}/libc/sysdeps/mos/common/bits)
+include_directories(${UPANLIB_SOURCE_DIR}/libc/include)
+include_directories(${UPANLIB_SOURCE_DIR}/libc/stdio)
+include_directories(${UPANLIB_SOURCE_DIR}/libc/sysdeps/mos/common/)
+include_directories(${UPANLIB_SOURCE_DIR}/libc/sysdeps/mos/common/bits)
 
 include_directories(${PROJECT_SOURCE_DIR}/libm/include)
 include_directories(${PROJECT_SOURCE_DIR}/libm/include/bits)
@@ -58,12 +62,6 @@ include_directories(${PROJECT_SOURCE_DIR}/libmcal/include)
 include_directories(${PROJECT_SOURCE_DIR}/libmterm/include)
 
 include_directories(${PROJECT_SOURCE_DIR}/libcxxrt)
-
-#LIBC
-execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libc -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE LIBC_SRC)
-string(REPLACE "\n" ";" LIBC_SRC ${LIBC_SRC})
-add_library(c SHARED "${LIBC_SRC}")
-target_compile_options(c PRIVATE -O0 ${SO_COMPILE_FLAGS})
 
 #LIBIT
 execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libit -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE LIBIT_SRC)
@@ -120,43 +118,39 @@ set(CMAKE_CXX_LINK_EXECUTABLE "<CMAKE_CXX_COMPILER> ${CMAKE_CXX_FLAGS} ${CMAKE_E
 execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./nasm/nasm_src -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE NASM_SRC)
 string(REPLACE "\n" ";" NASM_SRC ${NASM_SRC})
 add_executable(nasm "${NASM_SRC}")
-add_dependencies(nasm c)
 target_compile_options(nasm PRIVATE -O2)
 target_link_options(nasm PRIVATE -e main)
 target_include_directories(nasm PRIVATE ${PROJECT_SOURCE_DIR}/nasm/include)
-target_link_libraries(nasm c)
+target_link_libraries(nasm ${UPANLIB_OUT_DIR}/libc.so)
 
 #NDISASM
 execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./nasm/ndisasm_src -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE NDISASM_SRC)
 string(REPLACE "\n" ";" NDISASM_SRC ${NDISASM_SRC})
 add_executable(ndisasm "${NDISASM_SRC}")
-add_dependencies(ndisasm c)
 target_compile_options(ndisasm PRIVATE -O2)
 target_link_options(ndisasm PRIVATE -e main)
 target_include_directories(ndisasm PRIVATE ${PROJECT_SOURCE_DIR}/nasm/include)
-target_link_libraries(ndisasm c)
+target_link_libraries(ndisasm ${UPANLIB_OUT_DIR}/libc.so)
 
 #SHELL
 execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./shell -name '*.cpp' | grep -v CMakeFile" OUTPUT_VARIABLE MSH_SRC)
 string(REPLACE "\n" ";" MSH_SRC ${MSH_SRC})
 add_executable(msh "${MSH_SRC}")
-add_dependencies(msh c)
 add_dependencies(msh crt)
 add_dependencies(msh gcceh)
 add_dependencies(msh cxxrt)
 target_include_directories(msh PRIVATE ${PROJECT_SOURCE_DIR}/shell)
 target_compile_options(msh PRIVATE -O2)
 target_link_libraries(msh cxxrt)
-target_link_libraries(msh c)
+target_link_libraries(msh ${UPANLIB_OUT_DIR}/libc.so)
 target_link_libraries(msh gcceh)
 
 #EDITOR
 execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./editor -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE EDITOR_SRC)
 string(REPLACE "\n" ";" EDITOR_SRC ${EDITOR_SRC})
 add_executable(edit "${EDITOR_SRC}")
-add_dependencies(edit c)
 target_include_directories(edit PRIVATE ${PROJECT_SOURCE_DIR}/editor)
 target_compile_options(edit PRIVATE -O2)
 target_link_options(edit PRIVATE -e main)
-target_link_libraries(edit c)
+target_link_libraries(edit ${UPANLIB_OUT_DIR}/libc.so)
 target_link_libraries(edit mterm)

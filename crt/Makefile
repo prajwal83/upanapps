@@ -13,7 +13,7 @@
 #																			 
 #	 You should have received a copy of the GNU General Public License
 #	 along with this program.  If not, see <http://www.gnu.org/licenses/
-CC = i686-elf-gcc
+CC = ${HOME}/opt/cross/bin/i686-elf-gcc
 
 OUTPUTS := crt0.o crti.o crtn.o
 

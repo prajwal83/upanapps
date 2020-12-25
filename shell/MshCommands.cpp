@@ -26,7 +26,7 @@
 # include <drive.h>
 # include <error.h>
 # include <dtime.h>
-# include <display.h>
+# include <cdisplay.h>
 
 /**** Command Fucntion Declarations  *****/
 
@@ -244,7 +244,7 @@ static const MshCommand MshCommands_CommandList[] = {
 
 /************************** Static Functions *******************************/
 
-static void MshCommands_DisplayDetailDirContent(const FileSystem_DIR_Entry* pDirList, int iListSize)
+static void MshCommands_DisplayDetailDirContent(const FS_Node* pDirList, int iListSize)
 {
 	char rwx[12] ;
 	int i ;
@@ -252,12 +252,12 @@ static void MshCommands_DisplayDetailDirContent(const FileSystem_DIR_Entry* pDir
 	// Attr, User, Size, Create Time, Modify Time, Access Time, Name
 	for(i = 0; i < iListSize; i++)
 	{
-		format_dir_attr(pDirList[i].usAttribute, rwx) ;
-		printf("\n%-15s%-15d%s", rwx, pDirList[i].uiSize, pDirList[i].Name) ;
+		format_dir_attr(pDirList[i]._attribute, rwx) ;
+		printf("\n%-15s%-15d%s", rwx, pDirList[i]._size, pDirList[i]._name) ;
 	}
 }
 
-static void MshCommands_DisplayDirectoryContent(const FileSystem_DIR_Entry* pDirList, int iListSize)
+static void MshCommands_DisplayDirectoryContent(const FS_Node* pDirList, int iListSize)
 {
 	if(CommandLineParser_IsOptPresent("-l"))
 	{
@@ -270,7 +270,7 @@ static void MshCommands_DisplayDirectoryContent(const FileSystem_DIR_Entry* pDir
 		{
 			if(!(i % 3) && i != 0)
 				putc('\n', stdout) ;	
-			printf("%-20s", pDirList[i].Name) ;
+			printf("%-20s", pDirList[i]._name) ;
 		}
 	}
 }
@@ -398,7 +398,7 @@ void MshCommands_Delete(const MshCommand* pCommand)
 
 void MshCommands_GetDirContent(const MshCommand* pCommand)
 {
-	FileSystem_DIR_Entry* pDirList ;
+	FS_Node* pDirList ;
 	int iListSize ;
 
 	if(CommandLineParser_GetNoOfParameters())

@@ -1,8 +1,8 @@
 #ifndef _LIB_MDATE_H_
 #define _LIB_MDATE_H_
 
-//#include <ctype.h>
-#include "../../libc/include/ctype.h"
+#include <ctype.h>
+#include <dtime.h>
 
 /* Day of Month is the only one which is 1 based index */
 
@@ -58,38 +58,41 @@ typedef enum
 
 #define IS_LEAP_YEAR(year) ( (year % 4) == 0 )
 
-boolean mdate_Set(mdate* date, int dayOfMonth, int month, int year) ;
+bool mdate_Set(mdate* date, int dayOfMonth, int month, int year) ;
 void mdate_Normalize(const mdate* src, mdate* dest) ;
 int mdate_GetDaysInMonth(const mdate* date) ;
 int mdate_GetDaysInMonth_1(int month, int year) ;
-boolean mdate_IsValidDayOfWeek(int dayOfWeek) ;
-boolean mdate_IsValidDayOfMonth(const mdate* date) ;
-boolean mdate_IsValidMonth(int month) ;
-boolean mdate_IsValidYear(int year) ;
-boolean mdate_IsValid(const mdate* date) ;
+bool mdate_IsValidDayOfWeek(int dayOfWeek) ;
+bool mdate_IsValidDayOfMonth(const mdate* date) ;
+bool mdate_IsValidMonth(int month) ;
+bool mdate_IsValidYear(int year) ;
+bool mdate_IsValid(const mdate* date) ;
 
-boolean mdate_AddDays(mdate* date, int days) ;
-boolean mdate_AddWeeks(mdate* date, int days) ;
-boolean mdate_AddMonths(mdate* date, int months) ;
-boolean mdate_AddYears(mdate* date, int years) ;
+bool mdate_AddDays(mdate* date, int days) ;
+bool mdate_AddWeeks(mdate* date, int days) ;
+bool mdate_AddMonths(mdate* date, int months) ;
+bool mdate_AddYears(mdate* date, int years) ;
 
-boolean mdate_SubtractDays(mdate* date, int days) ;
-boolean mdate_SubtractWeeks(mdate* date, int days) ;
-boolean mdate_SubtractMonths(mdate* date, int months) ;
-boolean mdate_SubtractYears(mdate* date, int years) ;
+bool mdate_SubtractDays(mdate* date, int days) ;
+bool mdate_SubtractWeeks(mdate* date, int days) ;
+bool mdate_SubtractMonths(mdate* date, int months) ;
+bool mdate_SubtractYears(mdate* date, int years) ;
 
-boolean mdate_IsGreater(const mdate* a, const mdate* b) ;
-boolean mdate_IsLesser(const mdate* a, const mdate* b) ;
-boolean mdate_IsEqual(const mdate* a, const mdate* b) ;
-boolean mdate_IsNotEqual(const mdate* a, const mdate* b) ;
+bool mdate_IsGreater(const mdate* a, const mdate* b) ;
+bool mdate_IsLesser(const mdate* a, const mdate* b) ;
+bool mdate_IsEqual(const mdate* a, const mdate* b) ;
+bool mdate_IsNotEqual(const mdate* a, const mdate* b) ;
 
 int mdate_SameYearDateDifference(const mdate* a, const mdate* b) ;
 int mdate_DateDifference(const mdate* a, const mdate* b) ;
 
-boolean mdate_SetDayOfWeek(mdate* date) ;
+bool mdate_SetDayOfWeek(mdate* date) ;
 
 const char* mdate_GetMonthName(const mdate* date) ;
 const char* mdate_GetDayName(const mdate* date) ;
 
-boolean mdate_SeedDateDifference(const mdate* dt, int* days) ;
+bool mdate_SeedDateDifference(const mdate* dt, int* days) ;
+void mdate_GetSeedDate(mdate* d1);
+int localtime(struct tm* t, const time_t* time);
+
 #endif

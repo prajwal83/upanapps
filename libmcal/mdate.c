@@ -38,7 +38,7 @@ static const char mdate_szDays[DAYS_PER_WEEK + 1][12] = {
 	"NA"
 } ;
 
-boolean mdate_Set(mdate* date, int dayOfMonth, int month, int year)
+bool mdate_Set(mdate* date, int dayOfMonth, int month, int year)
 {
 	date->dayOfMonth = dayOfMonth ;
 	date->month = month ;
@@ -70,53 +70,53 @@ int mdate_GetDaysInMonth_1(int month, int year)
 		return mdate_NoOfDaysInMonth_NLY[month] ;
 }
 
-boolean mdate_IsValidMonth(int month)
+bool mdate_IsValidMonth(int month)
 {
 	return (month >= JANUARY && month <= DECEMBER) ;
 }
 
-boolean mdate_IsValidYear(int year)
+bool mdate_IsValidYear(int year)
 {
 	return (year > 0 && year < 10000) ;
 }
 
-boolean mdate_IsValidDayOfMonth(const mdate* date)
+bool mdate_IsValidDayOfMonth(const mdate* date)
 {
 	if(date->dayOfMonth < 1)
-		return FALSE ;
+		return false ;
 		
 	if(date->dayOfMonth > mdate_GetDaysInMonth(date))
-		return FALSE ;
+		return false ;
 
-	return TRUE ;
+	return true ;
 }
 
-boolean mdate_IsValidDayOfWeek(int dayOfWeek)
+bool mdate_IsValidDayOfWeek(int dayOfWeek)
 {
 	return (dayOfWeek >= MONDAY && dayOfWeek <= SUNDAY) ;
 }
 
-boolean mdate_IsValid(const mdate* date)
+bool mdate_IsValid(const mdate* date)
 {
 	if(mdate_IsValidYear(date->year))
 		if(mdate_IsValidMonth(date->month))
 			if(mdate_IsValidDayOfMonth(date))
-				return TRUE ;
+				return true ;
 	
-	return FALSE ;
+	return false ;
 }
 
 /* Date Add Functions */
-boolean mdate_AddDays(mdate* date, int days)
+bool mdate_AddDays(mdate* date, int days)
 {
 	if(!mdate_IsValid(date))
-		return FALSE ;
+		return false ;
 
 	if(days < 0)
-		return FALSE ;
+		return false ;
 
 	if(days == 0)
-		return TRUE ;
+		return true ;
 
 //	int dayOfWeek = (date->dayOfWeek + days) % DAYS_PER_WEEK ;
 	int dayOfMonth = date->dayOfMonth ;
@@ -151,25 +151,25 @@ boolean mdate_AddDays(mdate* date, int days)
 	date->month = month ;
 	date->year = year ;
 
-	return TRUE ;
+	return true ;
 }
 
-boolean mdate_AddWeeks(mdate* date, int weeks)
+bool mdate_AddWeeks(mdate* date, int weeks)
 {
 	int days = weeks * DAYS_PER_WEEK ;
 	return mdate_AddDays(date, days) ;
 }
 
-boolean mdate_AddMonths(mdate* date, int months)
+bool mdate_AddMonths(mdate* date, int months)
 {
 	if(!mdate_IsValid(date))
-		return FALSE ;
+		return false ;
 
 	if(months < 0)
-		return FALSE ;
+		return false ;
 
 	if(months == 0)
-		return TRUE ;
+		return true ;
 
 	int dayOfMonth = date->dayOfMonth ;
 	int month = date->month ;
@@ -187,19 +187,19 @@ boolean mdate_AddMonths(mdate* date, int months)
 	date->month = month ;
 	date->year = year ;
 
-	return TRUE ;
+	return true ;
 }
 
-boolean mdate_AddYears(mdate* date, int years)
+bool mdate_AddYears(mdate* date, int years)
 {
 	if(!mdate_IsValid(date))
-		return FALSE ;
+		return false ;
 
 	if(years < 0)
-		return FALSE ;
+		return false ;
 
 	if(years == 0)
-		return TRUE ;
+		return true ;
 	
 	int year = date->year + years ;
 
@@ -212,22 +212,22 @@ boolean mdate_AddYears(mdate* date, int years)
 
 	date->year = year ;
 
-	return TRUE ;
+	return true ;
 }
 /* End of Date Add Functions */
 
 
 /* Date Subtract Functions */
-boolean mdate_SubtractDays(mdate* date, int days)
+bool mdate_SubtractDays(mdate* date, int days)
 {
 	if(!mdate_IsValid(date))
-		return FALSE ;
+		return false ;
 
 	if(days < 0)
-		return FALSE ;
+		return false ;
 
 	if(days == 0)
-		return TRUE ;
+		return true ;
 
 //	int dayOfWeek = (date->dayOfWeek + days) % DAYS_PER_WEEK ;
 	int dayOfMonth = date->dayOfMonth ;
@@ -261,25 +261,25 @@ boolean mdate_SubtractDays(mdate* date, int days)
 	date->month = month ;
 	date->year = year ;
 
-	return TRUE ;
+	return true ;
 }
 
-boolean mdate_SubtractWeeks(mdate* date, int weeks)
+bool mdate_SubtractWeeks(mdate* date, int weeks)
 {
 	int days = weeks * DAYS_PER_WEEK ;
 	return mdate_SubtractDays(date, days) ;
 }
 
-boolean mdate_SubtractMonths(mdate* date, int months)
+bool mdate_SubtractMonths(mdate* date, int months)
 {
 	if(!mdate_IsValid(date))
-		return FALSE ;
+		return false ;
 
 	if(months < 0)
-		return FALSE ;
+		return false ;
 
 	if(months == 0)
-		return TRUE ;
+		return true ;
 
 	int dayOfMonth = date->dayOfMonth ;
 	int month = date->month ;
@@ -303,24 +303,24 @@ boolean mdate_SubtractMonths(mdate* date, int months)
 	date->month = month ;
 	date->year = year ;
 
-	return TRUE ;
+	return true ;
 }
 
-boolean mdate_SubtractYears(mdate* date, int years)
+bool mdate_SubtractYears(mdate* date, int years)
 {
 	if(!mdate_IsValid(date))
-		return FALSE ;
+		return false ;
 
 	if(years < 0)
-		return FALSE ;
+		return false ;
 
 	if(years == 0)
-		return TRUE ;
+		return true ;
 	
 	int year = date->year - years ;
 
 	if(year <= 0)
-		return FALSE ;
+		return false ;
 
 	if(date->month == FEBRUARY)
 	{
@@ -331,63 +331,63 @@ boolean mdate_SubtractYears(mdate* date, int years)
 
 	date->year = year ;
 
-	return TRUE ;
+	return true ;
 }
 /* End of Date Subtract Functions */
 
 /* Logical Comparison on Dates */
-boolean mdate_IsGreater(const mdate* a, const mdate* b)
+bool mdate_IsGreater(const mdate* a, const mdate* b)
 {
 	if(a->year > b->year)
-		return TRUE ;
+		return true ;
 	else if(a->year < b->year)
-		return FALSE ;
+		return false ;
 	else
 	{
 		if(a->month > b->month)
-			return TRUE ;
+			return true ;
 		else if(a->month < b->month)
-			return FALSE ;
+			return false ;
 		else
 		{
 			if(a->dayOfMonth > b->dayOfMonth)
-				return TRUE ;
-			return FALSE ;
+				return true ;
+			return false ;
 		}
 	}
 
-	return FALSE ;
+	return false ;
 }
 
-boolean mdate_IsLesser(const mdate* a, const mdate* b)
+bool mdate_IsLesser(const mdate* a, const mdate* b)
 {
 	if(a->year < b->year)
-		return TRUE ;
+		return true ;
 	else if(a->year > b->year)
-		return FALSE ;
+		return false ;
 	else
 	{
 		if(a->month < b->month)
-			return TRUE ;
+			return true ;
 		else if(a->month > b->month)
-			return FALSE ;
+			return false ;
 		else
 		{
 			if(a->dayOfMonth < b->dayOfMonth)
-				return TRUE ;
-			return FALSE ;
+				return true ;
+			return false ;
 		}
 	}
 
-	return FALSE ;
+	return false ;
 }
 
-boolean mdate_IsEqual(const mdate* a, const mdate* b)
+bool mdate_IsEqual(const mdate* a, const mdate* b)
 {
 	return (a->year == b->year) && (a->month == b->month) && (a->dayOfMonth == b->dayOfMonth) ;
 }
 
-boolean mdate_IsNotEqual(const mdate* a, const mdate* b)
+bool mdate_IsNotEqual(const mdate* a, const mdate* b)
 {
 	return (a->year != b->year) || (a->month != b->month) || (a->dayOfMonth != b->dayOfMonth) ;
 }
@@ -470,15 +470,15 @@ int mdate_DateDifference(const mdate* a, const mdate* b)
 	return res * switchSign ;
 }
 
-boolean mdate_SetDayOfWeek(mdate* date)
+bool mdate_SetDayOfWeek(mdate* date)
 {
 	if(!mdate_IsValid(date))
-		return FALSE ;
+		return false ;
 
 	if(mdate_IsEqual(date, &seedDate))
 	{
 		date->dayOfWeek = seedDate.dayOfWeek ;
-		return TRUE ;
+		return true ;
 	}
 
 	int days = mdate_DateDifference(date, &seedDate) ;
@@ -499,7 +499,7 @@ boolean mdate_SetDayOfWeek(mdate* date)
 	}
 
 	date->dayOfWeek = res ;
-	return TRUE ;
+	return true ;
 }
 
 const char* mdate_GetMonthName(const mdate* date)
@@ -516,16 +516,46 @@ const char* mdate_GetDayName(const mdate* date)
 	return mdate_szDays[DAYS_PER_WEEK] ;
 }
 
-boolean mdate_SeedDateDifference(const mdate* dt, int* days)
+bool mdate_SeedDateDifference(const mdate* dt, int* days)
 {
 	*days = 0 ;
 
 	if(!mdate_IsValid(dt))
-		return FALSE ;
+		return false ;
 
 	if(mdate_IsEqual(dt, &seedDate))
-		return TRUE ;
+		return true ;
 
 	*days = mdate_DateDifference(dt, &seedDate) ;
-	return TRUE ;
+	return true ;
+}
+
+void mdate_GetSeedDate(mdate* d1)
+{
+	mdate_Copy(d1, &seedDate) ;
+}
+
+int localtime(struct tm* t, const time_t* time)
+{
+	if(*time == NULL || t == NULL)
+		return -1 ;
+
+	mdate d1 ;
+	mdate_GetSeedDate(&d1) ;
+
+	int days = *time / (HRS_IN_DAY) ;
+	mdate_AddDays(&d1, days) ;
+
+	t->tm_mday = d1.dayOfMonth ;
+	t->tm_mon = d1.month ;
+	t->tm_year = d1.year - 1900;// % 100 ;
+
+	int resi = *time % HRS_IN_DAY ;
+	t->tm_hour = resi / 3600 ;
+
+	int resh = resi % 3600 ;
+	t->tm_min = resh / 60 ;
+	t->tm_sec = resh % 60 ;
+
+	return 0 ;
 }

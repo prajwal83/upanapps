@@ -103,7 +103,7 @@ void Action_FileSave()
 	if(n != 0)
 		write(fd, buffer, n) ;
 
-	Edit_bSave = TRUE ;
+	Edit_bSave = true ;
 	close(fd);
 } 
 

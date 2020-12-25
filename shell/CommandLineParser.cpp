@@ -28,12 +28,12 @@ int CommandLineParser_iNoOfCommandLineEntries ;
 int CommandLineParser_iNoOfParamters ;
 int CommandLineParser_iNoOfOptions ;
 
-boolean CommandLineParser_TokenCompare(char ch)
+bool CommandLineParser_TokenCompare(char ch)
 {
 	return iswhitespace(ch) ;
 }
 
-boolean CommandLineParser_GroupToken(char ch)
+bool CommandLineParser_GroupToken(char ch)
 {
 	return (int) (ch == '"') ;
 }
@@ -170,5 +170,5 @@ bool CommandLineParser_IsOptPresent(char* opt)
 			return true ;
 	}
 
-	return FALSE ;
+	return false ;
 }
