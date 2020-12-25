@@ -54,6 +54,10 @@ include_directories(${UPANLIB_SOURCE_DIR}/libc/stdio)
 include_directories(${UPANLIB_SOURCE_DIR}/libc/sysdeps/mos/common/)
 include_directories(${UPANLIB_SOURCE_DIR}/libc/sysdeps/mos/common/bits)
 
+include_directories(${UPANLIB_SOURCE_DIR}/libustdcpp/infra)
+include_directories(${UPANLIB_SOURCE_DIR}/libustdcpp/ds)
+include_directories(${UPANLIB_SOURCE_DIR}/libustdcpp/mem)
+
 include_directories(${PROJECT_SOURCE_DIR}/libm/include)
 include_directories(${PROJECT_SOURCE_DIR}/libm/include/bits)
 
@@ -127,7 +131,7 @@ add_dependencies(msh crt)
 target_include_directories(msh PRIVATE ${PROJECT_SOURCE_DIR}/shell)
 target_compile_options(msh PRIVATE -O2)
 target_link_libraries(msh cxxrt)
-target_link_libraries(msh ${UPANLIB_OUT_DIR}/libc.so ${UPANLIB_OUT_DIR}/libgcceh.a ${UPANLIB_OUT_DIR}/libcxxrt.a)
+target_link_libraries(msh ${UPANLIB_OUT_DIR}/libc.so ${UPANLIB_OUT_DIR}/libgcceh.a ${UPANLIB_OUT_DIR}/libcxxrt.a ${UPANLIB_OUT_DIR}/libustdcpp.a)
 target_link_libraries(msh gcceh)
 
 #EDITOR

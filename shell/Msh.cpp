@@ -17,8 +17,7 @@
  */
 # include <Msh.h>
 # include <CommandLineParser.h>
-# include <MshCommands.h>
-//# include <SysCall.h>
+# include <MshCommandExecutor.h>
 # include <kb.h>
 # include <string.h>
 # include <stdio.h>
@@ -35,7 +34,7 @@ void Msh_Initialize()
 {
 	strcpy(Msh_PROMPT, "\nmsh:") ;
 	Msh_currentCommandPos = 0 ;
-	MshCommands_Init() ;
+	MshCommandExecutor::Instance();
 }
 
 void Msh_DisplayCommandPrompt()
@@ -59,9 +58,9 @@ void Msh_ProcessCommandLine()
 
 	if(CommandLineParser_GetNoOfCommandLineEntries() != 0)
 	{
-		if(!MshCommands_ExecuteInternalCommand())
+		if(!MshCommandExecutor::Instance().executeInternalCommand())
 		{
-			if(!MshCommands_ExecuteProcess())
+			if(!MshCommandExecutor::Instance().executeProcess())
 			{
 				puts("\n No Such Command or Execuable") ;
 			}

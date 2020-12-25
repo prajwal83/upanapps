@@ -15,27 +15,190 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/
  */
-#ifndef _MSH_COMMANDS_H_
-#define _MSH_COMMANDS_H_
+#pragma once
 
-# include <ctype.h>
+#include <ctype.h>
+#include <ustring.h>
+#include <fs.h>
 
-typedef struct MshCommand MshCommand ;
+class MshCommand {
+public:
+  MshCommand(const upan::string& name, const upan::string& usage, int minParamCount, int maxParamCount) :
+   _name(name), _usage(usage), _minParamCount(minParamCount), _maxParamCount(maxParamCount) {}
+  virtual void execute() = 0;
 
-typedef void cmd_func(const MshCommand* pCommand) ;
+  const upan::string& name() {
+    return _name;
+  }
 
-struct MshCommand
-{
-	char szCommand[32] ;
-	cmd_func* cmdFunc ;	
-	int iMinParCount ;
-	int iMaxParCount ;
-	char szUsage[100] ;
-} ;
+  const upan::string& usage() {
+    return _usage;
+  }
 
+  int minParamCount() {
+    return _minParamCount;
+  }
 
-void MshCommands_Init() ;
-bool MshCommands_ExecuteInternalCommand() ;
-bool MshCommands_ExecuteProcess() ;
+  int maxParamCount() {
+    return _maxParamCount;
+  }
 
-#endif
+  void printUsage() {
+    printf("Usage: %s %s\n", _name.c_str(), _usage.c_str()) ;
+  }
+
+private:
+  const upan::string _name;
+  const upan::string _usage;
+  const int _minParamCount;
+  const int _maxParamCount;
+};
+
+class MshCommandEcho : public MshCommand {
+public:
+  MshCommandEcho() : MshCommand("echo", "[\"]<string to be displayed>[\"] - Use \" if msg conatains whitespace", 1, 1) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandClearScreen : public MshCommand {
+public:
+  MshCommandClearScreen() : MshCommand("clear", "", 0, 0) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandExit : public MshCommand {
+public:
+  MshCommandExit() : MshCommand("exit", "", 0, 0) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandCreateDir : public MshCommand {
+public:
+  MshCommandCreateDir() : MshCommand("mkdir", "<new_dir_name> [<new_dir_name> ...]", 1, 10) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandDeleteFile : public MshCommand {
+public:
+  MshCommandDeleteFile() : MshCommand("rm", "<file_name> [<file_name> ...]", 1, 10) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandListDir : public MshCommand {
+public:
+  MshCommandListDir() : MshCommand("ls", "<file_name> [<file_name> ...]", 0, 20) {
+  }
+  virtual void execute() override;
+private:
+  void showDirContent(const FS_Node* pDirList, int iListSize);
+};
+
+class MshCommandChangeDir : public MshCommand {
+public:
+  MshCommandChangeDir() : MshCommand("cd", "<dir_name>", 1, 1) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandPresentWorkingDir : public MshCommand {
+public:
+  MshCommandPresentWorkingDir() : MshCommand("pwd", "", 0, 0) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandCopyFile : public MshCommand {
+public:
+  MshCommandCopyFile() : MshCommand("cp", "<src_file_name> <dest_file_name>", 2, 2) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandShowFile : public MshCommand {
+public:
+  MshCommandShowFile() : MshCommand("see", "<text_file_name>", 1, 1) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandDate : public MshCommand {
+public:
+  MshCommandDate() : MshCommand("date", "", 0, 0) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandChangeDrive : public MshCommand {
+public:
+  MshCommandChangeDrive() : MshCommand("chd", "<Drive name> - Use the one listed by \"shd\" command", 1, 1) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandShowDrives : public MshCommand {
+public:
+  MshCommandShowDrives() : MshCommand("shd", "", 0, 0) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandMountDrive : public MshCommand {
+public:
+  MshCommandMountDrive() : MshCommand("mount", "<Drive name> - Use the one listed by \"shd\" command", 1, 1) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandUnMountDrive : public MshCommand {
+public:
+  MshCommandUnMountDrive() : MshCommand("umount", "<Drive name> - Use the one listed by \"shd\" command", 1, 1) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandFormatDrive : public MshCommand {
+public:
+  MshCommandFormatDrive() : MshCommand("format", "<Drive name> - Use the one listed by \"shd\" command", 1, 1) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandShowCurrentDrive : public MshCommand {
+public:
+  MshCommandShowCurrentDrive() : MshCommand("cud", "", 0, 0) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandReboot : public MshCommand {
+public:
+  MshCommandReboot() : MshCommand("reboot", "", 0, 0) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandHelp : public MshCommand {
+public:
+  MshCommandHelp() : MshCommand("help", "", 0, 0) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandGetProcessDetails : public MshCommand {
+public:
+  MshCommandGetProcessDetails() : MshCommand("ps", "", 0, 0) {
+  }
+  virtual void execute() override;
+};
+
+class MshCommandExportEvnVar : public MshCommand {
+public:
+  MshCommandExportEvnVar() : MshCommand("export", "<var>=<val>", 1, 1) {
+  }
+  virtual void execute() override;
+};

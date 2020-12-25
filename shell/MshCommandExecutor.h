@@ -15,19 +15,32 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/
  */
-# include <Msh.h>
-# include <mosstd.h>
-# include <stdio.h>
-# include <exception.h>
+#pragma once
 
-int main(int argc, char** argv)
-{
-  try {
-    Msh_Initialize();
-    Msh_Start();
-  } catch(const upan::exception& e) {
-    printf("\nError: %s", e.ErrorMsg().c_str());
+#include <ctype.h>
+#include <ustring.h>
+#include <map.h>
+
+class MshCommand;
+
+class MshCommandExecutor {
+private:
+  MshCommandExecutor();
+
+public:
+  static MshCommandExecutor& Instance() {
+    static MshCommandExecutor cmdExecutor;
+    return cmdExecutor;
   }
-	return 0 ;
-}
 
+  typedef upan::map<upan::string, MshCommand*> CmdMap;
+  const CmdMap& getCommands() {
+    return _commands;
+  }
+
+  bool executeInternalCommand();
+  bool executeProcess();
+
+private:
+  CmdMap _commands;
+};
