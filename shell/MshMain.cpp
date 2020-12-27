@@ -22,6 +22,9 @@
 
 int main(int argc, char** argv)
 {
+  for(int i = 0; i < argc; ++i) {
+    printf("\n%s", argv[i]);
+  }
   try {
     Msh::Instance().start();
   } catch(const upan::exception& e) {
