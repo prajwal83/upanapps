@@ -56,6 +56,13 @@ private:
   const int _maxParamCount;
 };
 
+class MshCommandTest : public MshCommand {
+public:
+  MshCommandTest() : MshCommand("test", "", 0, 20) {
+  }
+  virtual void execute(const MshCommandExecutor&) override;
+};
+
 class MshCommandEcho : public MshCommand {
 public:
   MshCommandEcho() : MshCommand("echo", "[\"]<string to be displayed>[\"] - Use \" if msg conatains whitespace", 1, 1) {

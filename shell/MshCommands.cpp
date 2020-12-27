@@ -30,6 +30,23 @@
 # include <MshCommandExecutor.h>
 # include <Msh.h>
 
+static void recurse(int count) {
+  char buffer[1024];
+  if (count > 0) {
+    sprintf(buffer, "\n Recurse count: %d", count);
+    printf("%s", buffer);
+    recurse(count - 1);
+  }
+}
+
+void MshCommandTest::execute(const MshCommandExecutor& cmdExec) {
+  if (cmdExec.params().size()) {
+    int count = atoi(cmdExec.params()[0].c_str());
+    printf("\n Stack Limit Test - Recurse %d times", count);
+    recurse(count);
+  }
+}
+
 void MshCommandEcho::execute(const MshCommandExecutor& cmdExec) {
   if (!cmdExec.params().empty()) {
     puts(cmdExec.params()[0].c_str());

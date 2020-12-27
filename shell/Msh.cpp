@@ -33,6 +33,7 @@ Msh::Msh() : _prompt("msh:"), _cmdLinePos(0) {
       throw upan::exception(XLOC, "duplicate command: %s", cmd->name().c_str());
     }
   };
+  add_cmd(new MshCommandTest());
   add_cmd(new MshCommandEcho());
   add_cmd(new MshCommandClearScreen());
   add_cmd(new MshCommandExit());
