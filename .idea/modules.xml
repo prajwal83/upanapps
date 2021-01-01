@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file:$PROJECT_DIR$/../../../../../../..////wsl$/Ubuntu/home/prajwala/workspace/mosland/upanapps/.idea/upanapps.iml" filepath="wsl$/Ubuntu/../..////wsl$/Ubuntu/home/prajwala/workspace/mosland/upanapps/.idea/upanapps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/UpanixApps.iml" filepath="$PROJECT_DIR$/.idea/UpanixApps.iml" />
+      <module fileurl="file://$APPLICATION_HOME_DIR$/jbr/bin/wsl$/Ubuntu/home/prajwala/workspace/mosland/upanapps/.idea/upanapps.iml" filepath="$APPLICATION_HOME_DIR$/jbr/bin/wsl$/Ubuntu/home/prajwala/workspace/mosland/upanapps/.idea/upanapps.iml" />
     </modules>
   </component>
 </project>

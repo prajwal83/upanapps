@@ -30,6 +30,7 @@
 # include <MshCommandExecutor.h>
 # include <Msh.h>
 
+//test functions
 static void recurse(int count) {
   char buffer[1024];
   if (count > 0) {
@@ -39,11 +40,28 @@ static void recurse(int count) {
   }
 }
 
+static void thread(void* param) {
+  const char* p = (const char*)(param);
+  printf("\n Thread Param: %s", p);
+  for(int i = 0; i < 10; ++i) {
+    sleep(1);
+    printf("\n Thread - counter: %d", i);
+  }
+  exit(0);
+}
+
 void MshCommandTest::execute(const MshCommandExecutor& cmdExec) {
   if (cmdExec.params().size()) {
-    int count = atoi(cmdExec.params()[0].c_str());
-    printf("\n Stack Limit Test - Recurse %d times", count);
-    recurse(count);
+    const upan::string& type = cmdExec.params()[0];
+    if (type == "recurse") {
+      int count = atoi(cmdExec.params()[1].c_str());
+      printf("\n Stack Limit Test - Recurse %d times", count);
+      recurse(count);
+    } else if (type == "thread") {
+      int threadID = exect(thread, "thread param 123");
+      //waitpid(threadID);
+      printf("\n Thread ID: %d", threadID);
+    }
   }
 }
 
