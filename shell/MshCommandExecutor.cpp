@@ -84,6 +84,9 @@ void MshCommandExecutor::expandCmdLine() {
 }
 
 void MshCommandExecutor::execute() {
+  if (_cmdName.length() == 0) {
+    return;
+  }
   if (_cmd.isEmpty()) {
     if (!executeProcess()) {
       puts("\n No Such Command or Execuable") ;

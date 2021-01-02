@@ -47,7 +47,6 @@ static void thread(void* param) {
     sleep(1);
     printf("\n Thread - counter: %d", i);
   }
-  exit(0);
 }
 
 void MshCommandTest::execute(const MshCommandExecutor& cmdExec) {
