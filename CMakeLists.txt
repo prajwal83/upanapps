@@ -59,8 +59,8 @@ include_directories(${UPANLIB_SOURCE_DIR}/libustdcpp/ds)
 include_directories(${UPANLIB_SOURCE_DIR}/libustdcpp/algo)
 include_directories(${UPANLIB_SOURCE_DIR}/libustdcpp/mem)
 
-include_directories(${PROJECT_SOURCE_DIR}/libm/include)
-include_directories(${PROJECT_SOURCE_DIR}/libm/include/bits)
+include_directories(${UPANLIB_SOURCE_DIR}/libm/include)
+include_directories(${UPANLIB_SOURCE_DIR}/libm/include/bits)
 
 include_directories(${PROJECT_SOURCE_DIR}/libmcal/include)
 
@@ -72,12 +72,6 @@ include_directories(${UPANLIB_SOURCE_DIR}/libcxxrt)
 execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libit -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE LIBIT_SRC)
 string(REPLACE "\n" ";" LIBIT_SRC ${LIBIT_SRC})
 add_library(it STATIC "${LIBIT_SRC}")
-
-#LIBM
-execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libm -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE LIBM_SRC)
-string(REPLACE "\n" ";" LIBM_SRC ${LIBM_SRC})
-add_library(m SHARED "${LIBM_SRC}")
-target_compile_options(m PRIVATE ${SO_COMPILE_FLAGS})
 
 #LIBMCAL
 execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libmcal -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE LIBMCAL_SRC)

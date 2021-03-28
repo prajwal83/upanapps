@@ -40,12 +40,37 @@ static void recurse(int count) {
   }
 }
 
+class Num {
+public:
+  Num(int i) : _i(i) {}
+  void Print() {
+    printf("%d ", _i);
+  }
+  int getI() {
+    return _i;
+  }
+private:
+  int _i;
+};
+
 static void thread(void* param) {
-  const char* p = (const char*)(param);
-  printf("\n Thread Param: %s", p);
-  for(int i = 0; i < 10; ++i) {
-    sleep(1);
-    printf("\n Thread - counter: %d", i);
+  int seed = atoi((const char*)param);
+  upan::vector<Num*> nums;
+  printf("\n Seed: %d", seed);
+  for(int j = 0; j < seed; ++j) {
+    for (int i = 0; i < 1000; ++i) {
+      nums.push_back(new Num(seed + i));
+    }
+    int sum = 0;
+    for (int i = 0; i < nums.size(); ++i) {
+      sum += nums[i]->getI();
+    }
+    printf("\n Result: %d", sum);
+    printf("\n");
+    for (int i = 0; i < nums.size(); ++i) {
+      delete nums[i];
+    }
+    nums.clear();
   }
 }
 
@@ -57,7 +82,8 @@ void MshCommandTest::execute(const MshCommandExecutor& cmdExec) {
       printf("\n Stack Limit Test - Recurse %d times", count);
       recurse(count);
     } else if (type == "thread") {
-      int threadID = exect(thread, "thread param 123");
+      const char* seed = cmdExec.params().size() > 1 ? cmdExec.params()[1].c_str() : "0";
+      int threadID = exect(thread, seed);
       //waitpid(threadID);
       printf("\n Thread ID: %d", threadID);
     }
