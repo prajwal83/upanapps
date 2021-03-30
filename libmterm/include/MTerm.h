@@ -26,8 +26,6 @@
 #define MTERM_LINE_END (-1)
 #define MTERM_WIN_END (-2)
 
-#define NO_CHAR				234
-
 // Blink
 #define ATTR_NOBLINK		0x00
 #define ATTR_BLINK			0x80
@@ -73,12 +71,6 @@ typedef enum
 	YELLOW,
 	GREEN,
 } MColor ;
-
-typedef struct
-{
-	byte		Ch ;
-	byte		Attr ;
-} MChar ;
 
 typedef struct
 {

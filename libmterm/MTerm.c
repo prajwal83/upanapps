@@ -112,7 +112,7 @@ void MTerm_SetWinAttr(MWindow* pMWindow, byte Attr)
 	
 	int i ;
 	for(i = 0; i < WIN_SIZE(pMWindow); i++)
-		pMWindow->CharContent[i].Attr = Attr ;
+		pMWindow->CharContent[i]._attr = Attr ;
 }
 
 void MTerm_WinSetCursor(MWindow* pMWindow, int iCurPos)
@@ -150,7 +150,7 @@ void MTerm_SetAttr(MWindow* pMWindow, int row, int col, int iLen, byte Attr)
 
 	int i ;
 	for(i = iStartPos; i <= iEndPos; i++)
-		pMWindow->CharContent[i].Attr = Attr ;
+		pMWindow->CharContent[i]._attr = Attr ;
 }
 
 void MTerm_WinFocus(MWindow* pMWindow, byte bFocus)
@@ -186,7 +186,7 @@ void MTerm_WinPutCharSpec(MWindow* pMWindow, char Ch, byte Attr)
 		int iOldPos = get_cursor() ;
 		set_cursor(iCurPos) ;
 
-		putrawc(Ch, Attr, true) ;
+		uiwritec(Ch, Attr, true) ;
 
 		if(pMWindow->Focus)
 			set_cursor(iCurPos + 1) ;
@@ -196,8 +196,8 @@ void MTerm_WinPutCharSpec(MWindow* pMWindow, char Ch, byte Attr)
 
 	MChar* pMChar =	(MChar*)&(pMWindow->CharContent[pMWindow->CursorPos]) ;
 
-	pMChar->Ch = Ch ;
-	pMChar->Attr = Attr ;
+	pMChar->_ch = Ch ;
+	pMChar->_attr = Attr ;
 
 	pMWindow->CursorPos++ ;
 
@@ -247,25 +247,7 @@ void MTerm_WinRefresh(const MWindow* pMWindow)
 {
 	int iCurPos = MTerm_GetActualCursorPosGeneric(pMWindow->Cols, pMWindow->PilotPoint, 0) ;
 	int iOldPos = get_cursor() ;
-	set_cursor_val(iCurPos) ;
-
-	MChar* pMChar ;
-	unsigned r, c, index = 0 ;
-	for(r = 0; r < pMWindow->Rows; r++)
-	{
-		for(c = 0; c < pMWindow->Cols; c++)
-		{
-			pMChar = (MChar*)&(pMWindow->CharContent[index++]) ;
-
-			if(pMChar->Ch == NO_CHAR)
- 				putrawc(' ', pMWindow->WinCharAttr, false) ;
-			else
-				putrawc(pMChar->Ch, pMChar->Attr, false) ;
-		}
-
-		iCurPos += MAX_COLS ;
-		set_cursor_val(iCurPos) ;
-	}
+  uiwritea(pMWindow->CharContent, pMWindow->Rows, pMWindow->Cols, iCurPos);
 
 	if(pMWindow->Focus)
 		set_cursor(MTerm_GetActualCursorPos(pMWindow)) ;
@@ -283,8 +265,8 @@ void MTerm_ScrollDown(MWindow* pMWindow)
 
 	for(i = i - pMWindow->Cols; i < WIN_SIZE(pMWindow); i++)
 	{
-		pMWindow->CharContent[i].Ch = NO_CHAR ;
-		pMWindow->CharContent[i].Attr = pMWindow->WinCharAttr ;
+		pMWindow->CharContent[i]._ch = NO_CHAR ;
+		pMWindow->CharContent[i]._attr = pMWindow->WinCharAttr ;
 	}
 
 	pMWindow->CursorPos = i - pMWindow->Cols ;
@@ -300,8 +282,8 @@ void MTerm_ScrollUp(MWindow* pMWindow)
 
 	for(i = 0; i < pMWindow->Cols; i++)
 	{
-		pMWindow->CharContent[i].Ch = NO_CHAR ;
-		pMWindow->CharContent[i].Attr = pMWindow->WinCharAttr ;
+		pMWindow->CharContent[i]._ch = NO_CHAR ;
+		pMWindow->CharContent[i]._attr = pMWindow->WinCharAttr ;
 	}
 
 	pMWindow->CursorPos = 0 ;
@@ -312,8 +294,8 @@ void MTerm_WinClear(MWindow* pMWindow)
 	unsigned i ;
 	for(i = 0; i < MAX_WIN_BUFFER; i++)
 	{
-		pMWindow->CharContent[i].Ch = NO_CHAR ;
-		pMWindow->CharContent[i].Attr = DEF_ATTR ;
+		pMWindow->CharContent[i]._ch = NO_CHAR ;
+		pMWindow->CharContent[i]._attr = pMWindow->WinCharAttr ;
 	}	
 
 	pMWindow->CursorPos = 0 ;
@@ -324,8 +306,8 @@ void MTerm_WinClearFromCursor(MWindow* pMWindow)
 	unsigned i ;
 	for(i = pMWindow->CursorPos; i < MAX_WIN_BUFFER; i++)
 	{
-		pMWindow->CharContent[i].Ch = NO_CHAR ;
-		pMWindow->CharContent[i].Attr = DEF_ATTR ;
+		pMWindow->CharContent[i]._ch = NO_CHAR ;
+		pMWindow->CharContent[i]._attr = pMWindow->WinCharAttr ;
 	}	
 }
 
@@ -335,8 +317,8 @@ void MTerm_WinClearLineFromCursor(MWindow* pMWindow)
 	unsigned left = pMWindow->Cols - pMWindow->CursorPos % pMWindow->Cols ;
 	for(i = pMWindow->CursorPos; i < pMWindow->CursorPos + left; i++)
 	{
-		pMWindow->CharContent[i].Ch = NO_CHAR ;
-		pMWindow->CharContent[i].Attr = DEF_ATTR ;
+		pMWindow->CharContent[i]._ch = NO_CHAR ;
+		pMWindow->CharContent[i]._attr = pMWindow->WinCharAttr ;
 	}	
 }
 
