@@ -86,6 +86,14 @@ void MshCommandTest::execute(const MshCommandExecutor& cmdExec) {
       int threadID = exect(thread, seed);
       //waitpid(threadID);
       printf("\n Thread ID: %d", threadID);
+    } else if (type == "mem") {
+      uint32_t s = btime();
+      upan::map<int, int> m;
+      for(int i = 0; i < 1000000; ++i) {
+        m.insert(upan::map<int, int>::value_type(i, i * 10));
+      }
+      uint32_t e = btime();;
+      printf("\n Map size: %d, Time Taken: %u", m.size(), e - s);
     }
   }
 }
