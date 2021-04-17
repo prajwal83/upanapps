@@ -21,6 +21,23 @@
 # include <malloc.h>
 # include <mosstd.h>
 
+MWindow* Edit_pBackWin ;
+MWindow* Edit_pEditWin ;
+MWindow* Edit_pMenuWin ;
+MWindow* Edit_pStatusWin ;
+
+int Edit_row, Edit_col ;
+int Edit_yMin, Edit_yMax, Edit_xMin, Edit_xMax ;
+
+byte Edit_bSave ;
+char Edit_szFilename[110], Edit_szFname[10], Edit_szCheck[110] ;
+
+int wy, wx ;
+int ok ;
+
+char *word ;
+ENode *Edit_headNode, *Edit_curNode ;
+
 /******************* Static functions ***********************/
 
 static int Edit_FindCurOnMoveUp(int x)

@@ -68,6 +68,11 @@ include_directories(${PROJECT_SOURCE_DIR}/libmterm/include)
 
 include_directories(${UPANLIB_SOURCE_DIR}/libcxxrt)
 
+include_directories(${UPANLIB_SOURCE_DIR}/libupanui)
+
+link_directories(${UPANLIB_OUT_DIR})
+link_directories(${OUTPUT_DIR})
+
 #LIBIT
 execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libit -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE LIBIT_SRC)
 string(REPLACE "\n" ";" LIBIT_SRC ${LIBIT_SRC})
@@ -80,14 +85,12 @@ add_library(mcal SHARED "${LIBMCAL_SRC}")
 target_compile_options(mcal PRIVATE ${SO_COMPILE_FLAGS})
 
 #LIBMTERM
-execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libmterm -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE LIBMTERM_SRC)
+execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./libmterm -name '*.cpp' | grep -v CMakeFile" OUTPUT_VARIABLE LIBMTERM_SRC)
 string(REPLACE "\n" ";" LIBMTERM_SRC ${LIBMTERM_SRC})
 add_library(mterm SHARED "${LIBMTERM_SRC}")
 target_compile_options(mterm PRIVATE ${SO_COMPILE_FLAGS})
 
-link_directories(${OUTPUT_DIR})
-
-add_custom_target(crt 
+add_custom_target(crt
   COMMAND make WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/crt
   BYPRODUCTS ./crt/crt0.o ./crt/crti.o ./crt/crtn.o)
 
@@ -118,7 +121,7 @@ target_link_options(ndisasm PRIVATE -e main)
 target_include_directories(ndisasm PRIVATE ${PROJECT_SOURCE_DIR}/nasm/include)
 target_link_libraries(ndisasm ${UPANLIB_OUT_DIR}/libc.so)
 
-#SHELL
+##SHELL
 execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./shell -name '*.cpp' | grep -v CMakeFile" OUTPUT_VARIABLE MSH_SRC)
 string(REPLACE "\n" ";" MSH_SRC ${MSH_SRC})
 add_executable(msh "${MSH_SRC}")
@@ -126,15 +129,20 @@ add_dependencies(msh crt)
 target_include_directories(msh PRIVATE ${PROJECT_SOURCE_DIR}/shell)
 target_compile_options(msh PRIVATE -O2)
 target_link_libraries(msh cxxrt)
-target_link_libraries(msh ${UPANLIB_OUT_DIR}/libc.so ${UPANLIB_OUT_DIR}/libgcceh.a ${UPANLIB_OUT_DIR}/libcxxrt.a ${UPANLIB_OUT_DIR}/libustdcpp.a)
+target_link_libraries(msh c)
+target_link_libraries(msh ustdcpp)
 target_link_libraries(msh gcceh)
 
 #EDITOR
-execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./editor -name '*.c' | grep -v CMakeFile" OUTPUT_VARIABLE EDITOR_SRC)
+execute_process(COMMAND bash -c "cd ${PROJECT_SOURCE_DIR}; find ./editor -name '*.cpp' | grep -v CMakeFile" OUTPUT_VARIABLE EDITOR_SRC)
 string(REPLACE "\n" ";" EDITOR_SRC ${EDITOR_SRC})
 add_executable(edit "${EDITOR_SRC}")
+add_dependencies(edit crt)
 target_include_directories(edit PRIVATE ${PROJECT_SOURCE_DIR}/editor)
 target_compile_options(edit PRIVATE -O2)
-target_link_options(edit PRIVATE -e main)
-target_link_libraries(edit ${UPANLIB_OUT_DIR}/libc.so)
+target_link_libraries(edit cxxrt)
+target_link_libraries(edit c)
 target_link_libraries(edit mterm)
+target_link_libraries(edit upanui)
+target_link_libraries(edit ustdcpp)
+target_link_libraries(edit gcceh)

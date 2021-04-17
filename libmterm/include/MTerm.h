@@ -20,6 +20,7 @@
 
 # include <cdisplay.h>
 # include <stdlib.h>
+# include <ColorPalettes.h>
 
 #define WIN_SIZE(Win)		( Win->Rows * Win->Cols )
 
@@ -30,38 +31,7 @@
 #define ATTR_NOBLINK		0x00
 #define ATTR_BLINK			0x80
 
-// FG Color
-typedef enum
-{
-	FG_BLACK,
-	FG_BLUE,
-	FG_GREEN,
-	FG_CYAN,
-	FG_RED,
-	FG_MAGENTA,
-	FG_BROWN,
-	FG_WHITE,
-	FG_DARK_GRAY,
-	FG_BRIGHT_BLUE,
-	FG_BRIGHT_GREEN,
-	FG_BRIGHT_CYAN,
-	FG_PINK,
-	FG_BRIGHT_MAGENTA,
-	FG_YELLOW,
-	FG_BRIGHT_WHITE
-} FGColor ;
-
-// BG Color
-#define 	BG_BLACK	0x00
-#define 	BG_BLUE		0x10
-#define 	BG_GREEN	0x20
-#define 	BG_CYAN		0x30
-#define 	BG_RED		0x40
-#define 	BG_MAGENTA	0x50
-#define 	BG_BROWN	0x60
-#define 	BG_WHITE	0x70
-
-#define		DEF_ATTR	( ATTR_NOBLINK | FG_WHITE | BG_BLACK )
+#define		DEF_ATTR	( ATTR_NOBLINK | ColorPalettes::CP16::FG_WHITE | ColorPalettes::CP16::BG_BLACK )
 
 typedef enum
 {

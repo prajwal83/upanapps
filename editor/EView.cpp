@@ -48,7 +48,7 @@ static int EView_DrawMenu(char *text[], int no_rows, int start_y, int start_x)
 
 	MWindow* pMenuWin = MTerm_CreateWindow(no_rows, MENU_COLS) ;
 	MTerm_SetWinPilotPoint(pMenuWin, start_y * MTerm_MaxColumns() + start_x) ;
-	MTerm_SetWinAttr(pMenuWin, ATTR_NOBLINK | FG_BLACK | BG_WHITE) ;
+	MTerm_SetWinAttr(pMenuWin, ATTR_NOBLINK | ColorPalettes::CP16::FG_BLACK | ColorPalettes::CP16::BG_WHITE) ;
 	MTerm_WinFocus(pMenuWin, true) ;
 
 	EView_DrawBorderInBack(pMenuWin) ;
@@ -62,7 +62,7 @@ static int EView_DrawMenu(char *text[], int no_rows, int start_y, int start_x)
 
 	while(true)
 	{
-		MTerm_SetAttr(pMenuWin, i, 1, MENU_COLS - 2, ATTR_NOBLINK | FG_BLACK | BG_RED) ;
+		MTerm_SetAttr(pMenuWin, i, 1, MENU_COLS - 2, ATTR_NOBLINK | ColorPalettes::CP16::FG_BLACK | ColorPalettes::CP16::BG_RED) ;
 
 		MTerm_WinRefresh(pMenuWin) ;
 		
@@ -97,7 +97,7 @@ static int EView_DrawMenu(char *text[], int no_rows, int start_y, int start_x)
 			return res ;
 		}
 
-		MTerm_SetAttr(pMenuWin, j, 1, MENU_COLS - 2, ATTR_NOBLINK | FG_BLACK | BG_WHITE) ;
+		MTerm_SetAttr(pMenuWin, j, 1, MENU_COLS - 2, ATTR_NOBLINK | ColorPalettes::CP16::FG_BLACK | ColorPalettes::CP16::BG_WHITE) ;
 	}
 
 	return 0 ;
@@ -108,7 +108,7 @@ static void EView_WarningBox(char text[], int interact)
 	int ch ;
 	MWindow* pWarnWin = MTerm_CreateWindow(7, 40) ;
 	MTerm_SetWinPilotPoint(pWarnWin, 5 * MTerm_MaxColumns() + 20) ;
-	MTerm_SetWinAttr(pWarnWin, ATTR_BLINK | FG_BLACK | BG_WHITE) ;
+	MTerm_SetWinAttr(pWarnWin, ATTR_BLINK | ColorPalettes::CP16::FG_BLACK | ColorPalettes::CP16::BG_WHITE) ;
 
 	EView_DrawBorderInBack(pWarnWin) ;
 
@@ -131,13 +131,32 @@ static void EView_WarningBox(char text[], int interact)
 	MTerm_WinRefresh(Edit_pEditWin) ;
 }
 
+static void win_echo(char ch, void* pd) {
+  MWindow* pMsgWin = (MWindow*)pd;
+  if(ch == Keyboard_BACKSPACE)
+  {
+    int y, x ;
+
+    MTerm_GetWinYX(pMsgWin, &y, &x) ;
+    MTerm_WinMove(pMsgWin, y, x - 1) ;
+    MTerm_WinClearLineFromCursor(pMsgWin) ;
+  }
+  else
+  {
+    MTerm_WinPutChar(pMsgWin, ch) ;
+  }
+
+  MTerm_WinRefresh(pMsgWin) ;
+  Action_RefershOkCancel() ;
+}
+
 static void EView_MessageBox(char text[], int margin, int *value, int option)
 {
 	char tempfl[105] = "\0" ;
 
-	MWindow* pMsgWin = MTerm_CreateWindow(10, 40) ;
+  MWindow* pMsgWin = MTerm_CreateWindow(10, 40) ;
 	MTerm_SetWinPilotPoint(pMsgWin, 5 * MTerm_MaxColumns() + 20) ;
-	MTerm_SetWinAttr(pMsgWin, ATTR_NOBLINK | FG_BLACK | BG_WHITE) ;
+	MTerm_SetWinAttr(pMsgWin, ATTR_NOBLINK | ColorPalettes::CP16::FG_BLACK | ColorPalettes::CP16::BG_WHITE) ;
 
 	MTerm_WinMovePutString(pMsgWin, 1, 1, text) ;
 
@@ -155,29 +174,10 @@ static void EView_MessageBox(char text[], int margin, int *value, int option)
 
 	Action_DrawOkCancel(12) ;
 
-	void win_echo(char ch)
-	{
-		if(ch == Keyboard_BACKSPACE)
-		{
-			int y, x ;
-			
-			MTerm_GetWinYX(pMsgWin, &y, &x) ;
-			MTerm_WinMove(pMsgWin, y, x - 1) ;
-			MTerm_WinClearLineFromCursor(pMsgWin) ;
-		}
-		else
-		{
-			MTerm_WinPutChar(pMsgWin, ch) ;
-		}
-
-		MTerm_WinRefresh(pMsgWin) ;
-		Action_RefershOkCancel() ;
-	}
-
 	switch(option)
 	{
 	case 1://Read filename
-		scanf_cecho(&win_echo, "%s", tempfl) ;
+		scanf_cecho(&win_echo, pMsgWin, "%s", tempfl) ;
 		Action_OkCancel() ;
 
 		if(tempfl[0] == '\0')
@@ -191,7 +191,7 @@ static void EView_MessageBox(char text[], int margin, int *value, int option)
 		break ;
 
 	case 2://Read Pagesetup
-		scanf_cecho(&win_echo, "%d",value) ;
+		scanf_cecho(&win_echo, pMsgWin, "%d",value) ;
 		Action_OkCancel() ;
 		break ;
 		
@@ -200,7 +200,7 @@ static void EView_MessageBox(char text[], int margin, int *value, int option)
 			free(word) ;
 		word = (char*)malloc(sizeof(char) * 105) ;
 		word[0] = '\0';
-		scanf_cecho(&win_echo, "%s", word) ;
+		scanf_cecho(&win_echo, pMsgWin, "%s", word) ;
 		Action_OkCancel() ;
 		
 		if(word[0] == '\0')
@@ -268,7 +268,7 @@ static void help(int abus)
 	int key ;
 	MWindow* pHelpWin = MTerm_CreateWindow(21, 75) ;
 	MTerm_SetWinPilotPoint(pHelpWin, 2 * MTerm_MaxColumns() + 2) ;
-	MTerm_SetWinAttr(pHelpWin, ATTR_NOBLINK | FG_WHITE | BG_BLACK) ;
+	MTerm_SetWinAttr(pHelpWin, ATTR_NOBLINK | ColorPalettes::CP16::FG_WHITE | ColorPalettes::CP16::BG_BLACK) ;
 
 	if(abus)
 	{
@@ -276,7 +276,7 @@ static void help(int abus)
 
 		MTerm_WinMovePutString(pHelpWin, 4, 10, "This is...  ******* \"edit\" ******* ...a simple text editor") ;
 
-		MTerm_SetAttr(pHelpWin, 4, 31, 4, ATTR_NOBLINK | FG_BRIGHT_WHITE | BG_BLACK) ;
+		MTerm_SetAttr(pHelpWin, 4, 31, 4, ATTR_NOBLINK | ColorPalettes::CP16::FG_WHITE | ColorPalettes::CP16::BG_BLACK) ;
 
 		MTerm_WinMovePutString(pHelpWin, 8, 15, "Release Version - 1.0") ;
 		MTerm_WinMovePutString(pHelpWin, 10, 15, "Done By - MosMan") ;
@@ -338,11 +338,11 @@ void EView_DrawInitBack()
 	EView_editWinCols = MTerm_MaxColumns() - 2 ;
 
 	Edit_pBackWin = MTerm_CreateWindow(EView_backWinRows, EView_backWinCols) ;
-	MTerm_SetWinAttr(Edit_pBackWin, ATTR_NOBLINK | FG_WHITE | BG_BLUE) ;
+	MTerm_SetWinAttr(Edit_pBackWin, ATTR_NOBLINK | ColorPalettes::CP16::FG_WHITE | ColorPalettes::CP16::BG_BLUE) ;
 	MTerm_SetWinPilotPoint(Edit_pBackWin, EView_backWinCols) ;
 
 	Edit_pEditWin = MTerm_CreateWindow(EView_editWinRows, EView_editWinCols) ;
-	MTerm_SetWinAttr(Edit_pEditWin, ATTR_NOBLINK | FG_WHITE | BG_BLUE) ;
+	MTerm_SetWinAttr(Edit_pEditWin, ATTR_NOBLINK | ColorPalettes::CP16::FG_WHITE | ColorPalettes::CP16::BG_BLUE) ;
 	MTerm_SetWinPilotPoint(Edit_pEditWin, Edit_pBackWin->PilotPoint + MTerm_MaxColumns() + 1) ;
 	MTerm_WinFocus(Edit_pEditWin, true) ;
 //	MTerm_WinInstantUpdate(Edit_pEditWin, true) ;
@@ -360,14 +360,14 @@ void EView_DrawMenuBar()
 	int i ;
 
 	Edit_pMenuWin = MTerm_CreateWindow(1, MTerm_MaxColumns()) ;
-	MTerm_SetWinAttr(Edit_pMenuWin, ATTR_NOBLINK | FG_BLACK | BG_WHITE) ;
+	MTerm_SetWinAttr(Edit_pMenuWin, ATTR_NOBLINK | ColorPalettes::CP16::FG_BLACK | ColorPalettes::CP16::BG_WHITE) ;
 	MTerm_SetWinPilotPoint(Edit_pMenuWin, 0) ;
 
 	MTerm_WinMovePutString(Edit_pMenuWin, 0, 1, text) ;
 
 	for(i = 1; i < 66; i += 16)
 	{
-		MTerm_SetAttr(Edit_pMenuWin, 0, i, 1, ATTR_NOBLINK | FG_RED | BG_WHITE) ;
+		MTerm_SetAttr(Edit_pMenuWin, 0, i, 1, ATTR_NOBLINK | ColorPalettes::CP16::FG_RED | ColorPalettes::CP16::BG_WHITE) ;
 	}
 
 	MTerm_WinRefresh(Edit_pMenuWin) ;
@@ -376,7 +376,7 @@ void EView_DrawMenuBar()
 void EView_DrawStatusBar()
 {
 	Edit_pStatusWin = MTerm_CreateWindow(1, MTerm_MaxColumns()) ;
-	MTerm_SetWinAttr(Edit_pStatusWin, ATTR_NOBLINK | FG_BLACK | BG_WHITE) ;
+	MTerm_SetWinAttr(Edit_pStatusWin, ATTR_NOBLINK | ColorPalettes::CP16::FG_BLACK | ColorPalettes::CP16::BG_WHITE) ;
 	MTerm_SetWinPilotPoint(Edit_pStatusWin, MTerm_MaxRows() * MTerm_MaxColumns() - MTerm_MaxColumns()) ;
 
 	MTerm_WinRefresh(Edit_pStatusWin) ;

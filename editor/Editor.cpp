@@ -34,7 +34,6 @@ int main(int argc, char** argv)
 	EView_DrawStatusBar() ;
 
 	MTerm_WinMove(Edit_pEditWin, Edit_yMin, Edit_xMin) ;
-
 	EView_Refresh() ;
 
 	int ch, y ;

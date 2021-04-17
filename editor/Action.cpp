@@ -111,11 +111,11 @@ void Action_DrawOkCancel(int pos)
 {
 	pOkWin = MTerm_CreateWindow(1, 8) ;
 	MTerm_SetWinPilotPoint(pOkWin, pos * MTerm_MaxColumns() + 27) ;
-	MTerm_SetWinAttr(pOkWin, ATTR_NOBLINK | FG_BLACK | BG_RED) ;
+	MTerm_SetWinAttr(pOkWin, ATTR_NOBLINK | ColorPalettes::CP16::FG_BLACK | ColorPalettes::CP16::BG_RED) ;
 
 	pCancelWin = MTerm_CreateWindow(1, 8) ;
 	MTerm_SetWinPilotPoint(pCancelWin, pos * MTerm_MaxColumns() + 43) ;
-	MTerm_SetWinAttr(pCancelWin, ATTR_NOBLINK | FG_BLACK | BG_RED) ;
+	MTerm_SetWinAttr(pCancelWin, ATTR_NOBLINK | ColorPalettes::CP16::FG_BLACK | ColorPalettes::CP16::BG_RED) ;
 
 	MTerm_WinMovePutString(pOkWin, 0, 3, "OK") ;
 	MTerm_WinMovePutString(pCancelWin, 0, 1, "CANCEL") ;
@@ -129,7 +129,7 @@ void Action_OkCancel()
 	ok = 1 ;
 
 	MTerm_WinMove(pOkWin, 0, 0) ;
-	MTerm_SetWinAttr(pOkWin, ATTR_NOBLINK | FG_RED | BG_BLACK) ;
+	MTerm_SetWinAttr(pOkWin, ATTR_NOBLINK | ColorPalettes::CP16::FG_RED | ColorPalettes::CP16::BG_BLACK) ;
 	MTerm_WinRefresh(pOkWin) ;
 
 	kb_get_ch_wait(&ch) ;
@@ -139,20 +139,20 @@ void Action_OkCancel()
 		if(ch == '\t' && ok == 1)
 		{
 			MTerm_WinMove(pOkWin, 0, 0) ;
-			MTerm_SetWinAttr(pOkWin, ATTR_NOBLINK | FG_BLACK | BG_RED) ;
+			MTerm_SetWinAttr(pOkWin, ATTR_NOBLINK | ColorPalettes::CP16::FG_BLACK | ColorPalettes::CP16::BG_RED) ;
 			ok = 0 ;
 
 			MTerm_WinMove(pCancelWin, 0, 0) ;
-			MTerm_SetWinAttr(pCancelWin, ATTR_NOBLINK | FG_RED | BG_BLACK) ;
+			MTerm_SetWinAttr(pCancelWin, ATTR_NOBLINK | ColorPalettes::CP16::FG_RED | ColorPalettes::CP16::BG_BLACK) ;
 		}
 		else if(ch == '\t' && ok == 0)
 		{
 			MTerm_WinMove(pCancelWin, 0, 0) ;
-			MTerm_SetWinAttr(pCancelWin, ATTR_NOBLINK | FG_BLACK | BG_RED) ;
+			MTerm_SetWinAttr(pCancelWin, ATTR_NOBLINK | ColorPalettes::CP16::FG_BLACK | ColorPalettes::CP16::BG_RED) ;
 			ok = 1 ;
 
 			MTerm_WinMove(pOkWin, 0, 0) ;
-			MTerm_SetWinAttr(pOkWin, ATTR_NOBLINK | FG_RED | BG_BLACK) ;
+			MTerm_SetWinAttr(pOkWin, ATTR_NOBLINK | ColorPalettes::CP16::FG_RED | ColorPalettes::CP16::BG_BLACK) ;
 		} 
 
 		Action_RefershOkCancel() ;

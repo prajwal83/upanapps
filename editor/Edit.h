@@ -20,21 +20,21 @@
 
 # include <MTerm.h>
 
-MWindow* Edit_pBackWin ;
-MWindow* Edit_pEditWin ;
-MWindow* Edit_pMenuWin ;
-MWindow* Edit_pStatusWin ;
+extern MWindow* Edit_pBackWin ;
+extern MWindow* Edit_pEditWin ;
+extern MWindow* Edit_pMenuWin ;
+extern MWindow* Edit_pStatusWin ;
 
-int Edit_row, Edit_col ;
-int Edit_yMin, Edit_yMax, Edit_xMin, Edit_xMax ;
+extern int Edit_row, Edit_col ;
+extern int Edit_yMin, Edit_yMax, Edit_xMin, Edit_xMax ;
 
-byte Edit_bSave ;
-char Edit_szFilename[110], Edit_szFname[10], Edit_szCheck[110] ;
+extern byte Edit_bSave ;
+extern char Edit_szFilename[110], Edit_szFname[10], Edit_szCheck[110] ;
 
-int wy, wx ;
-int ok ;
+extern int wy, wx ;
+extern int ok ;
 
-char *word ;
+extern char *word ;
 
 /*
 int aymin = 0, aymax = 19, axmin = 0, axmax = 77 ;
@@ -49,7 +49,7 @@ typedef struct eachar
 	struct eachar *blink ;
 } ENode ;
 
-ENode *Edit_headNode, *Edit_curNode ;
+extern ENode *Edit_headNode, *Edit_curNode ;
 
 void Edit_Init() ;
 ENode* Edit_CreateNode() ;
