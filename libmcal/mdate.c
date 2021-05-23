@@ -532,7 +532,7 @@ bool mdate_SeedDateDifference(const mdate* dt, int* days)
 
 void mdate_GetSeedDate(mdate* d1)
 {
-	mdate_Copy(d1, &seedDate) ;
+  *d1 = seedDate;
 }
 
 int localtime(struct tm* t, const time_t* time)

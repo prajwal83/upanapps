@@ -75,7 +75,7 @@ void MshCommandExecutor::expandCmdLine() {
         for(j = 0; token[j] != '\0' && !iswhitespace(token[j]) && token[j] != '/'; j++) ;
 
         const upan::string temp(token.c_str() + j);
-        char* val = getenv(upan::string(token.c_str() + 1, j - 1).c_str());
+        const char* val = getenv(upan::string(token.c_str() + 1, j - 1).c_str());
         token = val == NULL ? "" : val;
         token += temp;
       }
@@ -106,7 +106,7 @@ void MshCommandExecutor::executeInternalCommand(MshCommand& cmd) {
 }
 
 bool MshCommandExecutor::executeProcess() {
-  char** argv = (char**)malloc(sizeof(char*) * _cmdLineTokens.size());
+  const char* *const argv = (const char**)malloc(sizeof(char*) * _cmdLineTokens.size());
   for(int i = 0; i < _cmdLineTokens.size(); ++i) {
     argv[i] = _cmdLineTokens[i].c_str();
   }

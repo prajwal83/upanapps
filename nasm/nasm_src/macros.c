@@ -3,7 +3,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-static const char *stdmac[] = {
+static const char *stdmac[] __attribute__((unused)) = {
     "%idefine IDEAL",
     "%idefine JUMPS",
     "%idefine P386",

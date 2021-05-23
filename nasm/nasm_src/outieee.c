@@ -1350,7 +1350,7 @@ static void dbgls_deflabel(char *name, long segment,
                            long offset, int is_global, char *special)
 {
     struct ieeeSection *seg;
-    int used_special;           /* have we used the special text? */
+    int used_special __attribute__((unused));           /* have we used the special text? */
 
     /* Keep compiler from warning about special and used_special */
     used_special = special ? FALSE : FALSE;

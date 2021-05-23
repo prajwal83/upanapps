@@ -231,15 +231,13 @@ void MTerm_WinPutChar(MWindow* pMWindow, char Ch)
 
 void MTerm_WinPutStringSpec(MWindow* pMWindow, const char* szStr, int len, byte Attr)
 {
-	unsigned i ;
-	for(i = 0; i < len; i++)
+	for(int i = 0; i < len; ++i)
 		MTerm_WinPutCharSpec(pMWindow, szStr[i], Attr) ;
 }
 
 void MTerm_WinPutString(MWindow* pMWindow, const char* szStr, int len)
 {
-	unsigned i ;
-	for(i = 0; i < len; i++)
+	for(int i = 0; i < len; ++i)
 		MTerm_WinPutChar(pMWindow, szStr[i]) ;
 }
 

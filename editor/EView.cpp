@@ -42,7 +42,7 @@ static void EView_DrawBorderInBack(MWindow* pWin)
 	MTerm_WinPutCharInRange(pWin, '-', pWin->Rows - 1, 0, pWin->Cols) ;
 }
 
-static int EView_DrawMenu(char *text[], int no_rows, int start_y, int start_x)
+static int EView_DrawMenu(const char *text[], int no_rows, int start_y, int start_x)
 {
 	int i, j, ch, res = -1, over = 0 ;
 
@@ -103,7 +103,7 @@ static int EView_DrawMenu(char *text[], int no_rows, int start_y, int start_x)
 	return 0 ;
 }
 
-static void EView_WarningBox(char text[], int interact)
+static void EView_WarningBox(const char text[], int interact)
 {
 	int ch ;
 	MWindow* pWarnWin = MTerm_CreateWindow(7, 40) ;
@@ -150,7 +150,7 @@ static void win_echo(char ch, void* pd) {
   Action_RefershOkCancel() ;
 }
 
-static void EView_MessageBox(char text[], int margin, int *value, int option)
+static void EView_MessageBox(const char text[], int margin, int *value, int option)
 {
 	char tempfl[105] = "\0" ;
 
@@ -424,7 +424,7 @@ void EView_DisplayStatus()
 
 void EView_FileMenu(int scut)
 {
-	char *text[] = { 
+	const char *text[] = {
 		"New      Ct+N", 
 		"Open     Ct+O",
 		"Save     Ct+S",
@@ -515,7 +515,7 @@ void EView_FileMenu(int scut)
 
 void EView_EditMenu(int scut)
 {
-	char *text[] = { 
+	const char *text[] = {
 		"Del Line Ct+D",
 		"Del Word Ct+R",
 		"Ins Line Ct+K",
@@ -560,7 +560,7 @@ void EView_EditMenu(int scut)
 
 void EView_HelpMenu()
 {
-	char *text[] = { "About Us     ","Hot Keys     " } ;
+	const char *text[] = { "About Us     ","Hot Keys     " } ;
 	int key ;
 
 	key = EView_DrawMenu(text, 4, 1, 65) ;

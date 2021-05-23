@@ -74,6 +74,10 @@ static void thread(void* param) {
   }
 }
 
+void lock_thread(void* param) {
+  btime();
+}
+
 void MshCommandTest::execute(const MshCommandExecutor& cmdExec) {
   if (cmdExec.params().size()) {
     const upan::string& type = cmdExec.params()[0];
@@ -83,7 +87,7 @@ void MshCommandTest::execute(const MshCommandExecutor& cmdExec) {
       recurse(count);
     } else if (type == "thread") {
       const char* seed = cmdExec.params().size() > 1 ? cmdExec.params()[1].c_str() : "0";
-      int threadID = exect(thread, seed);
+      int threadID = exect(thread, (void*)seed);
       //waitpid(threadID);
       printf("\n Thread ID: %d", threadID);
     } else if (type == "mem") {
@@ -94,6 +98,9 @@ void MshCommandTest::execute(const MshCommandExecutor& cmdExec) {
       }
       uint32_t e = btime();;
       printf("\n Map size: %d, Time Taken: %u", m.size(), e - s);
+    } else if (type == "lock") {
+      int threadID = exect(lock_thread, nullptr);
+      btime();
     }
   }
 }
