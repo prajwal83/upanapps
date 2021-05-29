@@ -451,7 +451,7 @@ void MshCommandGetProcessDetails::execute(const MshCommandExecutor& cmdExec) {
   unsigned i ;
   for(i = 0; i < uiSize; i++)
   {
-    printf("\n %-7d%-7d%-7d%-18s%-7d%-15s", pPS[i].pid, pPS[i].iParentProcessID, pPS[i].iProcessGroupID, getProcStatusDesc(pPS[i].status),
+    printf("\n %-7d%-7d%-7d%-18s%-7d%-15s", pPS[i].pid, pPS[i].iParentProcessID, pPS[i].iProcessGroupID, get_proc_status_desc(pPS[i].status),
            pPS[i].iUserID,	pPS[i].pname) ;
   }
   putc('\n', stdout) ;
